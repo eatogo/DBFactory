@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/1/23 PM02:20:12 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="hibernate._01_createSchema.schemas.user.USERS"
+		table="USERS">
+		<id name="user_id" type="java.lang.Integer">
+			<column name="USER_ID" not-null="true" />
+			<generator class="increment" />
+		</id>
+		<property name="user_password" type="java.lang.String">
+			<column length="50" name="USER_PASSWORD" not-null="true" />
+		</property>
+		<property name="user_cellphone" type="java.lang.String">
+			<column length="20" name="USER_CELLPHONE" not-null="true" />
+		</property>
+		<property name="user_name" type="java.lang.String">
+			<column length="50" name="USER_NAME" not-null="true" />
+		</property>
+		<property name="user_email" type="java.lang.String">
+			<column length="50" name="USER_EMAIL" />
+		</property>
+		<property name="user_avatar" type="java.lang.String">
+			<column length="255" name="USER_AVATAR" />
+		</property>
+		<property name="user_create_time" type="java.util.Date">
+			<column name="USER_CREATE_TIME" not-null="true" />
+		</property>
+		<property name="user_status" type="java.lang.String">
+			<column default="UNREGISTERED" length="20" name="USER_STATUS"
+				not-null="true" />
+		</property>
+		<property name="user_identity" type="java.lang.String">
+			<column default="CONSUMER" length="20" name="USER_IDENTITY"
+				not-null="true" />
+		</property>
+		<property name="user_store" type="java.lang.Integer">
+			<column name="USER_STORE" />
+		</property>
+	</class>
+</hibernate-mapping>
