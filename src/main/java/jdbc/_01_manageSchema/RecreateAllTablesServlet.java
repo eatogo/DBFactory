@@ -9,23 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/CreateAllTablesJDBC.do")
-public class CreateAllTablesServlet extends HttpServlet {
+@WebServlet("/RecreateAllTablesJDBC.do")
+public class RecreateAllTablesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF8");
-
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF8");
+		
 		SchemaDao ddl = new SchemaDao();
-		if (ddl.createAllTables()) {
-			request.setAttribute("TablesCreated", "ok");
+		if (ddl.recreateAllTables()) {
+			req.setAttribute("TablesCreated", "ok");
 		}
-
-		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
-		rd.forward(request, response);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
+		rd.forward(req, resp);
+//		resp.sendRedirect("/DBFactory/_01_manageSchema/ResultPage.jsp");
 	}
-
+	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

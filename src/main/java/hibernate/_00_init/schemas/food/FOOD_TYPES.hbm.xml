@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/1/24 AM09:00:51 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="hibernate._00_init.schemas.food.FOOD_TYPES" table="FOOD_TYPES">
+		<id name="food_type" type="java.lang.String">
+			<column length="20" name="FOOD_TYPE" not-null="true" />
+			<generator class="assigned" />
+		</id>
+		<property name="food_type_description" type="java.lang.String">
+			<column length="50" name="FOOD_TYPE_DESCRIPTION" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

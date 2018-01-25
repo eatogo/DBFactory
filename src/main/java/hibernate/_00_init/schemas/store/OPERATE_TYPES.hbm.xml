@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/1/23 PM07:45:43 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="hibernate._00_init.schemas.store.OPERATE_TYPES"
+		table="OPERATE_TYPES">
+		<id name="operate_type" type="java.lang.String">
+			<column length="20" name="OPERATE_TYPE" not-null="true" />
+			<generator class="assigned" />
+		</id>
+		<property name="operate_type_description" type="java.lang.String">
+			<column length="20" name="OPERATE_TYPE_DESCRIPTION" not-null="true" />
+		</property>
+		<property name="operate_rest_mode" type="java.lang.String">
+			<column length="20" name="OPERATE_REST_MODE" />
+		</property>
+		<property name="operate_period" type="java.lang.String">
+			<column length="26" name="OPERATE_PERIOD" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

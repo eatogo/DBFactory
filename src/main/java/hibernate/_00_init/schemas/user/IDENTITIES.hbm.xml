@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/1/23 PM07:32:13 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="hibernate._00_init.schemas.user.IDENTITIES" table="IDENTITIES">
+		<id name="identity_type" type="java.lang.String">
+			<column length="20" name="IDENTITY_TYPE" not-null="true" />
+			<generator class="assigned" />
+		</id>
+		<property name="identity_description" type="java.lang.String">
+			<column length="20" name="IDENTITY_DESCRIPTION" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

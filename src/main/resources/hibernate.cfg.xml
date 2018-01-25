@@ -21,5 +21,17 @@
 		<property name="hibernate.c3p0.min_size">3</property>
 		<property name="hibernate.c3p0.timeout">300000</property>
 		<!-- mapping -->
+		<mapping resource="hibernate/_00_init/schemas/user/USERS.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/user/USER_STATUSES.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/user/IDENTITIES.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/store/STORES.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/store/OPERATE_TYPES.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/store/PERIODS.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/food/FOODS.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/food/FOOD_TYPES.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/order/ORDERS.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/order/ORDER_DETAILS.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/favorite/FAVORITES.hbm.xml" />
+		<mapping resource="hibernate/_00_init/schemas/review/REVIEWS.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

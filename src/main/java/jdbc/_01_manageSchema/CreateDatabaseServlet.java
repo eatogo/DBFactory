@@ -9,19 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/CreateAllTablesJDBC.do")
-public class CreateAllTablesServlet extends HttpServlet {
+@WebServlet("/CreateDatabase.do")
+public class CreateDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF8");
-
 		SchemaDao ddl = new SchemaDao();
-		if (ddl.createAllTables()) {
-			request.setAttribute("TablesCreated", "ok");
+		if (ddl.createDatabase()) {
+			request.setAttribute("DatabaseCreated", "ok");
 		}
-
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
 		rd.forward(request, response);
 	}

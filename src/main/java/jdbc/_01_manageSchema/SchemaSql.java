@@ -1,18 +1,28 @@
 package jdbc._01_manageSchema;
 
-//import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SqlManager {
+public class SchemaSql {
 	private Statement stmt;
 	
-	public SqlManager(Statement stmt) {
+	public SchemaSql(Statement stmt) {
 		this.stmt = stmt;
+	}
+	
+	public void createDatabase() throws SQLException {
+		System.out.println("開始建立資料庫");
+		stmt.executeUpdate(CREATE_EATOGO_DATABASE_SQL);
+		System.out.println("建立資料庫成功");
+	}
+	
+	private void useEatogoDB() throws SQLException {
+		stmt.executeUpdate(USE_EATOGO_DATABASE_SQL);
 	}
 
 	public void dropAllConstraints() throws SQLException {
 		System.out.println("開始清除constraint");
+		useEatogoDB();
 		stmt.executeUpdate(DROP_USERS_CONSTRAINTS_USER_STATUS_SQL);
 		stmt.executeUpdate(DROP_USERS_CONSTRAINTS_USER_IDENTITY_SQL);
 		stmt.executeUpdate(DROP_STORES_CONSTRAINTS_SQL);
@@ -34,6 +44,7 @@ public class SqlManager {
 	
 	public void dropAllTables() throws SQLException {
 		System.out.println("開始清除tables");
+		useEatogoDB();
 		stmt.executeUpdate(DROP_ORDER_DETAILS_TABLE_SQL);
 		stmt.executeUpdate(DROP_FAVORITES_TABLE_SQL);
 		stmt.executeUpdate(DROP_REVIEWS_TABLE_SQL);
@@ -51,6 +62,7 @@ public class SqlManager {
 	
 	public void createAllTables() throws SQLException {
 		System.out.println("開始建立tables");
+		useEatogoDB();
 		stmt.executeUpdate(CREATE_USER_STATUSES_TABLE_SQL);
 		stmt.executeUpdate(CREATE_IDENTITIES_TABLE_SQL);
 		stmt.executeUpdate(CREATE_USERS_TABLE_SQL);
@@ -68,6 +80,7 @@ public class SqlManager {
 	
 	public void addAllConstraints() throws SQLException {
 		System.out.println("開始建立constraints");
+		useEatogoDB();
 		stmt.executeUpdate(ADD_USERS_CONSTRAINTS_USER_STATUS_SQL);
 		stmt.executeUpdate(ADD_USERS_CONSTRAINTS_USER_IDENTITY_SQL);
 		stmt.executeUpdate(ADD_STORES_CONSTRAINTS_SQL);
@@ -86,6 +99,12 @@ public class SqlManager {
 		stmt.executeUpdate(ADD_REVIEWS_CONSTRAINTS_REVIEW_FOOD_SQL);
 		System.out.println("建立constraints成功");
 	}
+	
+	/*
+	 * sql about create new database;
+	 */
+	private final String CREATE_EATOGO_DATABASE_SQL = "CREATE DATABASE IF NOT EXISTS eatogodb";
+	private final String USE_EATOGO_DATABASE_SQL = "USE eatogodb;";
 	
 	/*
 	 * sql about drop and create new tables

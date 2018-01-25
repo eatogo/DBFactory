@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/1/23 PM07:39:20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="hibernate._00_init.schemas.store.STORES" table="STORES">
+		<id name="store_id" type="java.lang.Integer">
+			<column name="STORE_ID" not-null="true" />
+			<generator class="increment" />
+		</id>
+		<property name="store_name" type="java.lang.String">
+			<column length="50" name="STORE_NAME" not-null="true" />
+		</property>
+		<property name="store_address" type="java.lang.String">
+			<column length="255" name="STORE_ADDRESS" not-null="true" />
+		</property>
+		<property name="store_phone" type="java.lang.String">
+			<column length="20" name="STORE_PHONE" not-null="true" />
+		</property>
+		<property name="store_email" type="java.lang.String">
+			<column length="50" name="STORE_EMAIL" />
+		</property>
+		<property name="store_logo" type="java.lang.String">
+			<column length="255" name="STORE_LOGO" not-null="true" />
+		</property>
+		<property name="store_open_hour" type="java.lang.String">
+			<column length="100" name="STORE_OPEN_HOUR" />
+		</property>
+		<property name="store_intro" type="java.sql.Clob">
+			<column name="STORE_INTRO" />
+		</property>
+		<property name="store_latitude" type="java.lang.Double">
+			<column name="STORE_LATITUDE" not-null="true" />
+		</property>
+		<property name="store_longitude" type="java.lang.Double">
+			<column name="STORE_LONGITUDE" not-null="true" />
+		</property>
+		<property name="store_city" type="java.lang.String">
+			<column length="50" name="STORE_CITY" />
+		</property>
+		<property name="store_region" type="java.lang.String">
+			<column length="50" name="STORE_REGION" />
+		</property>
+		<property name="store_operate_type" type="java.lang.String">
+			<column default="wholeday" length="20" name="STORE_OPERATE_TYPE"
+				not-null="true" />
+		</property>
+		<property name="store_status" type="java.lang.String">
+			<column default="rest" length="10" name="STORE_STATUS"
+				not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

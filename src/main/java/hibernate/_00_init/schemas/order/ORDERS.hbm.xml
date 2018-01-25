@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/1/24 AM09:06:35 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="hibernate._00_init.schemas.order.ORDERS" table="ORDERS">
+		<id name="order_id" type="java.lang.Integer">
+			<column name="ORDER_ID" not-null="true" />
+			<generator class="increment" />
+		</id>
+		<property name="order_user" type="java.lang.Integer">
+			<column name="ORDER_USER" not-null="true" />
+		</property>
+		<property name="order_note" type="java.lang.String">
+			<column length="100" name="ORDER_NOTE" />
+		</property>
+		<property name="order_time" type="java.util.Date">
+			<column name="ORDER_TIME" not-null="true" />
+		</property>
+		<property name="order_reserve_date" type="java.sql.Date">
+			<column name="ORDER_RESERVE_DATE" />
+		</property>
+		<property name="order_store" type="java.lang.Integer">
+			<column name="ORDER_STORE" not-null="true" />
+		</property>
+		<property name="order_confirm_user" type="java.lang.Integer">
+			<column name="ORDER_CONFIRM_USER" />
+		</property>
+		<property name="order_confirm_time" type="java.util.Date">
+			<column name="ORDER_CONFIRM_TIME" />
+		</property>
+		<property name="order_takeout_period" type="java.lang.String">
+			<column name="ORDER_TAKEOUT_PERIOD" />
+		</property>
+		<property name="order_status" type="java.lang.String">
+			<column default="unfinished" length="20" name="ORDER_STATUS"
+				not-null="true" />
+		</property>
+		<property name="order_finished_time" type="java.util.Date">
+			<column name="ORDER_FINISHED_TIME" />
+		</property>
+	</class>
+</hibernate-mapping>
