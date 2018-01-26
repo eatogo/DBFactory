@@ -17,7 +17,7 @@
 	</fieldset>
 	<fieldset>
 		<legend>新增資料</legend>
-		<a href="#">新增靜態資料</a><br> <br> <a href="#">新增動態(假)資料</a>
+		<a href="InsertFixedData.do">新增靜態資料</a><br> <br> <a href="#">新增動態(假)資料</a>
 	</fieldset>
 	<fieldset>
 		<legend>重建Schema</legend>

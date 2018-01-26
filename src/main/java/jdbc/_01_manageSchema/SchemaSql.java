@@ -103,7 +103,7 @@ public class SchemaSql {
 	/*
 	 * sql about create new database;
 	 */
-	private final String CREATE_EATOGO_DATABASE_SQL = "CREATE DATABASE IF NOT EXISTS eatogodb";
+	private final String CREATE_EATOGO_DATABASE_SQL = "CREATE DATABASE IF NOT EXISTS eatogodb CHARACTER SET utf8 COLLATE utf8_general_ci;";
 	private final String USE_EATOGO_DATABASE_SQL = "USE eatogodb;";
 	
 	/*

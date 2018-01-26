@@ -8,18 +8,25 @@
 <title>Eatogo DB Management Service</title>
 </head>
 <body>
-	<h1>新建Eatogo資料庫</h1>
+	<h1>動作結果：</h1>
 	<c:choose>
-		<c:when test="${not empty DatabaseCreated}">
-			<p>Eatogo資料庫建立成功</p>
+		<c:when test="${not empty FixedDataInserted}">
+			<p>靜態資料建立成功</p>
 		</c:when>
 		<c:otherwise>
 			<c:choose>
-				<c:when test="${not empty TablesCreated}">
+				<c:when test="${not empty DatabaseCreated}">
 					<p>Eatogo資料庫建立成功</p>
 				</c:when>
 				<c:otherwise>
-					<p>Eatogo資料庫建立不成功</p>
+					<c:choose>
+						<c:when test="${not empty TablesCreated}">
+							<p>Tables建立成功</p>
+						</c:when>
+						<c:otherwise>
+							<p>動作不成功</p>
+						</c:otherwise>
+					</c:choose>
 				</c:otherwise>
 			</c:choose>
 		</c:otherwise>
