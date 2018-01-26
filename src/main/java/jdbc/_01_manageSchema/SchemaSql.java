@@ -12,6 +12,7 @@ public class SchemaSql {
 	
 	public void createDatabase() throws SQLException {
 		System.out.println("開始建立資料庫");
+		stmt.executeUpdate(DROP_EATOGO_DATABASE_SQL);
 		stmt.executeUpdate(CREATE_EATOGO_DATABASE_SQL);
 		System.out.println("建立資料庫成功");
 	}
@@ -103,6 +104,7 @@ public class SchemaSql {
 	/*
 	 * sql about create new database;
 	 */
+	private final String DROP_EATOGO_DATABASE_SQL = "DROP DATABASE IF EXISTS eatogodb;";
 	private final String CREATE_EATOGO_DATABASE_SQL = "CREATE DATABASE IF NOT EXISTS eatogodb CHARACTER SET utf8 COLLATE utf8_general_ci;";
 	private final String USE_EATOGO_DATABASE_SQL = "USE eatogodb;";
 	
