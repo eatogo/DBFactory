@@ -4,7 +4,7 @@ INSERT INTO `IDENTITIES` VALUES ('owner', '店家負責人');
 INSERT INTO `IDENTITIES` VALUES ('manager', '店家管理員');
 INSERT INTO `USER_STATUSES` VALUES ('unregistered', '終止、未驗證');
 INSERT INTO `USER_STATUSES` VALUES ('normal', '正常狀態');
-INSERT INTO `USER_STATUSES` VALUES ('warning', '正常狀態');
+INSERT INTO `USER_STATUSES` VALUES ('warning', '警告狀態');
 INSERT INTO `USER_STATUSES` VALUES ('blacklisted', '黑名單');
 INSERT INTO `FOOD_TYPES` VALUES ('chinese', '中式');
 INSERT INTO `FOOD_TYPES` VALUES ('japanese', '日式');

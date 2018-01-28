@@ -16,9 +16,11 @@ public class RecreateAllTablesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF8");
+		String dbUsername = req.getParameter("dbUsername");
+		String dbPassword = req.getParameter("dbPassword");
 		
 		SchemaDao ddl = new SchemaDao();
-		if (ddl.recreateAllTables()) {
+		if (ddl.recreateAllTables(dbUsername, dbPassword)) {
 			req.setAttribute("TablesCreated", "ok");
 		}
 		

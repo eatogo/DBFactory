@@ -8,9 +8,9 @@ import jdbc._00_Init.DbConnector;
 
 public class SchemaDao {
 	
-	public boolean createDatabase() {
+	public boolean createDatabase(String dbUsername, String dbPassword) {
 		try {
-			Connection conn = new DbConnector().rootConnect();
+			Connection conn = new DbConnector().connect(dbUsername, dbPassword);
 			Statement stmt = conn.createStatement();
 			SchemaSql schemaSql = new SchemaSql(stmt);
 			schemaSql.createDatabase();
@@ -24,9 +24,9 @@ public class SchemaDao {
 		}
 	}
 	
-	public boolean createAllTables() {
+	public boolean createAllTables(String dbUsername, String dbPassword) {
 		try {
-			Connection conn = new DbConnector().rootConnect();
+			Connection conn = new DbConnector().connect(dbUsername, dbPassword);
 			Statement stmt = conn.createStatement();
 			SchemaSql schemaSql = new SchemaSql(stmt);
 			System.out.println("開始建立tables");
@@ -43,9 +43,9 @@ public class SchemaDao {
 		}
 	}
 	
-	public boolean recreateAllTables() {
+	public boolean recreateAllTables(String dbUsername, String dbPassword) {
 		try {
-			Connection conn = new DbConnector().rootConnect();
+			Connection conn = new DbConnector().connect(dbUsername, dbPassword);
 			Statement stmt = conn.createStatement();
 			SchemaSql schemaSql = new SchemaSql(stmt);
 			System.out.println("開始建立tables");
@@ -63,6 +63,5 @@ public class SchemaDao {
 			return false;
 		}
 	}
-	
 	
 }

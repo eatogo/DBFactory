@@ -130,7 +130,7 @@ public class SchemaSql {
 			+ "user_create_time DATETIME     NOT NULL,"
 			+ "user_status      VARCHAR(20)  NOT NULL DEFAULT 'unregistered',"
 			+ "user_identity    VARCHAR(10)  NOT NULL DEFAULT 'consumer',"
-			+ "user_store       SMALLINT);";
+			+ "user_store       INT);";
 	private final String DROP_OPERATE_TYPES_TABLE_SQL = "DROP TABLE IF EXISTS `OPERATE_TYPES`;";
 	private final String CREATE_OPERATE_TYPES_TABLE_SQL = "CREATE TABLE `OPERATE_TYPES` ("
 			+ "operate_type             VARCHAR(20) PRIMARY KEY NOT NULL,"
@@ -189,7 +189,7 @@ public class SchemaSql {
 			+ "order_confirm_user   INT,"
 			+ "order_confirm_time   DATETIME,"
 			+ "order_takeout_period CHAR,"
-			+ "order_status         VARCHAR(20)  NOT NULL DEFAULT 'unfinished',"
+			+ "order_status         VARCHAR(20)  NOT NULL DEFAULT 'ordered',"
 			+ "order_finished_time  DATETIME);";
 	private final String DROP_ORDER_DETAILS_TABLE_SQL = "DROP TABLE IF EXISTS `ORDER_DETAILS`;";
 	private final String CREATE_ORDER_DETAILS_TABLE_SQL = "CREATE TABLE `ORDER_DETAILS` ("

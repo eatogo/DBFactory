@@ -16,9 +16,11 @@ public class CreateAllTablesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF8");
+		String dbUsername = request.getParameter("dbUsername");
+		String dbPassword = request.getParameter("dbPassword");
 
 		SchemaDao ddl = new SchemaDao();
-		if (ddl.createAllTables()) {
+		if (ddl.createAllTables(dbUsername, dbPassword)) {
 			request.setAttribute("TablesCreated", "ok");
 		}
 

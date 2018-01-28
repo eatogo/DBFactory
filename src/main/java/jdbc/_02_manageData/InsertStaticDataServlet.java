@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertFixedData.do")
-public class InsertFixedDataServlet extends HttpServlet {
+@WebServlet("/InsertStaticDataJDBC.do")
+public class InsertStaticDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		String dbUsername = request.getParameter("dbUsername");
+		String dbPassword = request.getParameter("dbPassword");
 		
-		DataDao dataDao = new DataDao();
+		DataDao dataDao = new DataDao(dbUsername, dbPassword);
 		if (dataDao.insertFixedData()) {
 			request.setAttribute("FixedDataInserted", "ok");
 		}
