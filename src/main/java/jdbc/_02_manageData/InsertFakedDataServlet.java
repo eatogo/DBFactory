@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertStaticDataJDBC.do")
-public class InsertStaticDataServlet extends HttpServlet {
+@WebServlet("/InsertFakedDataJDBC.do")
+public class InsertFakedDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,8 +19,8 @@ public class InsertStaticDataServlet extends HttpServlet {
 		String dbPassword = request.getParameter("dbPassword");
 		
 		DataDao dataDao = new DataDao();
-		if (dataDao.insertStaticData(dbUsername, dbPassword)) {
-			request.setAttribute("FixedDataInserted", "ok");
+		if (dataDao.insertFakedData(dbUsername, dbPassword)) {
+			request.setAttribute("FakedDataInserted", "ok");
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
 		rd.forward(request, response);

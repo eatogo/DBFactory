@@ -1,16 +1,16 @@
-package jdbc._01_manageSchema;
+package jndi._01_manageSchema;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jdbc._00_Init.DbConnector;
+import jndi._00_init.DbConnector;
 
 public class SchemaDao {
 	
 	public boolean createDatabase(String dbUsername, String dbPassword) {
 		try {
-			Connection conn = new DbConnector().connect(dbUsername, dbPassword);
+			Connection conn = DbConnector.connect().getConnection();
 			Statement stmt = conn.createStatement();
 			SchemaSql schemaSql = new SchemaSql(stmt);
 			schemaSql.createDatabase();
@@ -18,7 +18,7 @@ public class SchemaDao {
 			conn.close();
 			return true;
 		} catch (SQLException e) {
-			System.out.println("建立資料庫失敗");
+			System.out.println("執行建立資料庫動作失敗");
 			e.printStackTrace();
 			return false;
 		}
@@ -26,20 +26,35 @@ public class SchemaDao {
 	
 	public boolean createAllTables(String dbUsername, String dbPassword) {
 		try {
-			Connection conn = new DbConnector().connect(dbUsername, dbPassword);
+			Connection conn = DbConnector.connect().getConnection();
 			Statement stmt = conn.createStatement();
 			SchemaSql schemaSql = new SchemaSql(stmt);
-			System.out.println("開始建立tables");
-			schemaSql.dropAllConstraints();
-			schemaSql.dropAllTables();
 			schemaSql.createAllTables();
 			schemaSql.addAllConstraints();
-			System.out.println("建立tables成功");
 			stmt.close();
 			conn.close();
 			return true;
 		} catch (SQLException e) {
-			System.out.println("建立tables失敗");
+			System.out.println("執行建立table動作失敗");
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean recreateAllTables(String dbUsername, String dbPassword) {
+		try {
+			Connection conn = DbConnector.connect().getConnection();
+			Statement stmt = conn.createStatement();
+			SchemaSql schemaSql = new SchemaSql(stmt);
+			schemaSql.dropAllConstraints();
+			schemaSql.dropAllTables();
+			schemaSql.createAllTables();
+			schemaSql.addAllConstraints();
+			stmt.close();
+			conn.close();
+			return true;
+		} catch (SQLException e) {
+			System.out.println("執行重建tables動作失敗");
 			e.printStackTrace();
 			return false;
 		}

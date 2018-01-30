@@ -1,4 +1,4 @@
-package jdbc._02_manageData;
+package jndi._02_manageData;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertStaticDataJDBC.do")
+@WebServlet("/InsertStaticDataJNDI.do")
 public class InsertStaticDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ public class InsertStaticDataServlet extends HttpServlet {
 		String dbPassword = request.getParameter("dbPassword");
 		
 		DataDao dataDao = new DataDao();
-		if (dataDao.insertStaticData(dbUsername, dbPassword)) {
+		if (dataDao.insertFixedData(dbUsername, dbPassword)) {
 			request.setAttribute("FixedDataInserted", "ok");
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");

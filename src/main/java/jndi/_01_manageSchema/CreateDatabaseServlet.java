@@ -1,4 +1,4 @@
-package jdbc._02_manageData;
+package jndi._01_manageSchema;
 
 import java.io.IOException;
 
@@ -9,24 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertStaticDataJDBC.do")
-public class InsertStaticDataServlet extends HttpServlet {
+@WebServlet("/CreateDatabaseJNDI.do")
+public class CreateDatabaseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF8");
 		String dbUsername = request.getParameter("dbUsername");
 		String dbPassword = request.getParameter("dbPassword");
 		
-		DataDao dataDao = new DataDao();
-		if (dataDao.insertStaticData(dbUsername, dbPassword)) {
-			request.setAttribute("FixedDataInserted", "ok");
+		SchemaDao ddl = new SchemaDao();
+		if (ddl.createDatabase(dbUsername, dbPassword)) {
+			request.setAttribute("DatabaseCreated", "ok");
 		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
 		rd.forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

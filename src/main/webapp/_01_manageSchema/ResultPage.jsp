@@ -10,21 +10,28 @@
 <body>
 	<h1>動作結果：</h1>
 	<c:choose>
-		<c:when test="${not empty FixedDataInserted}">
-			<p>靜態資料建立成功</p>
+		<c:when test="${not empty FakedDataInserted}">
+			<p>動態(假)資料建立成功</p>
 		</c:when>
 		<c:otherwise>
 			<c:choose>
-				<c:when test="${not empty DatabaseCreated}">
-					<p>Eatogo資料庫建立成功</p>
+				<c:when test="${not empty FixedDataInserted}">
+					<p>靜態資料建立成功</p>
 				</c:when>
 				<c:otherwise>
 					<c:choose>
-						<c:when test="${not empty TablesCreated}">
-							<p>Tables建立成功</p>
+						<c:when test="${not empty DatabaseCreated}">
+							<p>Eatogo資料庫建立成功</p>
 						</c:when>
 						<c:otherwise>
-							<p>動作不成功</p>
+							<c:choose>
+								<c:when test="${not empty TablesCreated}">
+									<p>Tables建立成功</p>
+								</c:when>
+								<c:otherwise>
+									<p>動作不成功</p>
+								</c:otherwise>
+							</c:choose>
 						</c:otherwise>
 					</c:choose>
 				</c:otherwise>

@@ -1,4 +1,4 @@
-package jdbc._01_manageSchema;
+package jndi._01_manageSchema;
 
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -178,7 +178,7 @@ public class SchemaSql {
 			+ "store_id           INT          PRIMARY KEY NOT NULL AUTO_INCREMENT,"
 			+ "store_name         VARCHAR(50)  NOT NULL,"
 			+ "store_address      VARCHAR(255) NOT NULL,"
-			+ "store_phone        VARCHAR(30)  NOT NULL,"
+			+ "store_phone        VARCHAR(20)  NOT NULL,"
 			+ "store_email        VARCHAR(50),"
 			+ "store_logo         VARCHAR(255) NOT NULL DEFAULT 'store_default.png',"
 			+ "store_open_hour    VARCHAR(100),"

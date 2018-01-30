@@ -1,4 +1,4 @@
-package jdbc._02_manageData;
+package jndi._02_manageData;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jdbc._00_Init.DbConnector;
+import jndi._00_init.DbConnector;
 
 public class DataDao {
 	Connection conn = null;
@@ -20,9 +20,9 @@ public class DataDao {
 	File sqlFile = null;
 	BufferedReader br = null;
 
-	public boolean insertStaticData(String dbUsername, String dbPassword) {
+	public boolean insertFixedData(String dbUsername, String dbPassword) {
 		try {
-			conn = new DbConnector().connect(dbUsername, dbPassword);
+			conn = DbConnector.connect().getConnection();
 			System.out.println("開始建立固定資料");
 			executeSqlFromFile("staticData.sql");
 			System.out.println("建立固定資料成功");
@@ -52,13 +52,17 @@ public class DataDao {
 
 	public boolean insertFakedData(String dbUsername, String dbPassword) {
 		try {
-			conn = new DbConnector().connect(dbUsername, dbPassword);
+			conn = DbConnector.connect().getConnection();
+			useEatogoDB();
 			System.out.println("開始建立動態(假)資料");
-			executeSqlFromFile("storesData.sql");
+			
+			executeSqlFromFile("fakeData.sql");
+
 			System.out.println("建立動態(假)資料成功");
+			conn.close();
 			return true;
 		} catch (SQLException e) {
-			System.out.println("SQL問題，建立動態(假)資料錯誤");
+			System.out.println("SQL問題，建立動態(假)資料失敗");
 			e.printStackTrace();
 			return false;
 		} finally {
@@ -101,6 +105,32 @@ public class DataDao {
 			e.printStackTrace();
 		}
 		stmt.close();
+	}
+
+	private final String USE_EATOGO_DATABASE_SQL = "USE eatogodb;";
+
+	private void useEatogoDB() {
+		try {
+			stmt.executeUpdate(USE_EATOGO_DATABASE_SQL);
+		} catch (SQLException e) {
+			System.out.println("使用eatogodb錯誤");
+			e.printStackTrace();
+		} finally {
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					System.out.println("關閉stmt錯誤");
+					e.printStackTrace();
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					System.out.println("關閉conn錯誤");
+					e.printStackTrace();
+				}
+		}
 	}
 
 }
