@@ -15,6 +15,11 @@ public class CreateDatabaseServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF8");
 		String dbUsername = request.getParameter("dbUsername");
 		String dbPassword = request.getParameter("dbPassword");
@@ -22,15 +27,12 @@ public class CreateDatabaseServlet extends HttpServlet {
 		SchemaDao ddl = new SchemaDao();
 		if (ddl.createDatabase(dbUsername, dbPassword)) {
 			request.setAttribute("DatabaseCreated", "ok");
+			request.setAttribute("dbUsername", dbUsername);
+			request.setAttribute("dbPassword", dbPassword);
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
 		rd.forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
 	}
 
 }
