@@ -27,11 +27,9 @@ public class CreateDatabaseServlet extends HttpServlet {
 		SchemaDao ddl = new SchemaDao();
 		if (ddl.createDatabase(dbUsername, dbPassword)) {
 			request.setAttribute("DatabaseCreated", "ok");
-			request.setAttribute("dbUsername", dbUsername);
-			request.setAttribute("dbPassword", dbPassword);
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);
 	}
 

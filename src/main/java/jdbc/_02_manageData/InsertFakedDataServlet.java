@@ -22,7 +22,7 @@ public class InsertFakedDataServlet extends HttpServlet {
 		if (dataDao.insertFakedData(dbUsername, dbPassword)) {
 			request.setAttribute("FakedDataInserted", "ok");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);
 	}
 

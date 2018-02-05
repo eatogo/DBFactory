@@ -22,7 +22,7 @@ public class InsertStaticDataServlet extends HttpServlet {
 		if (dataDao.insertStaticData(dbUsername, dbPassword)) {
 			request.setAttribute("FixedDataInserted", "ok");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/_01_manageSchema/ResultPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);
 	}
 

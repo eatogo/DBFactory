@@ -1,4 +1,4 @@
-package jdbc._02_manageData.generateData;
+package jdbc._02_manageData.dataGenerator;
 
 import hibernate._00_init.schemas.food.FOODS;
 

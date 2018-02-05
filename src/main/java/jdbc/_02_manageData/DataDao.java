@@ -14,7 +14,7 @@ import java.sql.Statement;
 
 import hibernate._00_init.schemas.food.FOODS;
 import jdbc._00_Init.DbConnector;
-import jdbc._02_manageData.generateData.RandomFoodGenerator;
+import jdbc._02_manageData.dataGenerator.RandomFoodGenerator;
 
 public class DataDao {
 	Connection conn = null;
