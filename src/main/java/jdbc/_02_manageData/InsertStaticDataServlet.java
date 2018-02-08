@@ -21,6 +21,8 @@ public class InsertStaticDataServlet extends HttpServlet {
 		DataDao dataDao = new DataDao();
 		if (dataDao.insertStaticData(dbUsername, dbPassword)) {
 			request.setAttribute("FixedDataInserted", "ok");
+			request.setAttribute("dbUsername", dbUsername);
+			request.setAttribute("dbPassword", dbPassword);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);

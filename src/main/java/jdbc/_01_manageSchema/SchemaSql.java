@@ -37,7 +37,8 @@ public class SchemaSql {
 			useEatogoDB();
 			stmt.executeUpdate(DROP_USERS_CONSTRAINTS_USER_STATUS_SQL);
 			stmt.executeUpdate(DROP_USERS_CONSTRAINTS_USER_IDENTITY_SQL);
-			stmt.executeUpdate(DROP_STORES_CONSTRAINTS_SQL);
+			stmt.executeUpdate(DROP_STORES_CONSTRAINTS_STORE_OPERATE_TYPE_SQL);
+			stmt.executeUpdate(DROP_STORES_CONSTRAINTS_STORE_AREA_SQL);
 			stmt.executeUpdate(DROP_FOODS_CONSTRAINTS_FOOD_TYPE_SQL);
 			stmt.executeUpdate(DROP_FOODS_CONSTRAINTS_FOOD_STORE_SQL);
 			stmt.executeUpdate(DROP_ORDERS_CONSTRAINTS_ORDER_USER_SQL);
@@ -70,6 +71,7 @@ public class SchemaSql {
 			stmt.executeUpdate(DROP_IDENDITIES_TABLE_SQL);
 			stmt.executeUpdate(DROP_OPERATE_TYPES_TABLE_SQL);
 			stmt.executeUpdate(DROP_PERIODS_TABLE_SQL);
+			stmt.executeUpdate(DROP_AREAS_TABLE_SQL);
 			stmt.executeUpdate(DROP_STORES_TABLE_SQL);
 			stmt.executeUpdate(DROP_FOODS_TABLE_SQL);
 			stmt.executeUpdate(DROP_FOOD_TYPES_TABLE_SQL);
@@ -90,6 +92,7 @@ public class SchemaSql {
 			stmt.executeUpdate(CREATE_USERS_TABLE_SQL);
 			stmt.executeUpdate(CREATE_OPERATE_TYPES_TABLE_SQL);
 			stmt.executeUpdate(CREATE_PERIODS_TABLE_SQL);
+			stmt.executeUpdate(CREATE_AREAS_TABLE_SQL);
 			stmt.executeUpdate(CREATE_STORES_TABLE_SQL);
 			stmt.executeUpdate(CREATE_FOODS_TABLE_SQL);
 			stmt.executeUpdate(CREATE_FOOD_TYPES_TABLE_SQL);
@@ -110,7 +113,8 @@ public class SchemaSql {
 			useEatogoDB();
 			stmt.executeUpdate(ADD_USERS_CONSTRAINTS_USER_STATUS_SQL);
 			stmt.executeUpdate(ADD_USERS_CONSTRAINTS_USER_IDENTITY_SQL);
-			stmt.executeUpdate(ADD_STORES_CONSTRAINTS_SQL);
+			stmt.executeUpdate(ADD_STORES_CONSTRAINTS_STORE_OPERATE_TYPE_SQL);
+			stmt.executeUpdate(ADD_STORES_CONSTRAINTS_STORE_AREA_SQL);
 			stmt.executeUpdate(ADD_FOODS_CONSTRAINTS_FOOD_TYPE_SQL);
 			stmt.executeUpdate(ADD_FOODS_CONSTRAINTS_FOOD_STORE_SQL);
 			stmt.executeUpdate(ADD_ORDERS_CONSTRAINTS_ORDER_USER_SQL);
@@ -173,6 +177,11 @@ public class SchemaSql {
 			+ "period_description VARCHAR(20),"
 			+ "period_start       TIME        NOT NULL,"
 			+ "period_end         TIME        NOT NULL);";
+	private final String DROP_AREAS_TABLE_SQL = "DROP TABLE IF EXISTS `AREAS`;";
+	private final String CREATE_AREAS_TABLE_SQL = "CREATE TABLE `AREAS` ("
+			+ "area_id          INT         PRIMARY KEY NOT NULL,"
+			+ "area_description VARCHAR(50) NOT NULL,"
+			+ "area_city        VARCHAR(50) NOT NULL);";
 	private final String DROP_STORES_TABLE_SQL = "DROP TABLE IF EXISTS `STORES`;";
 	private final String CREATE_STORES_TABLE_SQL = "CREATE TABLE `STORES` ("
 			+ "store_id           INT          PRIMARY KEY NOT NULL AUTO_INCREMENT,"
@@ -185,8 +194,7 @@ public class SchemaSql {
 			+ "store_intro        TEXT,"
 			+ "store_latitude     DOUBLE       NOT NULL,"
 			+ "store_longitude    DOUBLE       NOT NULL,"
-			+ "store_city         VARCHAR(50),"
-			+ "store_region       VARCHAR(50),"
+			+ "store_area         INT          NOT NULL,"
 			+ "store_operate_type VARCHAR(20)  NOT NULL DEFAULT 'wholeday',"
 			+ "store_status       VARCHAR(10)  NOT NULL DEFAULT 'rest');";
 	private final String DROP_FOODS_TABLE_SQL = "DROP TABLE IF EXISTS `FOODS`;";
@@ -250,9 +258,12 @@ public class SchemaSql {
 	private final String ADD_USERS_CONSTRAINTS_USER_IDENTITY_SQL = 
 			"ALTER TABLE `USERS` ADD CONSTRAINT USERS_user_identity_FK"
 			+ " FOREIGN KEY (user_identity) REFERENCES `IDENTITIES` (identity_type);";
-	private final String ADD_STORES_CONSTRAINTS_SQL =
+	private final String ADD_STORES_CONSTRAINTS_STORE_OPERATE_TYPE_SQL =
 			"ALTER TABLE `STORES` ADD CONSTRAINT STORES_store_operate_type_FK"
 			+ " FOREIGN KEY (store_operate_type) REFERENCES `OPERATE_TYPES` (operate_type);";
+	private final String ADD_STORES_CONSTRAINTS_STORE_AREA_SQL =
+			"ALTER TABLE `STORES` ADD CONSTRAINT STORES_store_area_FK"
+			+ " FOREIGN KEY (store_area) REFERENCES `AREAS` (area_id);";
 	private final String ADD_FOODS_CONSTRAINTS_FOOD_TYPE_SQL = 
 			"ALTER TABLE `FOODS` ADD CONSTRAINT FOODS_food_type_FK"
 			+ " FOREIGN KEY (food_type) REFERENCES `FOOD_TYPES` (food_type);";
@@ -300,8 +311,10 @@ public class SchemaSql {
 			"ALTER TABLE `USERS` DROP FOREIGN KEY USERS_user_status_FK;";
 	private final String DROP_USERS_CONSTRAINTS_USER_IDENTITY_SQL = 
 			"ALTER TABLE `USERS` DROP FOREIGN KEY USERS_user_identity_FK;";
-	private final String DROP_STORES_CONSTRAINTS_SQL =
+	private final String DROP_STORES_CONSTRAINTS_STORE_OPERATE_TYPE_SQL =
 			"ALTER TABLE `STORES` DROP FOREIGN KEY STORES_store_operate_type_FK;";
+	private final String DROP_STORES_CONSTRAINTS_STORE_AREA_SQL =
+			"ALTER TABLE `STORES` DROP FOREIGN KEY STORES_store_area_FK;";
 	private final String DROP_FOODS_CONSTRAINTS_FOOD_TYPE_SQL = 
 			"ALTER TABLE `FOODS` DROP FOREIGN KEY FOODS_food_type_FK;";
 	private final String DROP_FOODS_CONSTRAINTS_FOOD_STORE_SQL = 

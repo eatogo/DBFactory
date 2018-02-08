@@ -26,7 +26,7 @@
 		<property name="store_open_hour" type="java.lang.String">
 			<column length="100" name="STORE_OPEN_HOUR" />
 		</property>
-		<property name="store_intro" type="java.sql.Clob">
+		<property name="store_intro" type="java.lang.String">
 			<column name="STORE_INTRO" />
 		</property>
 		<property name="store_latitude" type="java.lang.Double">
@@ -35,10 +35,7 @@
 		<property name="store_longitude" type="java.lang.Double">
 			<column name="STORE_LONGITUDE" not-null="true" />
 		</property>
-		<property name="store_city" type="java.lang.String">
-			<column length="50" name="STORE_CITY" />
-		</property>
-		<property name="store_region" type="java.lang.String">
+		<property name="store_area" type="java.lang.Integer">
 			<column length="50" name="STORE_REGION" />
 		</property>
 		<property name="store_operate_type" type="java.lang.String">

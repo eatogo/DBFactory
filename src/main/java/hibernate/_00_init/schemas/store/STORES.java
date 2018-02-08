@@ -1,7 +1,5 @@
 package hibernate._00_init.schemas.store;
 
-import java.sql.Clob;
-
 public class STORES {
 	private Integer store_id;
 	private String store_name;
@@ -10,22 +8,19 @@ public class STORES {
 	private String store_email;
 	private String store_logo;
 	private String store_open_hour;
-	private Clob store_intro;
+	private String store_intro;
 	private Double store_latitude;
 	private Double store_longitude;
-	private String store_city;
-	private String store_region;
+	private String store_area;
 	private String store_operate_type;
 	private String store_status;
-	
+
 	public STORES() {
-		super();
 	}
 
 	public STORES(Integer store_id, String store_name, String store_address, String store_phone, String store_email,
-			String store_logo, String store_open_hour, Clob store_intro, Double store_latitude, Double store_longitude,
-			String store_city, String store_region, String store_operate_type, String store_status) {
-		super();
+			String store_logo, String store_open_hour, String store_intro, Double store_latitude,
+			Double store_longitude, String store_area, String store_operate_type, String store_status) {
 		this.store_id = store_id;
 		this.store_name = store_name;
 		this.store_address = store_address;
@@ -36,8 +31,7 @@ public class STORES {
 		this.store_intro = store_intro;
 		this.store_latitude = store_latitude;
 		this.store_longitude = store_longitude;
-		this.store_city = store_city;
-		this.store_region = store_region;
+		this.store_area = store_area;
 		this.store_operate_type = store_operate_type;
 		this.store_status = store_status;
 	}
@@ -98,11 +92,11 @@ public class STORES {
 		this.store_open_hour = store_open_hour;
 	}
 
-	public Clob getStore_intro() {
+	public String getStore_intro() {
 		return store_intro;
 	}
 
-	public void setStore_intro(Clob store_intro) {
+	public void setStore_intro(String store_intro) {
 		this.store_intro = store_intro;
 	}
 
@@ -122,20 +116,12 @@ public class STORES {
 		this.store_longitude = store_longitude;
 	}
 
-	public String getStore_city() {
-		return store_city;
+	public String getStore_area() {
+		return store_area;
 	}
 
-	public void setStore_city(String store_city) {
-		this.store_city = store_city;
-	}
-
-	public String getStore_region() {
-		return store_region;
-	}
-
-	public void setStore_region(String store_region) {
-		this.store_region = store_region;
+	public void setStore_area(String store_area) {
+		this.store_area = store_area;
 	}
 
 	public String getStore_operate_type() {
@@ -153,5 +139,5 @@ public class STORES {
 	public void setStore_status(String store_status) {
 		this.store_status = store_status;
 	}
-	
+
 }

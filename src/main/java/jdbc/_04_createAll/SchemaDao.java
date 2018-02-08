@@ -1,4 +1,4 @@
-package jdbc._01_manageSchema;
+package jdbc._04_createAll;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,7 +20,14 @@ public class SchemaDao {
 	File sqlFile = null;
 	BufferedReader br = null;
 	
-	public boolean createDatabase(String dbUsername, String dbPassword) {
+	public boolean createAllSchema(String dbUsername, String dbPassword) {
+		if (createDatabase(dbUsername, dbPassword)) {
+			return createAllTables(dbUsername, dbPassword);
+		}
+		return false;
+	}
+	
+	private boolean createDatabase(String dbUsername, String dbPassword) {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			executeSqlFromFile("createDB.sql");
@@ -33,7 +40,7 @@ public class SchemaDao {
 		}
 	}
 	
-	public boolean createAllTables(String dbUsername, String dbPassword) {
+	private boolean createAllTables(String dbUsername, String dbPassword) {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			executeSqlFromFile("createTables.sql");

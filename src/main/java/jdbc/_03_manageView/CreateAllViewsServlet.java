@@ -27,6 +27,8 @@ public class CreateAllViewsServlet extends HttpServlet {
 		ViewDao dao = new ViewDao();
 		if (dao.createFoodWithLocationView(dbUsername, dbPassword)) {
 			request.setAttribute("ViewsCreated", "ok");
+			request.setAttribute("dbUsername", dbUsername);
+			request.setAttribute("dbPassword", dbPassword);
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");

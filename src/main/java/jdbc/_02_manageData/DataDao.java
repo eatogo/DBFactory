@@ -26,6 +26,13 @@ public class DataDao {
 	RandomFoodGenerator foodGenerator = null;
 	FOODS food = null;
 
+	public boolean insertAllData(String dbUsername, String dbPassword) {
+		if (insertStaticData(dbUsername, dbPassword)) {
+			return insertFakedData(dbUsername, dbPassword);
+		}
+		return false;
+	}
+	
 	public boolean insertStaticData(String dbUsername, String dbPassword) {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
@@ -61,7 +68,6 @@ public class DataDao {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			System.out.println("開始建立動態(假)資料");
 			executeSqlFromFile("storesData.sql");
-//			executeSqlFromFile("foodsData.sql");
 			executeSqlFromGeneratedData();
 			System.out.println("建立動態(假)資料成功");
 			return true;

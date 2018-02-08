@@ -22,6 +22,8 @@ public class CreateAllTablesServlet extends HttpServlet {
 		SchemaDao ddl = new SchemaDao();
 		if (ddl.createAllTables(dbUsername, dbPassword)) {
 			request.setAttribute("TablesCreated", "ok");
+			request.setAttribute("dbUsername", dbUsername);
+			request.setAttribute("dbPassword", dbPassword);
 		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");

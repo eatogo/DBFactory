@@ -10,6 +10,9 @@
 <body>
 	<h1>動作結果：</h1>
 	<c:choose>
+		<c:when test="${not empty AllSchemaCreated}">
+			<p>一鍵建立Eatogo資料庫成功</p>
+		</c:when>
 		<c:when test="${not empty ViewsCreated}">
 			<p>Views建立成功</p>
 		</c:when>
@@ -29,6 +32,10 @@
 			<p>動作不成功</p>
 		</c:otherwise>
 	</c:choose>
-	<a href='/DBFactory/index.jsp'>回首頁</a>
+	<form action="/DBFactory/index.jsp" method="post">
+		<input type="hidden" name="dbUsername" value="${dbUsername}"><br>
+		<input type="hidden" name="dbPassword" value="${dbPassword}"><br>
+		<button type="submit">回首頁</button>
+	</form>
 </body>
 </html>

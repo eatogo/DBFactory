@@ -21,6 +21,8 @@ public class InsertFakedDataServlet extends HttpServlet {
 		DataDao dataDao = new DataDao();
 		if (dataDao.insertFakedData(dbUsername, dbPassword)) {
 			request.setAttribute("FakedDataInserted", "ok");
+			request.setAttribute("dbUsername", dbUsername);
+			request.setAttribute("dbPassword", dbPassword);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);
