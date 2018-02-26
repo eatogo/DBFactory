@@ -1,6 +1,7 @@
-package hibernate._00_init.schemas.food;
+package jdbc._00_Init.pojo;
 
 public class FOODS {
+	
 	private Integer food_id;
 	private String food_name;
 	private Integer food_price;
@@ -16,7 +17,6 @@ public class FOODS {
 	private Long food_review_count;
 	
 	public FOODS() {
-		super();
 	}
 
 	public FOODS(Integer food_id, String food_name, Integer food_price, String food_intro, String food_pic_hdpi,
@@ -141,5 +141,5 @@ public class FOODS {
 	public void setFood_review_count(Long food_review_count) {
 		this.food_review_count = food_review_count;
 	}
-	
+
 }

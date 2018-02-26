@@ -12,8 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import hibernate._00_init.schemas.food.FOODS;
 import jdbc._00_Init.DbConnector;
+import jdbc._00_Init.pojo.FOODS;
 import jdbc._02_manageData.dataGenerator.RandomFoodGenerator;
 
 public class DataDao {

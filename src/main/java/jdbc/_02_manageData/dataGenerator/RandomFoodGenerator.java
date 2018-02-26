@@ -1,6 +1,6 @@
 package jdbc._02_manageData.dataGenerator;
 
-import hibernate._00_init.schemas.food.FOODS;
+import jdbc._00_Init.pojo.FOODS;
 
 public class RandomFoodGenerator {
 	private FOODS generatedFood = null;

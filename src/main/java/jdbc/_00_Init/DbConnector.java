@@ -5,14 +5,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnector {
-	private String DBURL = DbConstants.URL;
-	private String DRIVERNAME = DbConstants.driverName;
+	private String dbUrl = DbConstants.URL;
+	private String driverName = DbConstants.DRIVER_NAME;
 	private Connection conn;
 
 	public Connection connect(String USER, String PASSWORD) {
 		try {
-			Class.forName(DRIVERNAME);
-			conn = DriverManager.getConnection(DBURL, USER, PASSWORD);
+			Class.forName(driverName);
+			conn = DriverManager.getConnection(dbUrl, USER, PASSWORD);
 			return conn;
 		} catch (SQLException e) {
 			System.out.println("資料庫連線失敗");
