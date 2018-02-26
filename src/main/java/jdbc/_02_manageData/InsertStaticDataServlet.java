@@ -19,7 +19,8 @@ public class InsertStaticDataServlet extends HttpServlet {
 		String dbPassword = request.getParameter("dbPassword");
 		
 		DataDao dataDao = new DataDao();
-		if (dataDao.insertStaticData(dbUsername, dbPassword)) {
+		if (dataDao.isStaticDataExist(dbUsername, dbPassword) || 
+				dataDao.insertStaticData(dbUsername, dbPassword)) {
 			request.setAttribute("FixedDataInserted", "ok");
 			request.setAttribute("dbUsername", dbUsername);
 			request.setAttribute("dbPassword", dbPassword);

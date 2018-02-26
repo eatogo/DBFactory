@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -29,8 +30,57 @@ public class DataDao {
 	public boolean insertAllData(String dbUsername, String dbPassword) {
 		if (insertStaticData(dbUsername, dbPassword)) {
 			return insertFakedData(dbUsername, dbPassword);
+		} else {
+			return false;
 		}
-		return false;
+	}
+	
+	public boolean isStaticDataExist(String dbUsername, String dbPassword) {
+		if (selectStaticData(dbUsername, dbPassword)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	private String USE_EATOGODB_SQL = "USE `eatogodb`;";
+	private String SELECT_IDENTITY_BY_TYPE_SQL = "SELECT * FROM `IDENTITIES` WHERE identity_type = 'consumer';";
+	
+	private boolean selectStaticData(String dbUsername, String dbPassword) {
+		try {
+			boolean dataExists = false;
+			ResultSet rs;
+			conn = new DbConnector().connect(dbUsername, dbPassword);
+			System.out.println("查詢固定資料是否存在");
+			stmt = conn.createStatement();
+			stmt.executeQuery(USE_EATOGODB_SQL);
+			rs = stmt.executeQuery(SELECT_IDENTITY_BY_TYPE_SQL);
+			while(rs.next()) {
+				dataExists = true;
+				System.out.println("固定資料已存在");
+			}
+			conn.close();
+			return dataExists;
+		} catch (SQLException e) {
+			System.out.println("SQL問題，查詢固定資料失敗");
+			e.printStackTrace();
+			return false;
+		} finally {
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					System.out.println("關閉stmt錯誤");
+					e.printStackTrace();
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					System.out.println("關閉conn錯誤");
+					e.printStackTrace();
+				}
+		}
 	}
 	
 	public boolean insertStaticData(String dbUsername, String dbPassword) {

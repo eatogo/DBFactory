@@ -28,6 +28,10 @@
 		} else {
 			var thingsToDo = obj.value;
 			switch (thingsToDo) {
+			case "InsertStaticData":
+				document.dbConnectForm.action = "InsertStaticDataJDBC.do";
+				document.dbConnectForm.submit();
+				break
 			case "MoreFakeData":
 				document.dbConnectForm.action = "InsertFakedDataJDBC.do";
 				document.dbConnectForm.submit();
@@ -66,6 +70,8 @@
 		<button class="button" type="button" onclick="doSomethingOnDb(this)"
 			value="AllInOne">一鍵(重)建立Eatogo資料庫</button>
 		<hr>
+		<button class="button" type="button" onclick="doSomethingOnDb(this)"
+			value="InsertStaticData">增加靜態資料</button>
 		<button class="button" type="button" onclick="doSomethingOnDb(this)"
 			value="MoreFakeData">增加動態(假)資料</button>
 	</form>
