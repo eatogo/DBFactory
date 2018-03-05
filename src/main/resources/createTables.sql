@@ -8,7 +8,7 @@ CREATE TABLE `AUTHENTICATIONS` (user_id INT PRIMARY KEY NOT NULL, user_uuid VARC
 DROP TABLE IF EXISTS `STORES`;
 CREATE TABLE `STORES` (store_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, store_owner_id INT NOT NULL, store_name VARCHAR(50) NOT NULL, store_address VARCHAR(255) NOT NULL, store_phone VARCHAR(30) NOT NULL, store_email VARCHAR(50), store_logo VARCHAR(255) NOT NULL DEFAULT 'store_default.png', store_open_hour VARCHAR(100), store_intro TEXT, store_latitude DOUBLE NOT NULL, store_longitude DOUBLE NOT NULL, store_area INT NOT NULL, store_operate_type VARCHAR(20) NOT NULL DEFAULT 'wholeday', store_status VARCHAR(10) NOT NULL DEFAULT 'rest');
 DROP TABLE IF EXISTS `STORE_AUTHORIZATIONS`;
-CREATE TABLE `STORE_AUTHORIZATIONS` (store_auth_id INT NOT NULL, store_auth_user INT NOT NULL, store_auth VARCHAR(20), PRIMARY KEY (store_auth_id, store_auth_user));
+CREATE TABLE `STORE_AUTHORIZATIONS` (store_auth_id INT NOT NULL, store_auth_user INT NOT NULL, store_auth VARCHAR(20), CONSTRAINT PK_STORE_AUTHORIZATIONS PRIMARY KEY (store_auth_id, store_auth_user));
 DROP TABLE IF EXISTS `IDENTITIES`;
 CREATE TABLE `IDENTITIES` (identity_type VARCHAR(20) PRIMARY KEY NOT NULL, identity_description VARCHAR(20) NOT NULL);
 DROP TABLE IF EXISTS `OPERATE_TYPES`;

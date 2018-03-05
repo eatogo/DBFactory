@@ -15,8 +15,10 @@ import java.sql.Statement;
 
 import jdbc._00_Init.DbConnector;
 import jdbc._00_Init.pojo.FOODS;
+import jdbc._00_Init.pojo.STORE_AUTHORIZATIONS;
 import jdbc._00_Init.pojo.USERS;
 import jdbc._02_manageData.dataGenerator.RandomFoodGenerator;
+import jdbc._02_manageData.dataGenerator.RandomStoreAuthGenerator;
 import jdbc._02_manageData.dataGenerator.RandomUserGenerator;
 
 public class DataDao {
@@ -28,8 +30,10 @@ public class DataDao {
 	BufferedReader br = null;
 	RandomUserGenerator userGenerator = null;
 	RandomFoodGenerator foodGenerator = null;
+	RandomStoreAuthGenerator authGenerator = null;
 	FOODS food = null;
 	USERS user = null;
+	STORE_AUTHORIZATIONS auth = null;
 
 	public boolean insertAllData(String dbUsername, String dbPassword) {
 		if (insertStaticData(dbUsername, dbPassword)) {
@@ -123,6 +127,7 @@ public class DataDao {
 			System.out.println("開始建立動態(假)資料");
 			executeSqlFromGeneratedUserData();
 			executeSqlFromFile("storesData.sql");
+			executeSqlFromGeneratedAuthData();
 			executeSqlFromGeneratedFoodData();
 			System.out.println("建立動態(假)資料成功");
 			return true;
@@ -168,6 +173,32 @@ public class DataDao {
 				ps.setString(4, user.getUser_email());
 				ps.setObject(5, user.getUser_create_time());
 				ps.setString(6, user.getUser_status());
+				ps.executeUpdate();
+			}
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println("SQL問題，建立(假)使用者資料錯誤");
+			e.printStackTrace();
+		}
+	}
+	
+	private final String INSERT_GENERATED_AUTH_SQL = "INSERT INTO `STORE_AUTHORIZATIONS`"
+			+ " (store_auth_id, store_auth_user, store_auth)"
+			+ " VALUES"
+			+ " (?, ?, ?);";
+	
+	private void executeSqlFromGeneratedAuthData() {
+		try {
+			Statement stmt = conn.createStatement();
+			stmt.executeQuery(USE_EATOGODB_SQL);
+			stmt.close();
+			ps = conn.prepareStatement(INSERT_GENERATED_AUTH_SQL);
+			for (int index = 1; index <= 1054 ; index++) {
+				authGenerator = new RandomStoreAuthGenerator();
+				auth = authGenerator.generateRandomAuth(index);
+				ps.setInt(1, auth.getStore_auth_id());
+				ps.setInt(2, auth.getStore_auth_user());
+				ps.setString(3, auth.getStore_au());
 				ps.executeUpdate();
 			}
 			ps.close();
