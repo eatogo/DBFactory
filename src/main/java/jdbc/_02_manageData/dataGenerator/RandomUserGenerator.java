@@ -36,8 +36,8 @@ public class RandomUserGenerator {
 	
 	private String generateCellphone() {
 		StringBuilder cellphone = new StringBuilder("09");
-		for (int i = 0; i < 7; i++) {
-			if (i == 2) {
+		for (int i = 1; i <= 9; i++) {
+			if (i == 3) {
 				cellphone.append("-");
 			} else {
 				cellphone.append((int)(Math.random() * 10));

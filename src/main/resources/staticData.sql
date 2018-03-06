@@ -1,5 +1,4 @@
 USE eatogodb;
-INSERT INTO `IDENTITIES` VALUES ('consumer', '消費者');
 INSERT INTO `IDENTITIES` VALUES ('owner', '店家負責人');
 INSERT INTO `IDENTITIES` VALUES ('manager', '店家管理員');
 INSERT INTO `USER_STATUSES` VALUES ('unregistered', '終止、未驗證');
