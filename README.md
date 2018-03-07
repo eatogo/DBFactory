@@ -10,6 +10,17 @@
 - MySQL 5.0
 - Java 1.8
 
+# 專案內容
+
+- 建立名稱為eatogodb的資料庫
+- 建立統一table、column、constraint
+- 建立統一靜態資料
+- 建立隨機假資料
+  - 店家資料1054筆
+  - 使用者800筆
+  - 店家擁有者權限：1054筆平分給前27個使用者
+  - 店家管理者權限：1054筆隨機給第28到第80位使用者
+
 # 使用方法
 
 1. Clone或Pull到本地端；若下載zip檔，請先解壓縮
@@ -26,8 +37,4 @@
 
 # 進階修改
 
-因採用JDBC方式連接資料庫，若有需要修改Schema或測試資料，可直接修改位於src/main/resources資料夾內的sql檔
-
-但請務必在Command Line或MySQL圖形介面軟體測試過SQL敘述正確後，再修改sql檔
-
-另外修改過後，要push到Github之前，請務必在Commit內寫清楚修改內容
+- 因採用JDBC方式連接資料庫，若有需要修改Schema或測試資料，可直接修改位於src/main/resources資料夾內的sql檔，但請務必在Command Line或MySQL圖形介面軟體測試過SQL敘述正確後，再修改sql檔；另外修改過後，要push到Github之前，請務必在Commit內寫清楚修改內容
