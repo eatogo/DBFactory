@@ -1,4 +1,4 @@
-package jdbc._00_Init.pojo;
+package jdbc.model.pojo;
 
 public class FOODS {
 	
@@ -16,28 +16,6 @@ public class FOODS {
 	private String food_status;
 	private Long food_review_count;
 	
-	public FOODS() {
-	}
-
-	public FOODS(Integer food_id, String food_name, Integer food_price, String food_intro, String food_pic_hdpi,
-			String food_pic_ldpi, String food_pic_mdpi, String food_pic, Integer food_limit, String food_type,
-			Integer food_store, String food_status, Long food_review_count) {
-		super();
-		this.food_id = food_id;
-		this.food_name = food_name;
-		this.food_price = food_price;
-		this.food_intro = food_intro;
-		this.food_pic_hdpi = food_pic_hdpi;
-		this.food_pic_ldpi = food_pic_ldpi;
-		this.food_pic_mdpi = food_pic_mdpi;
-		this.food_pic = food_pic;
-		this.food_limit = food_limit;
-		this.food_type = food_type;
-		this.food_store = food_store;
-		this.food_status = food_status;
-		this.food_review_count = food_review_count;
-	}
-
 	public Integer getFood_id() {
 		return food_id;
 	}

@@ -1,4 +1,4 @@
-package jdbc._00_Init;
+package jdbc.model.global;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +9,10 @@ public class DbConnector {
 	private String driverName = DbConstants.DRIVER_NAME;
 	private Connection conn;
 
-	public Connection connect(String USER, String PASSWORD) {
+	public Connection connect(String user, String password) {
 		try {
 			Class.forName(driverName);
-			conn = DriverManager.getConnection(dbUrl, USER, PASSWORD);
+			conn = DriverManager.getConnection(dbUrl, user, password);
 			return conn;
 		} catch (SQLException e) {
 			System.out.println("資料庫連線失敗");

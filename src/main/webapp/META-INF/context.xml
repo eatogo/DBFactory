@@ -6,9 +6,9 @@
 		password=""
 		driverClassName="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost:3306/mysql"
-		connectionProperties="useUnicode=yes;characterEncoding=utf8;"
-		maxActive="8"
+		connectionProperties="userSSL=true;useUnicode=true;characterEncoding=utf8;"
+		maxTotal="8"
 		maxIdle="4"
-		maxWait="5000"
+		maxWaitMillis="5000"
 	/>
 </Context>

@@ -1,4 +1,4 @@
-package jdbc._02_manageData;
+package jdbc.model;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,85 +13,50 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import jdbc._00_Init.DbConnector;
-import jdbc._00_Init.pojo.FOODS;
-import jdbc._00_Init.pojo.STORE_AUTHORIZATIONS;
-import jdbc._00_Init.pojo.USERS;
-import jdbc._02_manageData.dataGenerator.RandomFoodGenerator;
-import jdbc._02_manageData.dataGenerator.RandomStoreAuthGenerator;
-import jdbc._02_manageData.dataGenerator.RandomUserGenerator;
+import jdbc.model.global.DbConnector;
+import jdbc.model.pojo.FOODS;
+import jdbc.model.pojo.STORE_AUTHORIZATIONS;
+import jdbc.model.pojo.USERS;
+import jdbc.utils.RandomFoodFactory;
+import jdbc.utils.RandomStoreAuthFactory;
+import jdbc.utils.RandomUserFactory;
 
 public class DataDao {
+	String dbUsername, dbPassword;
 	Connection conn = null;
-	Statement stmt = null;
-	PreparedStatement ps = null;
-	String url = null;
-	File sqlFile = null;
-	BufferedReader br = null;
-	RandomUserGenerator userGenerator = null;
-	RandomFoodGenerator foodGenerator = null;
-	RandomStoreAuthGenerator authGenerator = null;
-	FOODS food = null;
-	USERS user = null;
-	STORE_AUTHORIZATIONS auth = null;
-
-	public boolean insertAllData(String dbUsername, String dbPassword) {
-		if (insertStaticData(dbUsername, dbPassword)) {
-			return insertFakedData(dbUsername, dbPassword);
-		} else {
-			return false;
-		}
+	
+	public DataDao(String dbUsername, String dbPassword) {
+		this.dbUsername = dbUsername;
+		this.dbPassword = dbPassword;
 	}
-
-	public boolean isStaticDataExist(String dbUsername, String dbPassword) {
-		if (selectStaticData(dbUsername, dbPassword)) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
+	
 	private String USE_EATOGODB_SQL = "USE `eatogodb`;";
 	private String SELECT_IDENTITY_BY_TYPE_SQL = "SELECT * FROM `IDENTITIES` WHERE identity_type = 'consumer';";
-
-	private boolean selectStaticData(String dbUsername, String dbPassword) {
-		try {
-			boolean dataExists = false;
-			ResultSet rs;
-			conn = new DbConnector().connect(dbUsername, dbPassword);
-			System.out.println("查詢固定資料是否存在");
-			stmt = conn.createStatement();
+	
+	public boolean isStaticDataExist() {
+		boolean dataExists = false;
+		try (Connection conn = new DbConnector().connect(dbUsername, dbPassword);
+				Statement stmt = conn.createStatement();) {
 			stmt.executeQuery(USE_EATOGODB_SQL);
-			rs = stmt.executeQuery(SELECT_IDENTITY_BY_TYPE_SQL);
-			while (rs.next()) {
+			System.out.println("查詢固定資料是否存在");
+			ResultSet rs = stmt.executeQuery(SELECT_IDENTITY_BY_TYPE_SQL);
+			if (rs.next()) {
 				dataExists = true;
 				System.out.println("固定資料已存在");
 			}
-			conn.close();
-			return dataExists;
 		} catch (SQLException e) {
 			System.out.println("SQL問題，查詢固定資料失敗");
 			e.printStackTrace();
-			return false;
-		} finally {
-			if (stmt != null)
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					System.out.println("關閉stmt錯誤");
-					e.printStackTrace();
-				}
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					System.out.println("關閉conn錯誤");
-					e.printStackTrace();
-				}
 		}
+		return dataExists;
 	}
 
-	public boolean insertStaticData(String dbUsername, String dbPassword) {
+	public boolean insertAllData() {
+		if (insertStaticData()) return insertFakeData();
+		else return false;
+	}
+
+	public boolean insertStaticData() {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			System.out.println("開始建立固定資料");
@@ -104,50 +69,47 @@ public class DataDao {
 			e.printStackTrace();
 			return false;
 		} finally {
-			if (stmt != null)
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					System.out.println("關閉stmt錯誤");
-					e.printStackTrace();
-				}
 			if (conn != null)
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					System.out.println("關閉conn錯誤");
+					System.out.println("關閉Connection錯誤");
 					e.printStackTrace();
 				}
 		}
 	}
 
-	public boolean insertFakedData(String dbUsername, String dbPassword) {
+	public boolean insertFakeData() {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
+			Long start = System.currentTimeMillis();
 			System.out.println("開始建立動態(假)資料");
+			System.out.println("開始建立假使用者資料");
 			executeSqlFromGeneratedUserData();
+			System.out.println("建立假使用者資料成功");
+			System.out.println("開始建立假店家資料");
 			executeSqlFromFile("storesData.sql");
+			System.out.println("建立假店家資料成功");
+			System.out.println("開始建立假店家管理員資料");
 			executeSqlFromGeneratedAuthData();
+			System.out.println("建立假店家管理員資料成功");
+			System.out.println("開始建立假餐點資料");
 			executeSqlFromGeneratedFoodData();
-			System.out.println("建立動態(假)資料成功");
+			System.out.println("建立假餐點資料成功");
+			Long end = System.currentTimeMillis();
+			System.out.println("建立動態(假)資料成功，總共耗時" + (end - start) / 1000.0 + "秒");
+			conn.close();
 			return true;
 		} catch (SQLException e) {
 			System.out.println("SQL問題，建立動態(假)資料錯誤");
 			e.printStackTrace();
 			return false;
 		} finally {
-			if (stmt != null)
-				try {
-					stmt.close();
-				} catch (SQLException e) {
-					System.out.println("關閉stmt錯誤");
-					e.printStackTrace();
-				}
 			if (conn != null)
 				try {
 					conn.close();
 				} catch (SQLException e) {
-					System.out.println("關閉conn錯誤");
+					System.out.println("關閉Connection錯誤");
 					e.printStackTrace();
 				}
 		}
@@ -163,10 +125,11 @@ public class DataDao {
 			Statement stmt = conn.createStatement();
 			stmt.executeQuery(USE_EATOGODB_SQL);
 			stmt.close();
-			ps = conn.prepareStatement(INSERT_GENERATED_USERS_SQL);
+			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_USERS_SQL);
+			RandomUserFactory userFactory = new RandomUserFactory();
+			USERS user;
 			for (int index = 1; index <= 800; index++) {
-				userGenerator = new RandomUserGenerator();
-				user = userGenerator.generateRandomUser();
+				user = userFactory.generateRandomUser();
 				ps.setString(1, user.getUser_password());
 				ps.setString(2, user.getUser_cellphone());
 				ps.setString(3, user.getUser_name());
@@ -192,13 +155,14 @@ public class DataDao {
 			Statement stmt = conn.createStatement();
 			stmt.executeQuery(USE_EATOGODB_SQL);
 			stmt.close();
-			ps = conn.prepareStatement(INSERT_GENERATED_AUTH_SQL);
+			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_AUTH_SQL);
+			RandomStoreAuthFactory authFactory = new RandomStoreAuthFactory();
+			STORE_AUTHORIZATIONS auth;
 			for (int index = 1; index <= 1054 ; index++) {
-				authGenerator = new RandomStoreAuthGenerator();
-				auth = authGenerator.generateRandomAuth(index);
+				auth = authFactory.generateRandomAuth(index);
 				ps.setInt(1, auth.getStore_auth_id());
 				ps.setInt(2, auth.getStore_auth_user());
-				ps.setString(3, auth.getStore_au());
+				ps.setString(3, auth.getStore_auth());
 				ps.executeUpdate();
 			}
 			ps.close();
@@ -209,11 +173,11 @@ public class DataDao {
 	}
 
 	private void executeSqlFromFile(String fileName) throws SQLException {
-		stmt = conn.createStatement();
-		url = this.getClass().getResource("/").getPath();
-		sqlFile = new File(url, fileName);
+		Statement stmt = conn.createStatement();
+		String url = this.getClass().getResource("/").getPath();
+		File sqlFile = new File(url, fileName);
 		try {
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(sqlFile), "UTF8"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sqlFile), "UTF8"));
 			String sql;
 			while ((sql = br.readLine()) != null) {
 				stmt.executeUpdate(sql);
@@ -238,11 +202,12 @@ public class DataDao {
 
 	private void executeSqlFromGeneratedFoodData() {
 		try {
-			ps = conn.prepareStatement(INSERT_GENERATED_FOODS_SQL);
+			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_FOODS_SQL);
+			RandomFoodFactory foodFactory = new RandomFoodFactory();
+			FOODS food;
 			for (int store_id = 1; store_id <= 1054; store_id++) {
 				for (int dishCount = 1; dishCount <= 8; dishCount++) {
-					foodGenerator = new RandomFoodGenerator();
-					food = foodGenerator.generateRandomFood(store_id);
+					food = foodFactory.generateRandomFood(store_id);
 					ps.setString(1, food.getFood_name());
 					ps.setInt(2, food.getFood_price());
 					ps.setString(3, food.getFood_type());

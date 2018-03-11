@@ -1,4 +1,4 @@
-package jdbc._02_manageData;
+package jdbc.controllers;
 
 import java.io.IOException;
 
@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertStaticDataJDBC.do")
+import jdbc.model.DataDao;
+
+@WebServlet("/InsertStaticData.do")
 public class InsertStaticDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -18,9 +20,8 @@ public class InsertStaticDataServlet extends HttpServlet {
 		String dbUsername = request.getParameter("dbUsername");
 		String dbPassword = request.getParameter("dbPassword");
 		
-		DataDao dataDao = new DataDao();
-		if (dataDao.isStaticDataExist(dbUsername, dbPassword) || 
-				dataDao.insertStaticData(dbUsername, dbPassword)) {
+		DataDao dataDao = new DataDao(dbUsername, dbPassword);
+		if (dataDao.isStaticDataExist() || dataDao.insertStaticData()) {
 			request.setAttribute("FixedDataInserted", "ok");
 			request.setAttribute("dbUsername", dbUsername);
 			request.setAttribute("dbPassword", dbPassword);

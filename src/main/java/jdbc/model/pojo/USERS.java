@@ -1,4 +1,4 @@
-package jdbc._00_Init.pojo;
+package jdbc.model.pojo;
 
 import java.util.Date;
 
@@ -12,21 +12,6 @@ public class USERS {
 	private String user_avatar;
 	private Date user_create_time;
 	private String user_status;
-
-	public USERS() {
-	}
-
-	public USERS(Integer user_id, String user_password, String user_cellphone, String user_name, String user_email,
-			String user_avatar, Date user_create_time, String user_status) {
-		this.user_id = user_id;
-		this.user_password = user_password;
-		this.user_cellphone = user_cellphone;
-		this.user_name = user_name;
-		this.user_email = user_email;
-		this.user_avatar = user_avatar;
-		this.user_create_time = user_create_time;
-		this.user_status = user_status;
-	}
 
 	public Integer getUser_id() {
 		return user_id;

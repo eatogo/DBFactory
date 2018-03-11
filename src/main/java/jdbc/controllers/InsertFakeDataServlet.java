@@ -1,4 +1,4 @@
-package jdbc._02_manageData;
+package jdbc.controllers;
 
 import java.io.IOException;
 
@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertFakedDataJDBC.do")
-public class InsertFakedDataServlet extends HttpServlet {
+import jdbc.model.DataDao;
+
+@WebServlet("/InsertFakeData.do")
+public class InsertFakeDataServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,8 +20,8 @@ public class InsertFakedDataServlet extends HttpServlet {
 		String dbUsername = request.getParameter("dbUsername");
 		String dbPassword = request.getParameter("dbPassword");
 		
-		DataDao dataDao = new DataDao();
-		if (dataDao.insertFakedData(dbUsername, dbPassword)) {
+		DataDao dataDao = new DataDao(dbUsername, dbPassword);
+		if (dataDao.insertFakeData()) {
 			request.setAttribute("FakedDataInserted", "ok");
 			request.setAttribute("dbUsername", dbUsername);
 			request.setAttribute("dbPassword", dbPassword);

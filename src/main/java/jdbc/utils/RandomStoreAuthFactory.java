@@ -1,19 +1,19 @@
-package jdbc._02_manageData.dataGenerator;
+package jdbc.utils;
 
-import jdbc._00_Init.pojo.STORE_AUTHORIZATIONS;
+import jdbc.model.pojo.STORE_AUTHORIZATIONS;
 
-public class RandomStoreAuthGenerator {
+public class RandomStoreAuthFactory {
 	
-	private STORE_AUTHORIZATIONS generatedAuth = null;
+	private STORE_AUTHORIZATIONS generatedAuth;
 	
-	public RandomStoreAuthGenerator() {
+	public RandomStoreAuthFactory() {
 		generatedAuth = new STORE_AUTHORIZATIONS();
 	}
 	
 	public STORE_AUTHORIZATIONS generateRandomAuth(Integer store_id) {
 		generatedAuth.setStore_auth_id(store_id);
 		generatedAuth.setStore_auth_user((int) (Math.random() * 72) + 28);
-		generatedAuth.setStore_au("manager");
+		generatedAuth.setStore_auth("manager");
 		return generatedAuth;
 	}
 
