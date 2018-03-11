@@ -34,11 +34,11 @@ public class CreateAllServlet extends HttpServlet {
 			request.setAttribute("AllSchemaCreated", "ok");
 			request.setAttribute("dbUsername", dbUsername);
 			request.setAttribute("dbPassword", dbPassword);
-			RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
-			rd.forward(request, response);
-			return;
 		}
-		
+
+		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
+		rd.forward(request, response);
+		return;
 	}
 
 }

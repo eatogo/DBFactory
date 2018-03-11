@@ -28,6 +28,7 @@ public class InsertFakeDataServlet extends HttpServlet {
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -22,12 +22,13 @@ public class InsertStaticDataServlet extends HttpServlet {
 		
 		DataDao dataDao = new DataDao(dbUsername, dbPassword);
 		if (dataDao.isStaticDataExist() || dataDao.insertStaticData()) {
-			request.setAttribute("FixedDataInserted", "ok");
+			request.setAttribute("StaticDataInserted", "ok");
 			request.setAttribute("dbUsername", dbUsername);
 			request.setAttribute("dbPassword", dbPassword);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/ResultPage.jsp");
 		rd.forward(request, response);
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
