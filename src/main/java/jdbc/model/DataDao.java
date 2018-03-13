@@ -15,10 +15,8 @@ import java.sql.Statement;
 
 import jdbc.model.global.DbConnector;
 import jdbc.model.pojo.FOODS;
-import jdbc.model.pojo.STORE_AUTHORIZATIONS;
 import jdbc.model.pojo.USERS;
 import jdbc.utils.RandomFoodFactory;
-import jdbc.utils.RandomStoreAuthFactory;
 import jdbc.utils.RandomUserFactory;
 
 public class DataDao {
@@ -60,7 +58,7 @@ public class DataDao {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			System.out.println("開始建立固定資料");
-			executeSqlFromFile("staticData.sql");
+			executeSqlFromFile("createStaticData.sql");
 			System.out.println("建立固定資料成功");
 			conn.close();
 			return true;
@@ -88,7 +86,7 @@ public class DataDao {
 			executeSqlFromGeneratedUserData();
 			System.out.println("建立假使用者資料成功");
 			System.out.println("開始建立假店家資料");
-			executeSqlFromFile("storesData.sql");
+			executeSqlFromFile("createStoresData.sql");
 			System.out.println("建立假店家資料成功");
 			System.out.println("開始建立假店家管理員資料");
 			executeSqlFromGeneratedAuthData();
@@ -156,13 +154,18 @@ public class DataDao {
 			stmt.executeQuery(USE_EATOGODB_SQL);
 			stmt.close();
 			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_AUTH_SQL);
-			RandomStoreAuthFactory authFactory = new RandomStoreAuthFactory();
-			STORE_AUTHORIZATIONS auth;
-			for (int index = 1; index <= 1054 ; index++) {
-				auth = authFactory.generateRandomAuth(index);
-				ps.setInt(1, auth.getStore_auth_id());
-				ps.setInt(2, auth.getStore_auth_user());
-				ps.setString(3, auth.getStore_auth());
+			int ownerId = 1;
+			for (int storeId = 1; storeId <= 1054; storeId++) {
+				ps.setInt(1, storeId);
+				ps.setInt(2, ownerId);
+				ps.setString(3, "owner");
+				ps.executeUpdate();
+				if (storeId % 39 == 0) {
+					ownerId++;
+				}
+				ps.setInt(1, storeId);
+				ps.setInt(2, ((int) (Math.random() * 72) + 28));
+				ps.setString(3, "manager");
 				ps.executeUpdate();
 			}
 			ps.close();
