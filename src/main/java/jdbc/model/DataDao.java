@@ -33,9 +33,14 @@ public class DataDao {
 	private final Integer MAX_FAVORITE = 10;
 	private final Integer ORDER_NUMBERS = 10;
 	private final Integer FOOD_QUANTITY = 5;
-	private final String BEGIN_DATE = "2010-01-01"; // 格式為：yyyy-MM-dd
-	private final String END_DATE = "2018-03-24"; // 格式為：yyyy-MM-dd
+	private final String ORDER_BEGIN_DATE = "2010-01-01"; // 格式為：yyyy-MM-dd
+	private final String ORDER_END_DATE = "2018-01-01"; // 格式為：yyyy-MM-dd
+	private final String CONFIRM_ORDER_BEGIN_DATE = "2018-01-01"; // 格式為：yyyy-MM-dd
+	private final String CONFIRM_ORDER_END_DATE = "2018-02-01"; // 格式為：yyyy-MM-dd
+	private final String FINISH_ORDER_BEGIN_DATE = "2018-02-01"; // 格式為：yyyy-MM-dd
+	private final String FINISH_ORDER_END_DATE = "2018-03-01"; // 格式為：yyyy-MM-dd
 	private Integer totalFoods;
+	private String[] ORDER_TAKEOUT_PERIODS = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"};
 	
 	public DataDao(String dbUsername, String dbPassword) {
 		this.dbUsername = dbUsername;
@@ -301,10 +306,20 @@ public class DataDao {
 		}
 	}
 	
-	private final String INSERT_GENERATED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+	private final String INSERT_GENERATED_ORDERED_ORDERS_SQL = "INSERT INTO `ORDERS`"
 			+ " (order_user, order_time, order_store, order_status)"
 			+ " VALUES"
 			+ " (?, ?, ?, ?);";
+	
+	private final String INSERT_GENERATED_UNFINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_status)"
+			+ " VALUES"
+			+ " (?, ?, ?, ?, ?, ?, ?);";
+	
+	private final String INSERT_GENERATED_FINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_finished_time, order_status)"
+			+ " VALUES"
+			+ " (?, ?, ?, ?, ?, ?, ?, ?);";
 	
 	/**
 	 * 共(TOTAL_USERS - TOTAL_OWNERS - TOTAL_MANAGERS)位單純使用者會各有50筆訂單記錄
@@ -317,50 +332,84 @@ public class DataDao {
 	private void executeSqlFromGeneratedOrderData() {
 		Integer startOfUserId = TOTAL_OWNERS + TOTAL_MANAGERS;
 		try {
-			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_ORDERS_SQL);
+			
 			for (int userId = startOfUserId; userId <= TOTAL_USERS; userId++) {
+				PreparedStatement ps;
 				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
+					ps = conn.prepareStatement(INSERT_GENERATED_ORDERED_ORDERS_SQL);
 					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(BEGIN_DATE, END_DATE);
+					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
 					ps.setObject(2, date);
 					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
 					ps.setString(4, "ordered");
 					ps.executeUpdate();
+					ps.close();
 				}
 				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
+					ps = conn.prepareStatement(INSERT_GENERATED_UNFINISHED_ORDERS_SQL);
 					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(BEGIN_DATE, END_DATE);
+					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
 					ps.setObject(2, date);
 					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setString(4, "unfinished");
+					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
+					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
+					ps.setObject(5, date);
+					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
+					ps.setString(6, orderTakeoutPeriod);
+					ps.setString(7, "unfinished");
 					ps.executeUpdate();
+					ps.close();
 				}
 				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
+					ps = conn.prepareStatement(INSERT_GENERATED_UNFINISHED_ORDERS_SQL);
 					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(BEGIN_DATE, END_DATE);
+					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
 					ps.setObject(2, date);
 					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setString(4, "unconfirmed_store");
+					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
+					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
+					ps.setObject(5, date);
+					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
+					ps.setString(6, orderTakeoutPeriod);
+					ps.setString(7, "unconfirmed_store");
 					ps.executeUpdate();
+					ps.close();
 				}
 				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
+					ps = conn.prepareStatement(INSERT_GENERATED_FINISHED_ORDERS_SQL);
 					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(BEGIN_DATE, END_DATE);
+					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
 					ps.setObject(2, date);
 					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setString(4, "unconfirmed_user");
+					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
+					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
+					ps.setObject(5, date);
+					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
+					ps.setString(6, orderTakeoutPeriod);
+					date = RandomTimeFactory.randomDate(FINISH_ORDER_BEGIN_DATE, FINISH_ORDER_END_DATE);
+					ps.setObject(7, date);
+					ps.setString(8, "unconfirmed_user");
 					ps.executeUpdate();
+					ps.close();
 				}
 				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
+					ps = conn.prepareStatement(INSERT_GENERATED_FINISHED_ORDERS_SQL);
 					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(BEGIN_DATE, END_DATE);
+					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
 					ps.setObject(2, date);
 					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setString(4, "finished");
+					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
+					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
+					ps.setObject(5, date);
+					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
+					ps.setString(6, orderTakeoutPeriod);
+					date = RandomTimeFactory.randomDate(FINISH_ORDER_BEGIN_DATE, FINISH_ORDER_END_DATE);
+					ps.setObject(7, date);
+					ps.setString(8, "finished");
 					ps.executeUpdate();
+					ps.close();
 				}
 			}
-			ps.close();
 		} catch (SQLException e) {
 			System.out.println("SQL問題，建立亂數(假)資料錯誤");
 			e.printStackTrace();
