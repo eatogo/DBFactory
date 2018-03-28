@@ -40,26 +40,31 @@ public class DataDao {
 	private final String FINISH_ORDER_BEGIN_DATE = "2018-02-01"; // 格式為：yyyy-MM-dd
 	private final String FINISH_ORDER_END_DATE = "2018-03-01"; // 格式為：yyyy-MM-dd
 	private Integer totalFoods;
-	private String[] ORDER_TAKEOUT_PERIODS = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"};
-	
+	private String[] ORDER_TAKEOUT_PERIODS = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+			"O", "P", "Q", "R", "S", "T", "U", "V", "W", "X" };
+
 	public DataDao(String dbUsername, String dbPassword) {
 		this.dbUsername = dbUsername;
 		this.dbPassword = dbPassword;
 		random = new Random();
 		totalFoods = 0;
 	}
-	
+
 	/**
 	 * 建立所有資料
+	 * 
 	 * @return true if success, false if fail
 	 */
 	public boolean insertAllData() {
-		if (insertStaticData() && insertFakeData()) return true;
-		else return false;
+		if (insertStaticData() && insertFakeData())
+			return true;
+		else
+			return false;
 	}
 
 	/**
 	 * 建立靜態資料
+	 * 
 	 * @return true if success, false if fail
 	 */
 	public boolean insertStaticData() {
@@ -84,9 +89,10 @@ public class DataDao {
 				}
 		}
 	}
-	
+
 	/**
 	 * 執行sql檔案
+	 * 
 	 * @param fileName
 	 * @throws SQLException
 	 */
@@ -116,6 +122,7 @@ public class DataDao {
 
 	/**
 	 * 建立動態假資料
+	 * 
 	 * @return ture if success, false if fail
 	 */
 	public boolean insertFakeData() {
@@ -123,39 +130,39 @@ public class DataDao {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			Long start = System.currentTimeMillis();
 			System.out.println("開始建立動態(假)資料");
-			
+
 			System.out.println("開始建立假使用者資料");
 			executeSqlFromGeneratedUserData();
 			System.out.println("建立假使用者資料成功");
-			
+
 			System.out.println("開始建立假店家資料");
 			executeSqlFromFile("createStoresData.sql");
 			System.out.println("建立假店家資料成功");
-			
+
 			System.out.println("開始建立假店家管理員資料");
 			executeSqlFromGeneratedAuthData();
 			System.out.println("建立假店家管理員資料成功");
-			
+
 			System.out.println("開始建立假餐點資料");
 			executeSqlFromGeneratedFoodData();
 			System.out.println("建立假餐點資料成功");
-			
+
 			System.out.println("開始建立假收藏資料");
 			executeSqlFromGeneratedFavoriteData();
 			System.out.println("建立假收藏資料成功");
-			
+
 			System.out.println("開始建立假訂單資料");
 			executeSqlFromGeneratedOrderData();
 			System.out.println("建立假訂單資料成功");
-			
+
 			System.out.println("開始建立假訂單詳細資料");
 			executeSqlFromGeneratedOrderDetailData();
 			System.out.println("建立假訂單詳細資料成功");
-			
+
 			System.out.println("開始建立評價資料");
 			executeSqlFromGeneratedReviewData();
 			System.out.println("建立評價資料成功");
-			
+
 			Long end = System.currentTimeMillis();
 			System.out.println("建立動態(假)資料成功，總共耗時" + (end - start) / 1000.0 + "秒");
 			conn.close();
@@ -177,7 +184,7 @@ public class DataDao {
 
 	private String USE_EATOGODB_SQL = "USE `eatogodb`;";
 	private final String INSERT_GENERATED_USERS_SQL = "INSERT INTO `USERS`"
-			+ " (user_password, user_cellphone, user_name, user_email, user_create_time, user_status)"
+			+ " (user_password, user_cellphone, user_name, user_email, user_create_time, user_status)" 
 			+ " VALUES"
 			+ " (?, ?, ?, ?, ?, ?);";
 
@@ -208,15 +215,15 @@ public class DataDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private final String INSERT_GENERATED_AUTH_SQL = "INSERT INTO `STORE_AUTHORIZATIONS`"
-			+ " (store_auth_id, store_auth_user, store_auth)"
-			+ " VALUES"
+			+ " (store_auth_id, store_auth_user, store_auth)" 
+			+ " VALUES" 
 			+ " (?, ?, ?);";
-	
+
 	/**
-	 * 將總筆數TOTAL_STORES家店家的店主權限平均分給前TOTAL_OWNERS個使用者
-	 * 而(TOTAL_MANAGERS - TOTAL_OWNERS)個使用者則隨機成為各店家管理員
+	 * 將總筆數TOTAL_STORES家店家的店主權限平均分給前TOTAL_OWNERS個使用者 而(TOTAL_MANAGERS -
+	 * TOTAL_OWNERS)個使用者則隨機成為各店家管理員
 	 */
 	private void executeSqlFromGeneratedAuthData() {
 		Integer storesPerOwner = TOTAL_STORES / TOTAL_OWNERS;
@@ -278,12 +285,12 @@ public class DataDao {
 			e.printStackTrace();
 		}
 	}
-	
-	private final String INSERT_GENERATED_FAVORITES_SQL = "INSERT INTO `FAVORITES`"
+
+	private final String INSERT_GENERATED_FAVORITES_SQL = "INSERT INTO `FAVORITES`" 
 			+ " (favorite_food, favorite_user)"
-			+ " VALUES"
+			+ " VALUES" 
 			+ " (?, ?);";
-	
+
 	/**
 	 * 亂數為每個使用者產生收藏清單，數量隨機，每人最多產生MAX_FAVORITE筆記錄
 	 */
@@ -305,135 +312,121 @@ public class DataDao {
 			e.printStackTrace();
 		}
 	}
-	
-	private final String INSERT_GENERATED_ORDERED_ORDERS_SQL = "INSERT INTO `ORDERS`"
-			+ " (order_user, order_time, order_store, order_status)"
-			+ " VALUES"
-			+ " (?, ?, ?, ?);";
-	
-	private final String INSERT_GENERATED_UNFINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
-			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_status)"
-			+ " VALUES"
-			+ " (?, ?, ?, ?, ?, ?, ?);";
-	
-	private final String INSERT_GENERATED_FINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
-			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_finished_time, order_status)"
-			+ " VALUES"
-			+ " (?, ?, ?, ?, ?, ?, ?, ?);";
-	
+
 	/**
 	 * 共(TOTAL_USERS - TOTAL_OWNERS - TOTAL_MANAGERS)位單純使用者會各有50筆訂單記錄
-	 * 每人分別有ORDER_NUMBERS筆店家未確認訂單(ordered)
-	 * ORDER_NUMBERS筆店家未出貨訂單(unfinished)
+	 * 每人分別有ORDER_NUMBERS筆店家未確認訂單(ordered) ORDER_NUMBERS筆店家未出貨訂單(unfinished)
 	 * ORDER_NUMBERS筆客戶已評價但店家未確認訂單(unconfirmed_store)
-	 * ORDER_NUMBERS筆店家已確認但客戶未評價訂單(unconfirmed_user)
-	 * 以及ORDER_NUMBERS筆完成訂單(finished)
+	 * ORDER_NUMBERS筆店家已確認但客戶未評價訂單(unconfirmed_user) 以及ORDER_NUMBERS筆完成訂單(finished)
 	 */
 	private void executeSqlFromGeneratedOrderData() {
-		Integer startOfUserId = TOTAL_OWNERS + TOTAL_MANAGERS;
-		try {
-			
-			for (int userId = startOfUserId; userId <= TOTAL_USERS; userId++) {
-				PreparedStatement ps;
-				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
-					ps = conn.prepareStatement(INSERT_GENERATED_ORDERED_ORDERS_SQL);
-					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
-					ps.setObject(2, date);
-					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setString(4, "ordered");
-					ps.executeUpdate();
-					ps.close();
-				}
-				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
-					ps = conn.prepareStatement(INSERT_GENERATED_UNFINISHED_ORDERS_SQL);
-					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
-					ps.setObject(2, date);
-					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
-					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
-					ps.setObject(5, date);
-					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
-					ps.setString(6, orderTakeoutPeriod);
-					ps.setString(7, "unfinished");
-					ps.executeUpdate();
-					ps.close();
-				}
-				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
-					ps = conn.prepareStatement(INSERT_GENERATED_UNFINISHED_ORDERS_SQL);
-					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
-					ps.setObject(2, date);
-					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
-					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
-					ps.setObject(5, date);
-					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
-					ps.setString(6, orderTakeoutPeriod);
-					ps.setString(7, "unconfirmed_store");
-					ps.executeUpdate();
-					ps.close();
-				}
-				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
-					ps = conn.prepareStatement(INSERT_GENERATED_FINISHED_ORDERS_SQL);
-					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
-					ps.setObject(2, date);
-					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
-					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
-					ps.setObject(5, date);
-					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
-					ps.setString(6, orderTakeoutPeriod);
-					date = RandomTimeFactory.randomDate(FINISH_ORDER_BEGIN_DATE, FINISH_ORDER_END_DATE);
-					ps.setObject(7, date);
-					ps.setString(8, "unconfirmed_user");
-					ps.executeUpdate();
-					ps.close();
-				}
-				for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
-					ps = conn.prepareStatement(INSERT_GENERATED_FINISHED_ORDERS_SQL);
-					ps.setInt(1, userId);
-					Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
-					ps.setObject(2, date);
-					ps.setInt(3, random.nextInt(TOTAL_STORES) + 1);
-					ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
-					date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
-					ps.setObject(5, date);
-					String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
-					ps.setString(6, orderTakeoutPeriod);
-					date = RandomTimeFactory.randomDate(FINISH_ORDER_BEGIN_DATE, FINISH_ORDER_END_DATE);
-					ps.setObject(7, date);
-					ps.setString(8, "finished");
-					ps.executeUpdate();
-					ps.close();
-				}
+		for (int storeId = 1; storeId <= TOTAL_STORES; storeId++) {
+			for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
+				generateOrderedOrders(storeId, "ordered");
+				generatedUnfinishedOrders(storeId, "unfinished");
+				generatedUnfinishedOrders(storeId, "unconfirmed_store");
+				generateFinishedOrders(storeId, "unconfirmed_user");
+				generateFinishedOrders(storeId, "finished");
 			}
+		}
+	}
+
+	private final String INSERT_GENERATED_ORDERED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+			+ " (order_user, order_time, order_store, order_status)" 
+			+ " VALUES" 
+			+ " (?, ?, ?, ?);";
+
+	private void generateOrderedOrders(Integer storeId, String orderStatus) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(INSERT_GENERATED_ORDERED_ORDERS_SQL);
+			ps.setInt(1, random.nextInt(TOTAL_USERS) + 1);
+			Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
+			ps.setObject(2, date);
+			ps.setInt(3, storeId);
+			ps.setString(4, orderStatus);
+			ps.executeUpdate();
+			ps.close();
 		} catch (SQLException e) {
-			System.out.println("SQL問題，建立亂數(假)資料錯誤");
+			System.out.println("SQL問題，建立" + orderStatus + "訂單亂數(假)資料錯誤");
 			e.printStackTrace();
 		}
 	}
-	
+
+	private final String INSERT_GENERATED_UNFINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_status)"
+			+ " VALUES" 
+			+ " (?, ?, ?, ?, ?, ?, ?);";
+
+	private void generatedUnfinishedOrders(Integer storeId, String orderStatus) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(INSERT_GENERATED_UNFINISHED_ORDERS_SQL);
+			ps.setInt(1, random.nextInt(TOTAL_USERS) + 1);
+			Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
+			ps.setObject(2, date);
+			ps.setInt(3, storeId);
+			ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
+			date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
+			ps.setObject(5, date);
+			String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
+			ps.setString(6, orderTakeoutPeriod);
+			ps.setString(7, orderStatus);
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println("SQL問題，建立" + orderStatus + "訂單亂數(假)資料錯誤");
+			e.printStackTrace();
+		}
+	}
+
+	private final String INSERT_GENERATED_FINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_finished_time, order_status)"
+			+ " VALUES" 
+			+ " (?, ?, ?, ?, ?, ?, ?, ?);";
+
+	private void generateFinishedOrders(Integer storeId, String orderStatus) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(INSERT_GENERATED_FINISHED_ORDERS_SQL);
+			ps.setInt(1, random.nextInt(TOTAL_USERS) + 1);
+			Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
+			ps.setObject(2, date);
+			ps.setInt(3, storeId);
+			ps.setInt(4, random.nextInt(TOTAL_MANAGERS) + TOTAL_OWNERS + 1);
+			date = RandomTimeFactory.randomDate(CONFIRM_ORDER_BEGIN_DATE, CONFIRM_ORDER_END_DATE);
+			ps.setObject(5, date);
+			String orderTakeoutPeriod = ORDER_TAKEOUT_PERIODS[random.nextInt(ORDER_TAKEOUT_PERIODS.length)];
+			ps.setString(6, orderTakeoutPeriod);
+			date = RandomTimeFactory.randomDate(FINISH_ORDER_BEGIN_DATE, FINISH_ORDER_END_DATE);
+			ps.setObject(7, date);
+			ps.setString(8, orderStatus);
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			System.out.println("SQL問題，建立" + orderStatus + "訂單亂數(假)資料錯誤");
+			e.printStackTrace();
+		}
+	}
+
 	private String SELECT_ORDER_BY_ORDER_STATUS_SQL = "SELECT * FROM `ORDERS` WHERE order_status = ?;";
 	private String INSERT_GENERATED_ORDER_DETAILS_SQL = "INSERT INTO `ORDER_DETAILS`"
-			+ " (order_id, order_food, order_quantity)"
-			+ " VALUES"
+			+ " (order_id, order_food, order_quantity)" 
+			+ " VALUES" 
 			+ " (?, ?, ?);";
-	
+
 	/**
 	 * 依據亂數產生訂單及訂單狀態產生訂單詳細資訊
 	 */
 	private void executeSqlFromGeneratedOrderDetailData() {
-		generateOrders("ordered");
-		generateOrders("unfinished");
-		generateOrders("unconfirmed_store");
-		generateOrders("unconfirmed_user");
-		generateOrders("finished");
+		generateOrderDetails("ordered");
+		generateOrderDetails("unfinished");
+		generateOrderDetails("unconfirmed_store");
+		generateOrderDetails("unconfirmed_user");
+		generateOrderDetails("finished");
 	}
-	
-	private void generateOrders(String orderStatus) {
+
+	private void generateOrderDetails(String orderStatus) {
 		try {
 			PreparedStatement ps = conn.prepareStatement(SELECT_ORDER_BY_ORDER_STATUS_SQL);
 			ps.setString(1, orderStatus);
@@ -451,12 +444,12 @@ public class DataDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private String INSERT_GENERATED_REVIEWS_SQL = "INSERT INTO `REVIEWS`"
-			+ " (review_user, review_order, review_food, review_time)"
-			+ " VALUES"
+			+ " (review_user, review_order, review_food, review_time)" 
+			+ " VALUES" 
 			+ " (?, ?, ?, ?);";
-	
+
 	private void executeSqlFromGeneratedReviewData() {
 		try {
 			PreparedStatement ps = conn.prepareStatement(SELECT_ORDER_BY_ORDER_STATUS_SQL);
@@ -476,11 +469,12 @@ public class DataDao {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private String SELECT_IDENTITY_BY_TYPE_SQL = "SELECT * FROM `IDENTITIES` WHERE identity_type = 'consumer';";
-	
+
 	/**
 	 * 查詢是否有任何靜態資料存在
+	 * 
 	 * @return true if exists, false if none
 	 */
 	public boolean isStaticDataExist() {
