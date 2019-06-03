@@ -36,7 +36,7 @@ public class SchemaDao {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			System.out.println("開始建立資料庫");
-			executeSqlFromFile("createDB.sql");
+			executeSqlFromFile("static/createDB.sql");
 			System.out.println("資料庫建立成功");
 			conn.close();
 			return true;
@@ -51,13 +51,13 @@ public class SchemaDao {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			System.out.println("開始建立Tables");
-			executeSqlFromFile("createTables.sql");
+			executeSqlFromFile("static/createTables.sql");
 			System.out.println("建立Tables成功");
 			System.out.println("開始建立Constraints");
-			executeSqlFromFile("addConstraints.sql");
+			executeSqlFromFile("static/addConstraints.sql");
 			System.out.println("建立Constraints成功");
 			System.out.println("開始建立Views");
-			executeSqlFromFile("createView.sql");
+			executeSqlFromFile("static/createView.sql");
 			System.out.println("建立Views成功");
 			conn.close();
 			return true;

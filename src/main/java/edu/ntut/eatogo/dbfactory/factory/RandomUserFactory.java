@@ -1,19 +1,15 @@
-package jdbc.utils;
+package edu.ntut.eatogo.dbfactory.factory;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import edu.ntut.eatogo.dbfactory.persistence.domain.User;
 
-import jdbc.model.pojo.USERS;
+import java.util.*;
 
 public class RandomUserFactory {
 	
-	private USERS generatedUser;
+	private User generatedUser;
 	private String firstName, lastName;
-	Map<String, String> lastNameWords = new TreeMap<>();
-	List<String> lastNameWordsKeyList = new ArrayList<>();
+	private Map<String, String> lastNameWords = new TreeMap<>();
+	private List<String> lastNameWordsKeyList = new ArrayList<>();
 	{
 		lastNameWords.put("陳", "cheng");
 		lastNameWords.put("林", "ling");
@@ -21,7 +17,6 @@ public class RandomUserFactory {
 		lastNameWords.put("張", "chang");
 		lastNameWords.put("李", "li");
 		lastNameWords.put("王", "wang");
-		lastNameWords.put("陳", "cheng");
 		lastNameWords.put("吳", "wu");
 		lastNameWords.put("劉", "liu");
 		lastNameWords.put("蔡", "tsai");
@@ -38,10 +33,10 @@ public class RandomUserFactory {
 	}
 	
 	public RandomUserFactory() {
-		generatedUser = new USERS();
+		generatedUser = new User();
 	}
 	
-	public USERS generateRandomUser() {
+	public User generateRandomUser() {
 		generatedUser.setUser_cellphone(generateCellphone());
 		// 預設密碼等同手機號碼
 		generatedUser.setUser_password(generatedUser.getUser_cellphone());
@@ -65,11 +60,11 @@ public class RandomUserFactory {
 	private String generateName() {
 		lastName = lastNameWordsKeyList.get((int) (Math.random() * lastNameWords.size()));
 		firstName = lastNameWordsKeyList.get((int) (Math.random() * lastNameWords.size()));
-		return new StringBuilder(lastName + firstName).toString();
+		return lastName + firstName;
 	}
 
 	private String generateEmail() {
-		return new StringBuilder(lastNameWords.get(firstName) + lastNameWords.get(lastName) + "@gmail.com").toString();
+		return lastNameWords.get(firstName) + lastNameWords.get(lastName) + "@gmail.com";
 	}
 	
 }

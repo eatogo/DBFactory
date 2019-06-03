@@ -1,4 +1,4 @@
-package jdbc.utils;
+package edu.ntut.eatogo.dbfactory.factory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

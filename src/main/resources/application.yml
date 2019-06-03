@@ -1,0 +1,18 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  datasource:
+    url: jdbc:mysql://localhost:3306/eatogodb?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=false
+    driverClassName: com.mysql.jdbc.Driver
+    username: root
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+      properties:
+        show_sql: true
+        format_sql: true
+debug: true

@@ -1,30 +1,21 @@
 package jdbc.model;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import edu.ntut.eatogo.dbfactory.factory.RandomFoodFactory;
+import edu.ntut.eatogo.dbfactory.factory.RandomTimeFactory;
+import edu.ntut.eatogo.dbfactory.factory.RandomUserFactory;
+import edu.ntut.eatogo.dbfactory.persistence.domain.Food;
+import edu.ntut.eatogo.dbfactory.persistence.domain.User;
+import jdbc.model.global.DbConnector;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.sql.*;
 import java.util.Date;
 import java.util.Random;
 
-import jdbc.model.global.DbConnector;
-import jdbc.model.pojo.FOODS;
-import jdbc.model.pojo.USERS;
-import jdbc.utils.RandomFoodFactory;
-import jdbc.utils.RandomTimeFactory;
-import jdbc.utils.RandomUserFactory;
-
 public class DataDao {
-	String dbUsername, dbPassword;
-	Connection conn = null;
+	private String dbUsername, dbPassword;
+	private Connection conn = null;
 	private Random random;
 	private final Integer TOTAL_USERS = 100;
 	private final Integer TOTAL_STORES = 1054;
@@ -56,10 +47,7 @@ public class DataDao {
 	 * @return true if success, false if fail
 	 */
 	public boolean insertAllData() {
-		if (insertStaticData() && insertFakeData())
-			return true;
-		else
-			return false;
+		return insertStaticData() && insertFakeData();
 	}
 
 	/**
@@ -71,7 +59,7 @@ public class DataDao {
 		try {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			System.out.println("開始建立固定資料");
-			executeSqlFromFile("createStaticData.sql");
+			executeSqlFromFile("static/createStaticData.sql");
 			System.out.println("建立固定資料成功");
 			conn.close();
 			return true;
@@ -92,16 +80,13 @@ public class DataDao {
 
 	/**
 	 * 執行sql檔案
-	 * 
-	 * @param fileName
-	 * @throws SQLException
 	 */
 	private void executeSqlFromFile(String fileName) throws SQLException {
 		Statement stmt = conn.createStatement();
 		String url = this.getClass().getResource("/").getPath();
 		File sqlFile = new File(url, fileName);
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sqlFile), "UTF8"));
+			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sqlFile), StandardCharsets.UTF_8));
 			String sql;
 			while ((sql = br.readLine()) != null) {
 				stmt.executeUpdate(sql);
@@ -123,7 +108,7 @@ public class DataDao {
 	/**
 	 * 建立動態假資料
 	 * 
-	 * @return ture if success, false if fail
+	 * @return true if success, false if fail
 	 */
 	public boolean insertFakeData() {
 		try {
@@ -136,7 +121,7 @@ public class DataDao {
 			System.out.println("建立假使用者資料成功");
 
 			System.out.println("開始建立假店家資料");
-			executeSqlFromFile("createStoresData.sql");
+			executeSqlFromFile("static/createStoresData.sql");
 			System.out.println("建立假店家資料成功");
 
 			System.out.println("開始建立假店家管理員資料");
@@ -183,10 +168,6 @@ public class DataDao {
 	}
 
 	private String USE_EATOGODB_SQL = "USE `eatogodb`;";
-	private final String INSERT_GENERATED_USERS_SQL = "INSERT INTO `USERS`"
-			+ " (user_password, user_cellphone, user_name, user_email, user_create_time, user_status)" 
-			+ " VALUES"
-			+ " (?, ?, ?, ?, ?, ?);";
 
 	/**
 	 * 建立使用者資料，資料筆數依照TOTAL_USERS
@@ -196,9 +177,13 @@ public class DataDao {
 			Statement stmt = conn.createStatement();
 			stmt.executeQuery(USE_EATOGODB_SQL);
 			stmt.close();
+			String INSERT_GENERATED_USERS_SQL = "INSERT INTO `USERS`"
+					+ " (user_password, user_cellphone, user_name, user_email, user_create_time, user_status)"
+					+ " VALUES"
+					+ " (?, ?, ?, ?, ?, ?);";
 			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_USERS_SQL);
 			RandomUserFactory userFactory = new RandomUserFactory();
-			USERS user;
+			User user;
 			for (int index = 1; index <= TOTAL_USERS; index++) {
 				user = userFactory.generateRandomUser();
 				ps.setString(1, user.getUser_password());
@@ -216,21 +201,20 @@ public class DataDao {
 		}
 	}
 
-	private final String INSERT_GENERATED_AUTH_SQL = "INSERT INTO `STORE_AUTHORIZATIONS`"
-			+ " (store_auth_id, store_auth_user, store_auth)" 
-			+ " VALUES" 
-			+ " (?, ?, ?);";
-
 	/**
 	 * 將總筆數TOTAL_STORES家店家的店主權限平均分給前TOTAL_OWNERS個使用者 而(TOTAL_MANAGERS -
 	 * TOTAL_OWNERS)個使用者則隨機成為各店家管理員
 	 */
 	private void executeSqlFromGeneratedAuthData() {
-		Integer storesPerOwner = TOTAL_STORES / TOTAL_OWNERS;
+		int storesPerOwner = TOTAL_STORES / TOTAL_OWNERS;
 		try {
 			Statement stmt = conn.createStatement();
 			stmt.executeQuery(USE_EATOGODB_SQL);
 			stmt.close();
+			String INSERT_GENERATED_AUTH_SQL = "INSERT INTO `STORE_AUTHORIZATIONS`"
+					+ " (store_auth_id, store_auth_user, store_auth)"
+					+ " VALUES"
+					+ " (?, ?, ?);";
 			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_AUTH_SQL);
 			int ownerId = 1;
 			for (int storeId = 1; storeId <= TOTAL_STORES; storeId++) {
@@ -253,19 +237,18 @@ public class DataDao {
 		}
 	}
 
-	private final String INSERT_GENERATED_FOODS_SQL = "INSERT INTO `FOODS`"
-			+ " (food_name, food_price, food_type, food_store, food_status, food_review_count)" 
-			+ " VALUES"
-			+ " (?, ?, ?, ?, ?, ?);";
-
 	/**
 	 * 每間店家平均產生八道菜色，餐點類型隨機
 	 */
 	private void executeSqlFromGeneratedFoodData() {
 		try {
+			String INSERT_GENERATED_FOODS_SQL = "INSERT INTO `FOODS`"
+					+ " (food_name, food_price, food_type, food_store, food_status, food_review_count)"
+					+ " VALUES"
+					+ " (?, ?, ?, ?, ?, ?);";
 			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_FOODS_SQL);
 			RandomFoodFactory foodFactory = new RandomFoodFactory();
-			FOODS food;
+			Food food;
 			for (int store_id = 1; store_id <= TOTAL_STORES; store_id++) {
 				for (int dishCount = 1; dishCount <= 8; dishCount++) {
 					food = foodFactory.generateRandomFood(store_id);
@@ -286,16 +269,15 @@ public class DataDao {
 		}
 	}
 
-	private final String INSERT_GENERATED_FAVORITES_SQL = "INSERT INTO `FAVORITES`" 
-			+ " (favorite_food, favorite_user)"
-			+ " VALUES" 
-			+ " (?, ?);";
-
 	/**
 	 * 亂數為每個使用者產生收藏清單，數量隨機，每人最多產生MAX_FAVORITE筆記錄
 	 */
 	private void executeSqlFromGeneratedFavoriteData() {
 		try {
+			String INSERT_GENERATED_FAVORITES_SQL = "INSERT INTO `FAVORITES`"
+					+ " (favorite_food, favorite_user)"
+					+ " VALUES"
+					+ " (?, ?);";
 			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_FAVORITES_SQL);
 			for (int user = 1; user <= TOTAL_USERS; user++) {
 				int numberOfFavorite = random.nextInt(MAX_FAVORITE) + 1;
@@ -322,7 +304,7 @@ public class DataDao {
 	private void executeSqlFromGeneratedOrderData() {
 		for (int storeId = 1; storeId <= TOTAL_STORES; storeId++) {
 			for (int orderNumber = 1; orderNumber <= ORDER_NUMBERS; orderNumber++) {
-				generateOrderedOrders(storeId, "ordered");
+				generateOrderedOrders(storeId);
 				generatedUnfinishedOrders(storeId, "unfinished");
 				generatedUnfinishedOrders(storeId, "unconfirmed_store");
 				generateFinishedOrders(storeId, "unconfirmed_user");
@@ -331,36 +313,34 @@ public class DataDao {
 		}
 	}
 
-	private final String INSERT_GENERATED_ORDERED_ORDERS_SQL = "INSERT INTO `ORDERS`"
-			+ " (order_user, order_time, order_store, order_status)" 
-			+ " VALUES" 
-			+ " (?, ?, ?, ?);";
-
-	private void generateOrderedOrders(Integer storeId, String orderStatus) {
+	private void generateOrderedOrders(Integer storeId) {
 		PreparedStatement ps;
 		try {
+			String INSERT_GENERATED_ORDERED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+					+ " (order_user, order_time, order_store, order_status)"
+					+ " VALUES"
+					+ " (?, ?, ?, ?);";
 			ps = conn.prepareStatement(INSERT_GENERATED_ORDERED_ORDERS_SQL);
 			ps.setInt(1, random.nextInt(TOTAL_USERS) + 1);
 			Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
 			ps.setObject(2, date);
 			ps.setInt(3, storeId);
-			ps.setString(4, orderStatus);
+			ps.setString(4, "ordered");
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {
-			System.out.println("SQL問題，建立" + orderStatus + "訂單亂數(假)資料錯誤");
+			System.out.println("SQL問題，建立 ordered 訂單亂數(假)資料錯誤");
 			e.printStackTrace();
 		}
 	}
 
-	private final String INSERT_GENERATED_UNFINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
-			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_status)"
-			+ " VALUES" 
-			+ " (?, ?, ?, ?, ?, ?, ?);";
-
 	private void generatedUnfinishedOrders(Integer storeId, String orderStatus) {
 		PreparedStatement ps;
 		try {
+			String INSERT_GENERATED_UNFINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+					+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_status)"
+					+ " VALUES"
+					+ " (?, ?, ?, ?, ?, ?, ?);";
 			ps = conn.prepareStatement(INSERT_GENERATED_UNFINISHED_ORDERS_SQL);
 			ps.setInt(1, random.nextInt(TOTAL_USERS) + 1);
 			Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
@@ -380,14 +360,13 @@ public class DataDao {
 		}
 	}
 
-	private final String INSERT_GENERATED_FINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
-			+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_finished_time, order_status)"
-			+ " VALUES" 
-			+ " (?, ?, ?, ?, ?, ?, ?, ?);";
-
 	private void generateFinishedOrders(Integer storeId, String orderStatus) {
 		PreparedStatement ps;
 		try {
+			String INSERT_GENERATED_FINISHED_ORDERS_SQL = "INSERT INTO `ORDERS`"
+					+ " (order_user, order_time, order_store, order_confirm_user, order_confirm_time, order_takeout_period, order_finished_time, order_status)"
+					+ " VALUES"
+					+ " (?, ?, ?, ?, ?, ?, ?, ?);";
 			ps = conn.prepareStatement(INSERT_GENERATED_FINISHED_ORDERS_SQL);
 			ps.setInt(1, random.nextInt(TOTAL_USERS) + 1);
 			Date date = RandomTimeFactory.randomDate(ORDER_BEGIN_DATE, ORDER_END_DATE);
@@ -410,10 +389,6 @@ public class DataDao {
 	}
 
 	private String SELECT_ORDER_BY_ORDER_STATUS_SQL = "SELECT * FROM `ORDERS` WHERE order_status = ?;";
-	private String INSERT_GENERATED_ORDER_DETAILS_SQL = "INSERT INTO `ORDER_DETAILS`"
-			+ " (order_id, order_food, order_quantity)" 
-			+ " VALUES" 
-			+ " (?, ?, ?);";
 
 	/**
 	 * 依據亂數產生訂單及訂單狀態產生訂單詳細資訊
@@ -432,6 +407,10 @@ public class DataDao {
 			ps.setString(1, orderStatus);
 			ResultSet result = ps.executeQuery();
 			while (result.next()) {
+				String INSERT_GENERATED_ORDER_DETAILS_SQL = "INSERT INTO `ORDER_DETAILS`"
+						+ " (order_id, order_food, order_quantity)"
+						+ " VALUES"
+						+ " (?, ?, ?);";
 				ps = conn.prepareStatement(INSERT_GENERATED_ORDER_DETAILS_SQL);
 				ps.setInt(1, result.getInt(1));
 				ps.setInt(2, random.nextInt(totalFoods) + 1);
@@ -445,17 +424,16 @@ public class DataDao {
 		}
 	}
 
-	private String INSERT_GENERATED_REVIEWS_SQL = "INSERT INTO `REVIEWS`"
-			+ " (review_user, review_order, review_food, review_time)" 
-			+ " VALUES" 
-			+ " (?, ?, ?, ?);";
-
 	private void executeSqlFromGeneratedReviewData() {
 		try {
 			PreparedStatement ps = conn.prepareStatement(SELECT_ORDER_BY_ORDER_STATUS_SQL);
 			ps.setString(1, "finished");
 			ResultSet result = ps.executeQuery();
 			while (result.next()) {
+				String INSERT_GENERATED_REVIEWS_SQL = "INSERT INTO `REVIEWS`"
+						+ " (review_user, review_order, review_food, review_time)"
+						+ " VALUES"
+						+ " (?, ?, ?, ?);";
 				ps = conn.prepareStatement(INSERT_GENERATED_REVIEWS_SQL);
 				ps.setInt(1, result.getInt("order_user"));
 				ps.setInt(2, result.getInt("order_id"));
@@ -470,8 +448,6 @@ public class DataDao {
 		}
 	}
 
-	private String SELECT_IDENTITY_BY_TYPE_SQL = "SELECT * FROM `IDENTITIES` WHERE identity_type = 'consumer';";
-
 	/**
 	 * 查詢是否有任何靜態資料存在
 	 * 
@@ -480,9 +456,10 @@ public class DataDao {
 	public boolean isStaticDataExist() {
 		boolean dataExists = false;
 		try (Connection conn = new DbConnector().connect(dbUsername, dbPassword);
-				Statement stmt = conn.createStatement();) {
+				Statement stmt = conn.createStatement()) {
 			stmt.executeQuery(USE_EATOGODB_SQL);
 			System.out.println("查詢固定資料是否存在");
+			String SELECT_IDENTITY_BY_TYPE_SQL = "SELECT * FROM `IDENTITIES` WHERE identity_type = 'consumer';";
 			ResultSet rs = stmt.executeQuery(SELECT_IDENTITY_BY_TYPE_SQL);
 			if (rs.next()) {
 				dataExists = true;
