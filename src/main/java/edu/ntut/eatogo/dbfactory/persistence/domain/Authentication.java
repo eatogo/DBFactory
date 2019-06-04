@@ -1,25 +1,26 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "authentications")
 public class Authentication {
 
     @Id
-    private Integer user_id;
+    private Integer auth_id;
     @Column(nullable = false)
     private String user_uuid;
 
-    public Integer getUser_id() {
-        return user_id;
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "FK_authentications_users"))
+    private User user;
+
+    public Integer getAuth_id() {
+        return auth_id;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setAuth_id(Integer auth_id) {
+        this.auth_id = auth_id;
     }
 
     public String getUser_uuid() {
@@ -28,5 +29,13 @@ public class Authentication {
 
     public void setUser_uuid(String user_uuid) {
         this.user_uuid = user_uuid;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

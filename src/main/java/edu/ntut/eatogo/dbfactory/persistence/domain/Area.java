@@ -1,9 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "areas")
@@ -15,6 +13,9 @@ public class Area {
     private String area_description;
     @Column(nullable = false, length = 50)
     private String area_city;
+
+    @OneToMany(mappedBy = "area")
+    private Set<Store> stores;
 
     public Integer getArea_id() {
         return area_id;
@@ -38,5 +39,13 @@ public class Area {
 
     public void setArea_city(String area_city) {
         this.area_city = area_city;
+    }
+
+    public Set<Store> getStores() {
+        return stores;
+    }
+
+    public void setStores(Set<Store> stores) {
+        this.stores = stores;
     }
 }

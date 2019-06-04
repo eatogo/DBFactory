@@ -9,12 +9,16 @@ public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer order_detail_id;
-    @Column(nullable = false)
-    private Integer order_id;
-    @Column(nullable = false)
-    private Integer order_food;
     @Column(columnDefinition = "INT NOT NULL DEFAULT '1'")
     private Integer order_quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id", nullable = false, foreignKey = @ForeignKey(name = "FK_order_details_orders"))
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "order_food", nullable = false, foreignKey = @ForeignKey(name = "FK_order_details_foods"))
+    private Food food;
 
     public Integer getOrder_detail_id() {
         return order_detail_id;
@@ -24,27 +28,27 @@ public class OrderDetail {
         this.order_detail_id = order_detail_id;
     }
 
-    public Integer getOrder_id() {
-        return order_id;
-    }
-
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
-    }
-
-    public Integer getOrder_food() {
-        return order_food;
-    }
-
-    public void setOrder_food(Integer order_food) {
-        this.order_food = order_food;
-    }
-
     public Integer getOrder_quantity() {
         return order_quantity;
     }
 
     public void setOrder_quantity(Integer order_quantity) {
         this.order_quantity = order_quantity;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Food getFood() {
+        return food;
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
     }
 }

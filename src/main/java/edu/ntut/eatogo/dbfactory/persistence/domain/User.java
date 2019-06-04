@@ -2,6 +2,7 @@ package edu.ntut.eatogo.dbfactory.persistence.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -20,8 +21,28 @@ public class User {
     private String user_avatar;
     @Column(nullable = false)
     private Date user_create_time;
-    @Column(columnDefinition = "VARCHAR(20) NOT NULL DEFAULT 'unverified'")
-    private String user_status;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_status", nullable = false, foreignKey = @ForeignKey(name = "FK_users_user_statuses"))
+    private UserStatus userStatus;
+
+    @OneToOne(mappedBy = "user")
+    private Authentication authentication;
+
+    @OneToMany(mappedBy = "user")
+    private Set<StoreAuthorization> storeAuthorizations;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Order> orders;
+
+    @OneToMany(mappedBy = "confirmUser")
+    private Set<Order> confirmOrders;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Favorite> favorites;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Review> reviews;
 
     public Integer getUser_id() {
         return user_id;
@@ -79,11 +100,66 @@ public class User {
         this.user_create_time = user_create_time;
     }
 
-    public String getUser_status() {
-        return user_status;
+    public UserStatus getUserStatus() {
+        return userStatus;
     }
 
-    public void setUser_status(String user_status) {
-        this.user_status = user_status;
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    public Authentication getAuthentication() {
+        return authentication;
+    }
+
+    public void setAuthentication(Authentication authentication) {
+        this.authentication = authentication;
+    }
+
+    public Set<StoreAuthorization> getStoreAuthorizations() {
+        return storeAuthorizations;
+    }
+
+    public void setStoreAuthorizations(Set<StoreAuthorization> storeAuthorizations) {
+        this.storeAuthorizations = storeAuthorizations;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Set<Order> getConfirmOrders() {
+        return confirmOrders;
+    }
+
+    public void setConfirmOrders(Set<Order> confirmOrders) {
+        this.confirmOrders = confirmOrders;
+    }
+
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Set<Favorite> favorites) {
+        this.favorites = favorites;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (userStatus == null) {
+            userStatus = new UserStatus("unverified");
+        }
     }
 }

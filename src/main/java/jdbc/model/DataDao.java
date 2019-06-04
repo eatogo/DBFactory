@@ -117,7 +117,7 @@ public class DataDao {
 			System.out.println("開始建立動態(假)資料");
 
 			System.out.println("開始建立假使用者資料");
-			executeSqlFromGeneratedUserData();
+			//executeSqlFromGeneratedUserData();
 			System.out.println("建立假使用者資料成功");
 
 			System.out.println("開始建立假店家資料");
@@ -191,7 +191,7 @@ public class DataDao {
 				ps.setString(3, user.getUser_name());
 				ps.setString(4, user.getUser_email());
 				ps.setObject(5, user.getUser_create_time());
-				ps.setString(6, user.getUser_status());
+				//ps.setString(6, user.getUserStatus());
 				ps.executeUpdate();
 			}
 			ps.close();
@@ -243,9 +243,9 @@ public class DataDao {
 	private void executeSqlFromGeneratedFoodData() {
 		try {
 			String INSERT_GENERATED_FOODS_SQL = "INSERT INTO `FOODS`"
-					+ " (food_name, food_price, food_type, food_store, food_status, food_review_count)"
+					+ " (food_name, food_price, food_type, food_store, food_status)"
 					+ " VALUES"
-					+ " (?, ?, ?, ?, ?, ?);";
+					+ " (?, ?, ?, ?, ?);";
 			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_FOODS_SQL);
 			RandomFoodFactory foodFactory = new RandomFoodFactory();
 			Food food;
@@ -254,10 +254,10 @@ public class DataDao {
 					food = foodFactory.generateRandomFood(store_id);
 					ps.setString(1, food.getFood_name());
 					ps.setInt(2, food.getFood_price());
-					ps.setString(3, food.getFood_type());
+					ps.setString(3, food.getFoodType().getFood_type());
 					ps.setInt(4, store_id);
 					ps.setString(5, food.getFood_status());
-					ps.setLong(6, food.getFood_review_count());
+//					ps.setLong(6, food.getFood_review_count());
 					ps.executeUpdate();
 					totalFoods++;
 				}

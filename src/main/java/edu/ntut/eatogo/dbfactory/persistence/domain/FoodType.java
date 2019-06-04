@@ -1,9 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "food_types")
@@ -13,6 +11,16 @@ public class FoodType {
     private String food_type;
     @Column(nullable = false, length = 50)
     private String food_description;
+
+    @OneToMany(mappedBy = "foodType")
+    private Set<Food> foods;
+
+    public FoodType() {
+    }
+
+    public FoodType(String food_type) {
+        this.food_type = food_type;
+    }
 
     public String getFood_type() {
         return food_type;
@@ -28,5 +36,13 @@ public class FoodType {
 
     public void setFood_description(String food_description) {
         this.food_description = food_description;
+    }
+
+    public Set<Food> getFoods() {
+        return foods;
+    }
+
+    public void setFoods(Set<Food> foods) {
+        this.foods = foods;
     }
 }

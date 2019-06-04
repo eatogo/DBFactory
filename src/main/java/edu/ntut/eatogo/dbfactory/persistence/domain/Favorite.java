@@ -9,10 +9,14 @@ public class Favorite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer favorite_id;
-    @Column(nullable = false)
-    private Integer favorite_food;
-    @Column(nullable = false)
-    private Integer favorite_user;
+
+    @ManyToOne
+    @JoinColumn(name = "favorite_food", nullable = false, foreignKey = @ForeignKey(name = "FK_favorites_foods"))
+    private Food food;
+
+    @ManyToOne
+    @JoinColumn(name = "favorite_user", nullable = false, foreignKey = @ForeignKey(name = "FK_favorites_users"))
+    private User user;
 
     public Integer getFavorite_id() {
         return favorite_id;
@@ -22,19 +26,19 @@ public class Favorite {
         this.favorite_id = favorite_id;
     }
 
-    public Integer getFavorite_food() {
-        return favorite_food;
+    public Food getFood() {
+        return food;
     }
 
-    public void setFavorite_food(Integer favorite_food) {
-        this.favorite_food = favorite_food;
+    public void setFood(Food food) {
+        this.food = food;
     }
 
-    public Integer getFavorite_user() {
-        return favorite_user;
+    public User getUser() {
+        return user;
     }
 
-    public void setFavorite_user(Integer favorite_user) {
-        this.favorite_user = favorite_user;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

@@ -1,6 +1,8 @@
 package edu.ntut.eatogo.dbfactory.factory;
 
 import edu.ntut.eatogo.dbfactory.persistence.domain.Food;
+import edu.ntut.eatogo.dbfactory.persistence.domain.FoodType;
+import edu.ntut.eatogo.dbfactory.persistence.domain.Store;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,12 +25,12 @@ public class RandomFoodFactory {
 		food_suffix = new StringBuilder();
 		String food_type = generateFoodType();
 		
-		generatedFood.setFood_type(food_type);
+		generatedFood.setFoodType(new FoodType(food_type));
 		generatedFood.setFood_name(generateFoodNameByType(food_type));
 		generatedFood.setFood_price(generateFoodPriceByType(food_type));
-		generatedFood.setFood_store(food_store);
+		generatedFood.setStore(new Store(food_store));
 		generatedFood.setFood_status("selling");
-		generatedFood.setFood_review_count(generateRandomReviewCounts());
+//		generatedFood.setFood_review_count(generateRandomReviewCounts());
 		
 		return generatedFood;
 	}

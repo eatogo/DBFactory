@@ -1,22 +1,25 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import edu.ntut.eatogo.dbfactory.persistence.domain.IdClass.StoreAuthorizationId;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "store_authorizations")
-@IdClass(StoreAuthorizationId.class)
 public class StoreAuthorization {
 
     @Id
     private Integer store_auth_id;
-    @Id
-    private Integer store_auth_user;
-    private String store_auth;
+
+    @ManyToOne
+    @JoinColumn(name = "store_id", nullable = false, foreignKey = @ForeignKey(name = "FK_store_authorizations_stores"))
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "store_auth_user", nullable = false, foreignKey = @ForeignKey(name = "FK_store_authorizations_users"))
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "store_auth", nullable = false, foreignKey = @ForeignKey(name = "FK_store_authorizations_identities"))
+    private Identity identity;
 
     public Integer getStore_auth_id() {
         return store_auth_id;
@@ -26,19 +29,27 @@ public class StoreAuthorization {
         this.store_auth_id = store_auth_id;
     }
 
-    public Integer getStore_auth_user() {
-        return store_auth_user;
+    public Store getStore() {
+        return store;
     }
 
-    public void setStore_auth_user(Integer store_auth_user) {
-        this.store_auth_user = store_auth_user;
+    public void setStore(Store store) {
+        this.store = store;
     }
 
-    public String getStore_auth() {
-        return store_auth;
+    public User getUser() {
+        return user;
     }
 
-    public void setStore_auth(String store_auth) {
-        this.store_auth = store_auth;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Identity getIdentity() {
+        return identity;
+    }
+
+    public void setIdentity(Identity identity) {
+        this.identity = identity;
     }
 }

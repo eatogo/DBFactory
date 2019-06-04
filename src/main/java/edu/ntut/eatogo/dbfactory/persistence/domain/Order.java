@@ -2,6 +2,7 @@ package edu.ntut.eatogo.dbfactory.persistence.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -10,20 +11,36 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer order_id;
-    @Column(nullable = false)
-    private Integer order_user;
     private String order_note;
     @Column(nullable = false)
     private Date order_time;
     private Date order_reserve_date;
-    @Column(nullable = false)
-    private Integer order_store;
-    private Integer order_confirm_user;
     private Date order_confirm_time;
-    private String order_takeout_period;
     @Column(columnDefinition = "VARCHAR(20) NOT NULL DEFAULT 'ordered'")
     private String order_status;
     private Date order_finished_time;
+
+    @ManyToOne
+    @JoinColumn(name = "order_user", nullable = false, foreignKey = @ForeignKey(name = "FK_orders_users"))
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "order_confirm_user", foreignKey = @ForeignKey(name = "FK_orders_confirm_users"))
+    private User confirmUser;
+
+    @ManyToOne
+    @JoinColumn(name = "order_store", nullable = false, foreignKey = @ForeignKey(name = "FK_orders_stores"))
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "order_takeout_period", foreignKey = @ForeignKey(name = "FK_orders_periods"))
+    private Period takeoutPeriod;
+
+    @OneToMany(mappedBy = "order")
+    private Set<OrderDetail> orderDetails;
+
+    @OneToOne(mappedBy = "order")
+    private Review review;
 
     public Integer getOrder_id() {
         return order_id;
@@ -31,14 +48,6 @@ public class Order {
 
     public void setOrder_id(Integer order_id) {
         this.order_id = order_id;
-    }
-
-    public Integer getOrder_user() {
-        return order_user;
-    }
-
-    public void setOrder_user(Integer order_user) {
-        this.order_user = order_user;
     }
 
     public String getOrder_note() {
@@ -65,36 +74,12 @@ public class Order {
         this.order_reserve_date = order_reserve_date;
     }
 
-    public Integer getOrder_store() {
-        return order_store;
-    }
-
-    public void setOrder_store(Integer order_store) {
-        this.order_store = order_store;
-    }
-
-    public Integer getOrder_confirm_user() {
-        return order_confirm_user;
-    }
-
-    public void setOrder_confirm_user(Integer order_confirm_user) {
-        this.order_confirm_user = order_confirm_user;
-    }
-
     public Date getOrder_confirm_time() {
         return order_confirm_time;
     }
 
     public void setOrder_confirm_time(Date order_confirm_time) {
         this.order_confirm_time = order_confirm_time;
-    }
-
-    public String getOrder_takeout_period() {
-        return order_takeout_period;
-    }
-
-    public void setOrder_takeout_period(String order_takeout_period) {
-        this.order_takeout_period = order_takeout_period;
     }
 
     public String getOrder_status() {
@@ -111,5 +96,53 @@ public class Order {
 
     public void setOrder_finished_time(Date order_finished_time) {
         this.order_finished_time = order_finished_time;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public User getConfirmUser() {
+        return confirmUser;
+    }
+
+    public void setConfirmUser(User confirmUser) {
+        this.confirmUser = confirmUser;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public Period getTakeoutPeriod() {
+        return takeoutPeriod;
+    }
+
+    public void setTakeoutPeriod(Period takeoutPeriod) {
+        this.takeoutPeriod = takeoutPeriod;
+    }
+
+    public Set<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(Set<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public Review getReview() {
+        return review;
+    }
+
+    public void setReview(Review review) {
+        this.review = review;
     }
 }

@@ -1,9 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "operate_types")
@@ -11,11 +9,20 @@ public class OperateType {
 
     @Id
     private String operate_type;
-    @Column(nullable = false)
     private String operate_type_description;
     private String operate_rest_mode;
     @Column(nullable = false)
     private String operate_period;
+
+    @OneToMany(mappedBy = "operateType")
+    private Set<Store> stores;
+
+    public OperateType() {
+    }
+
+    public OperateType(String operate_type) {
+        this.operate_type = operate_type;
+    }
 
     public String getOperate_type() {
         return operate_type;
@@ -47,5 +54,13 @@ public class OperateType {
 
     public void setOperate_period(String operate_period) {
         this.operate_period = operate_period;
+    }
+
+    public Set<Store> getStores() {
+        return stores;
+    }
+
+    public void setStores(Set<Store> stores) {
+        this.stores = stores;
     }
 }

@@ -1,6 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "stores")
@@ -24,12 +25,32 @@ public class Store {
     private Double store_latitude;
     @Column(nullable = false)
     private Double store_longitude;
-    @Column(nullable = false)
-    private Integer store_area;
-    @Column(columnDefinition = "VARCHAR(20) NOT NULL DEFAULT 'wholeday'")
-    private String store_operate_type;
     @Column(columnDefinition = "VARCHAR(10) NOT NULL DEFAULT 'rest'")
     private String store_status;
+
+    @ManyToOne
+    @JoinColumn(name = "store_operate_type", nullable = false, foreignKey = @ForeignKey(name = "FK_stores_operate_types"))
+    private OperateType operateType;
+
+    @ManyToOne
+    @JoinColumn(name = "store_area", nullable = false, foreignKey = @ForeignKey(name = "FK_stores_operate_areas"))
+    private Area area;
+
+    @OneToMany(mappedBy = "store")
+    private Set<StoreAuthorization> storeAuthorizations;
+
+    @OneToMany(mappedBy = "store")
+    private Set<Food> foods;
+
+    @OneToMany(mappedBy = "store")
+    private Set<Order> orders;
+
+    public Store() {
+    }
+
+    public Store(Integer store_id) {
+        this.store_id = store_id;
+    }
 
     public Integer getStore_id() {
         return store_id;
@@ -111,27 +132,58 @@ public class Store {
         this.store_longitude = store_longitude;
     }
 
-    public Integer getStore_area() {
-        return store_area;
-    }
-
-    public void setStore_area(Integer store_area) {
-        this.store_area = store_area;
-    }
-
-    public String getStore_operate_type() {
-        return store_operate_type;
-    }
-
-    public void setStore_operate_type(String store_operate_type) {
-        this.store_operate_type = store_operate_type;
-    }
-
     public String getStore_status() {
         return store_status;
     }
 
     public void setStore_status(String store_status) {
         this.store_status = store_status;
+    }
+
+    public OperateType getOperateType() {
+        return operateType;
+    }
+
+    public void setOperateType(OperateType operateType) {
+        this.operateType = operateType;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public Set<StoreAuthorization> getStoreAuthorizations() {
+        return storeAuthorizations;
+    }
+
+    public void setStoreAuthorizations(Set<StoreAuthorization> storeAuthorizations) {
+        this.storeAuthorizations = storeAuthorizations;
+    }
+
+    public Set<Food> getFoods() {
+        return foods;
+    }
+
+    public void setFoods(Set<Food> foods) {
+        this.foods = foods;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if (operateType == null) {
+            operateType = new OperateType("wholeday");
+        }
     }
 }

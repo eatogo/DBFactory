@@ -1,6 +1,7 @@
 package edu.ntut.eatogo.dbfactory.factory;
 
 import edu.ntut.eatogo.dbfactory.persistence.domain.User;
+import edu.ntut.eatogo.dbfactory.persistence.domain.UserStatus;
 
 import java.util.*;
 
@@ -44,7 +45,7 @@ public class RandomUserFactory {
 		// 用"名"+"姓"當email前綴字
 		generatedUser.setUser_email(generateEmail());
 		generatedUser.setUser_create_time(new Date(System.currentTimeMillis()));
-		generatedUser.setUser_status("normal");
+		generatedUser.setUserStatus(new UserStatus("normal"));
 		return generatedUser;
 	}
 	

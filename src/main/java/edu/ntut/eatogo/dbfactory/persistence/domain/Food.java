@@ -1,6 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "foods")
@@ -19,14 +20,25 @@ public class Food {
     private String food_pic;
     @Column(columnDefinition = "INT NOT NULL DEFAULT '1000'")
     private Integer food_limit;
-    @Column(nullable = false, length = 20)
-    private String food_type;
-    @Column(nullable = false)
-    private Integer food_store;
     @Column(columnDefinition = "VARCHAR(20) NOT NULL DEFAULT 'logging'")
     private String food_status;
-    @Column(columnDefinition = "BIGINT NOT NULL DEFAULT '0'")
-    private Long food_review_count;
+
+    @ManyToOne
+    @JoinColumn(name = "food_type", nullable = false, foreignKey = @ForeignKey(name = "FK_foods_food_types"))
+    private FoodType foodType;
+
+    @ManyToOne
+    @JoinColumn(name = "food_store", nullable = false, foreignKey = @ForeignKey(name = "FK_foods_stores"))
+    private Store store;
+
+    @OneToMany(mappedBy = "food")
+    private Set<OrderDetail> orderDetails;
+
+    @OneToMany(mappedBy = "food")
+    private Set<Favorite> favorites;
+
+    @OneToMany(mappedBy = "food")
+    private Set<Review> reviews;
 
     public Integer getFood_id() {
         return food_id;
@@ -100,22 +112,6 @@ public class Food {
         this.food_limit = food_limit;
     }
 
-    public String getFood_type() {
-        return food_type;
-    }
-
-    public void setFood_type(String food_type) {
-        this.food_type = food_type;
-    }
-
-    public Integer getFood_store() {
-        return food_store;
-    }
-
-    public void setFood_store(Integer food_store) {
-        this.food_store = food_store;
-    }
-
     public String getFood_status() {
         return food_status;
     }
@@ -124,11 +120,43 @@ public class Food {
         this.food_status = food_status;
     }
 
-    public Long getFood_review_count() {
-        return food_review_count;
+    public FoodType getFoodType() {
+        return foodType;
     }
 
-    public void setFood_review_count(Long food_review_count) {
-        this.food_review_count = food_review_count;
+    public void setFoodType(FoodType foodType) {
+        this.foodType = foodType;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public Set<OrderDetail> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(Set<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public Set<Favorite> getFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(Set<Favorite> favorites) {
+        this.favorites = favorites;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 }

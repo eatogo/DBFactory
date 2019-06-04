@@ -1,9 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "identities")
@@ -13,6 +11,9 @@ public class Identity {
     private String identity_type;
     @Column(nullable = false)
     private String identity_description;
+
+    @OneToMany(mappedBy = "identity")
+    private Set<StoreAuthorization> storeAuthorizations;
 
     public String getIdentity_type() {
         return identity_type;
@@ -28,5 +29,13 @@ public class Identity {
 
     public void setIdentity_description(String identity_description) {
         this.identity_description = identity_description;
+    }
+
+    public Set<StoreAuthorization> getStoreAuthorizations() {
+        return storeAuthorizations;
+    }
+
+    public void setStoreAuthorizations(Set<StoreAuthorization> storeAuthorizations) {
+        this.storeAuthorizations = storeAuthorizations;
     }
 }

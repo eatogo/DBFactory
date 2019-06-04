@@ -1,10 +1,8 @@
 package edu.ntut.eatogo.dbfactory.persistence.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Set;
 
 @Entity
 @Table(name = "periods")
@@ -17,6 +15,9 @@ public class Period {
     private Timestamp period_start;
     @Column(columnDefinition = "TIME NOT NULL")
     private Timestamp period_end;
+
+    @OneToMany(mappedBy = "takeoutPeriod")
+    private Set<Order> orders;
 
     public String getPeriod_id() {
         return period_id;
@@ -48,5 +49,13 @@ public class Period {
 
     public void setPeriod_end(Timestamp period_end) {
         this.period_end = period_end;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 }
