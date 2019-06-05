@@ -1,9 +1,9 @@
 package edu.ntut.eatogo.dbfactory.persistence.repository;
 
-import edu.ntut.eatogo.dbfactory.persistence.domain.StoreAuthorization;
+import edu.ntut.eatogo.dbfactory.persistence.domain.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StoreAuthorizationRepository extends JpaRepository<StoreAuthorization, Integer> {
+public interface PermissionRepository extends JpaRepository<Permission, String> {
 }

@@ -27,10 +27,18 @@ public class User {
     private UserStatus userStatus;
 
     @OneToOne(mappedBy = "user")
-    private Authentication authentication;
+    private Token token;
 
-    @OneToMany(mappedBy = "user")
-    private Set<StoreAuthorization> storeAuthorizations;
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = {@JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_users_users_roles"))},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "FK_roles_users_roles"))}
+    )
+    private Set<Role> roles;
+
+    @ManyToMany(mappedBy = "users")
+    private Set<Store> stores;
 
     @OneToMany(mappedBy = "user")
     private Set<Order> orders;
@@ -108,20 +116,28 @@ public class User {
         this.userStatus = userStatus;
     }
 
-    public Authentication getAuthentication() {
-        return authentication;
+    public Token getToken() {
+        return token;
     }
 
-    public void setAuthentication(Authentication authentication) {
-        this.authentication = authentication;
+    public void setToken(Token token) {
+        this.token = token;
     }
 
-    public Set<StoreAuthorization> getStoreAuthorizations() {
-        return storeAuthorizations;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setStoreAuthorizations(Set<StoreAuthorization> storeAuthorizations) {
-        this.storeAuthorizations = storeAuthorizations;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Set<Store> getStores() {
+        return stores;
+    }
+
+    public void setStores(Set<Store> stores) {
+        this.stores = stores;
     }
 
     public Set<Order> getOrders() {

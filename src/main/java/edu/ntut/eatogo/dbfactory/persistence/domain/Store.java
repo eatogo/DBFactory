@@ -36,8 +36,13 @@ public class Store {
     @JoinColumn(name = "store_area", nullable = false, foreignKey = @ForeignKey(name = "FK_stores_operate_areas"))
     private Area area;
 
-    @OneToMany(mappedBy = "store")
-    private Set<StoreAuthorization> storeAuthorizations;
+    @ManyToMany
+    @JoinTable(
+            name = "stores_users",
+            joinColumns = {@JoinColumn(name = "store_id", foreignKey = @ForeignKey(name = "FK_stores_stores_users"))},
+            inverseJoinColumns = {@JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_users_stores_users"))}
+    )
+    private Set<User> users;
 
     @OneToMany(mappedBy = "store")
     private Set<Food> foods;
@@ -156,12 +161,12 @@ public class Store {
         this.area = area;
     }
 
-    public Set<StoreAuthorization> getStoreAuthorizations() {
-        return storeAuthorizations;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setStoreAuthorizations(Set<StoreAuthorization> storeAuthorizations) {
-        this.storeAuthorizations = storeAuthorizations;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public Set<Food> getFoods() {
