@@ -1,2 +1,0 @@
-USE eatogodb;
-CREATE OR REPLACE VIEW `FOODS_WITH_LATLNG` AS SELECT food_id, food_name, food_price, food_intro, food_limit, food_type, food_store, food_status, food_review_count, store_latitude, store_longitude FROM FOODS INNER JOIN STORES ON food_store = store_id;
