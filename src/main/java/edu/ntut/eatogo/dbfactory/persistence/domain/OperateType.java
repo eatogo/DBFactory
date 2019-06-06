@@ -8,11 +8,18 @@ import java.util.Set;
 public class OperateType {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer operate_type_id;
     private String operate_type;
     private String operate_type_description;
-    private String operate_rest_mode;
-    @Column(nullable = false)
-    private String operate_period;
+
+    @ManyToMany
+    @JoinTable(
+            name = "operate_types_periods",
+            joinColumns = {@JoinColumn(name = "operate_type_id", foreignKey = @ForeignKey(name = "FK_operate_types_operate_types_periods"))},
+            inverseJoinColumns = {@JoinColumn(name = "period_id", foreignKey = @ForeignKey(name = "FK_periods_operate_types_periods"))}
+    )
+    private Set<Period> periods;
 
     @OneToMany(mappedBy = "operateType")
     private Set<Store> stores;
@@ -22,6 +29,14 @@ public class OperateType {
 
     public OperateType(String operate_type) {
         this.operate_type = operate_type;
+    }
+
+    public Integer getOperate_type_id() {
+        return operate_type_id;
+    }
+
+    public void setOperate_type_id(Integer operate_type_id) {
+        this.operate_type_id = operate_type_id;
     }
 
     public String getOperate_type() {
@@ -40,20 +55,12 @@ public class OperateType {
         this.operate_type_description = operate_type_description;
     }
 
-    public String getOperate_rest_mode() {
-        return operate_rest_mode;
+    public Set<Period> getPeriods() {
+        return periods;
     }
 
-    public void setOperate_rest_mode(String operate_rest_mode) {
-        this.operate_rest_mode = operate_rest_mode;
-    }
-
-    public String getOperate_period() {
-        return operate_period;
-    }
-
-    public void setOperate_period(String operate_period) {
-        this.operate_period = operate_period;
+    public void setPeriods(Set<Period> periods) {
+        this.periods = periods;
     }
 
     public Set<Store> getStores() {

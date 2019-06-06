@@ -29,7 +29,7 @@ public class Store {
     private String store_status;
 
     @ManyToOne
-    @JoinColumn(name = "store_operate_type", nullable = false, foreignKey = @ForeignKey(name = "FK_stores_operate_types"))
+    @JoinColumn(name = "store_operate_type", foreignKey = @ForeignKey(name = "FK_stores_operate_types"))
     private OperateType operateType;
 
     @ManyToOne
