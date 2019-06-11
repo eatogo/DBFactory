@@ -1,8 +1,8 @@
 package edu.ntut.eatogo.dbfactory.factory;
 
-import edu.ntut.eatogo.dbfactory.persistence.domain.Food;
-import edu.ntut.eatogo.dbfactory.persistence.domain.FoodType;
-import edu.ntut.eatogo.dbfactory.persistence.domain.Store;
+import edu.ntut.eatogo.dbfactory.persistence.entity.Food;
+import edu.ntut.eatogo.dbfactory.persistence.entity.FoodType;
+import edu.ntut.eatogo.dbfactory.persistence.entity.Store;
 
 import java.util.ArrayList;
 import java.util.Arrays;

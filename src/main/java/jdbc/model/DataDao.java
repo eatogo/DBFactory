@@ -3,8 +3,8 @@ package jdbc.model;
 import edu.ntut.eatogo.dbfactory.factory.RandomFoodFactory;
 import edu.ntut.eatogo.dbfactory.factory.RandomTimeFactory;
 import edu.ntut.eatogo.dbfactory.factory.RandomUserFactory;
-import edu.ntut.eatogo.dbfactory.persistence.domain.Food;
-import edu.ntut.eatogo.dbfactory.persistence.domain.User;
+import edu.ntut.eatogo.dbfactory.persistence.entity.Food;
+import edu.ntut.eatogo.dbfactory.persistence.entity.User;
 import jdbc.model.global.DbConnector;
 
 import java.io.*;

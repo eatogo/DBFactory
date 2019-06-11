@@ -1,7 +1,7 @@
 package edu.ntut.eatogo.dbfactory.factory;
 
-import edu.ntut.eatogo.dbfactory.persistence.domain.User;
-import edu.ntut.eatogo.dbfactory.persistence.domain.UserStatus;
+import edu.ntut.eatogo.dbfactory.persistence.entity.User;
+import edu.ntut.eatogo.dbfactory.persistence.entity.UserStatus;
 
 import java.util.*;
 
