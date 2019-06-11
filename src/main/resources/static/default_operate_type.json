@@ -1,0 +1,14 @@
+[
+   {
+      "operate_type":"wholeday",
+      "operate_type_description":"全日營業型"
+   },
+   {
+      "operate_type":"noon",
+      "operate_type_description":"中午營業"
+   },
+   {
+      "operate_type":"evening",
+      "operate_type_description":"傍晚營業"
+   }
+]

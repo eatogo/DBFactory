@@ -1,0 +1,34 @@
+[
+   {
+      "food_type":"chinese",
+      "food_description":"中式"
+   },
+   {
+      "food_type":"japanese",
+      "food_description":"日式"
+   },
+   {
+      "food_type":"american",
+      "food_description":"美式"
+   },
+   {
+      "food_type":"thailand",
+      "food_description":"泰式"
+   },
+   {
+      "food_type":"korean",
+      "food_description":"韓式"
+   },
+   {
+      "food_type":"italian",
+      "food_description":"義式"
+   },
+   {
+      "food_type":"hongkong",
+      "food_description":"港式"
+   },
+   {
+      "food_type":"beverage",
+      "food_description":"茶飲類"
+   }
+]

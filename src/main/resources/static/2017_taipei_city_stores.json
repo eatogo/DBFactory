@@ -1,0 +1,1090 @@
+[
+ {
+   "store_name": "92水鳥",
+   "store_address": "臺北市北投區知行路92號1樓",
+   "store_phone": "02-2858-8668",
+   "store_longitude": 121.468759,
+   "store_latitude": 25.118319,
+   "store_area": 112
+ },
+ {
+   "store_name": "ANTICO FORNO 老烤箱義式手桿披薩",
+   "store_address": "臺北市大安區瑞安街141號1樓",
+   "store_phone": "02-2706-3322",
+   "store_longitude": 121.539679,
+   "store_latitude": 25.026711,
+   "store_area": 106
+ },
+ {
+   "store_name": "Botega del vin",
+   "store_address": "臺北市大安區忠孝東路4段170巷17弄7號",
+   "store_phone": "02-2752-5330",
+   "store_longitude": 121.551405,
+   "store_latitude": 25.040015,
+   "store_area": 106
+ },
+ {
+   "store_name": "Cova Taiwan",
+   "store_address": "臺北市信義區忠孝東路5段68號2樓",
+   "store_phone": "02-2722-7655",
+   "store_longitude": 121.566896,
+   "store_latitude": 25.040504,
+   "store_area": 110
+ },
+ {
+   "store_name": "EL AMOR 西班亞 TAPAS & BAR",
+   "store_address": "臺北市中山區中山北路2段27巷2號1樓",
+   "store_phone": "02-2523-1681",
+   "store_longitude": 121.523183,
+   "store_latitude": 25.053162,
+   "store_area": 104
+ },
+ {
+   "store_name": "HESTIA-西班牙小酒館",
+   "store_address": "臺北市松山區民生東路3段130巷18弄4號1樓",
+   "store_phone": "02-2715-3707",
+   "store_longitude": 121.545849,
+   "store_latitude": 25.056481,
+   "store_area": 105
+ },
+ {
+   "store_name": "Hidden by DN 隱丹廚",
+   "store_address": "臺北市大安區延吉街261號",
+   "store_phone": "0909-849-937",
+   "store_longitude": 121.556841,
+   "store_latitude": 25.03422,
+   "store_area": 106
+ },
+ {
+   "store_name": "Howfun Paella Bar & Bistro好飯食堂",
+   "store_address": "臺北市內湖區瑞光路589號1樓",
+   "store_phone": "02-8751-3332",
+   "store_longitude": 121.567586,
+   "store_latitude": 25.080336,
+   "store_area": 114
+ },
+ {
+   "store_name": "Jamie's Italian",
+   "store_address": "臺北市信義區松壽路11號3樓",
+   "store_phone": "02-8780-2050",
+   "store_longitude": 121.567235,
+   "store_latitude": 25.036014,
+   "store_area": 110
+ },
+ {
+   "store_name": "JAPOLI義大利餐酒館",
+   "store_address": "臺北市大安區忠孝東路4段49巷2號B1",
+   "store_phone": "02-2731-6633",
+   "store_longitude": 121.545381,
+   "store_latitude": 25.042205,
+   "store_area": 106
+ },
+ {
+   "store_name": "L’origine La Credenza歐傑洛義式餐廳",
+   "store_address": "臺北市南港區忠孝東路7段528號2樓",
+   "store_phone": "02-2789-3358",
+   "store_longitude": 121.61158,
+   "store_latitude": 25.05233,
+   "store_area": 115
+ },
+ {
+   "store_name": "LA CAJA DE MUSICA樂盒子",
+   "store_address": "臺北市大同區長安西路138巷3弄18號1樓",
+   "store_phone": "0975-330-741",
+   "store_longitude": 121.51814,
+   "store_latitude": 25.050168,
+   "store_area": 103
+ },
+ {
+   "store_name": "La Cocotte 法式餐廳",
+   "store_address": "臺北市大安區金山南路2段13巷20號",
+   "store_phone": "02-3322-3289",
+   "store_longitude": 121.52847,
+   "store_latitude": 25.033287,
+   "store_area": 106
+ },
+ {
+   "store_name": "La Lupa Classic 經典母狼",
+   "store_address": "臺北市大同區迪化街1段244號",
+   "store_phone": "02-2557-7980",
+   "store_longitude": 121.50929,
+   "store_latitude": 25.060126,
+   "store_area": 103
+ },
+ {
+   "store_name": "La MESA 西班牙餐廳",
+   "store_address": "臺北市大安區延吉街137巷33號",
+   "store_phone": "02-2778-7676",
+   "store_longitude": 121.555629,
+   "store_latitude": 25.042078,
+   "store_area": 106
+ },
+ {
+   "store_name": "La Piola Cucina Italiana",
+   "store_address": "臺北市大安區光復南路308巷45號1樓",
+   "store_phone": "02-2740-6638",
+   "store_longitude": 121.555773,
+   "store_latitude": 25.038845,
+   "store_area": 106
+ },
+ {
+   "store_name": "La Querida小情人",
+   "store_address": "臺北市中山區玉門街1號1樓",
+   "store_phone": "02-2585-2488",
+   "store_longitude": 121.521754,
+   "store_latitude": 25.070328,
+   "store_area": 104
+ },
+ {
+   "store_name": "Le Blanc",
+   "store_address": "臺北市大安區大安路1段183號",
+   "store_phone": "02-2700-7770",
+   "store_longitude": 121.546186,
+   "store_latitude": 25.036213,
+   "store_area": 106
+ },
+ {
+   "store_name": "LuLu義大利餐廳",
+   "store_address": "臺北市松山區民生東路3段113巷9號",
+   "store_phone": "02-2713-2250",
+   "store_longitude": 121.546235,
+   "store_latitude": 25.058652,
+   "store_area": 105
+ },
+ {
+   "store_name": "MVSA Spanish Restaurant & Bar沐紗西班牙餐廳",
+   "store_address": "臺北市大安區敦化南路2段81巷22號1樓",
+   "store_phone": "02 2705 8918",
+   "store_longitude": 121.550228,
+   "store_latitude": 25.029858,
+   "store_area": 106
+ },
+ {
+   "store_name": "Orchid Restaurant 蘭",
+   "store_address": "臺北市大安區安和路2段83號",
+   "store_phone": "02-2378-3333",
+   "store_longitude": 121.552181,
+   "store_latitude": 25.030076,
+   "store_area": 106
+ },
+ {
+   "store_name": "Origines",
+   "store_address": "臺北市大安區敦化南路2段81巷31號",
+   "store_phone": "02-2701-4545",
+   "store_longitude": 121.550108,
+   "store_latitude": 25.030071,
+   "store_area": 106
+ },
+ {
+   "store_name": "Osteria by Angie",
+   "store_address": "臺北市中山區樂群三路61號",
+   "store_phone": "02-8502-7733",
+   "store_longitude": 121.553051,
+   "store_latitude": 25.082804,
+   "store_area": 104
+ },
+ {
+   "store_name": "PURO PURO西班牙傳統海鮮料理餐廳",
+   "store_address": "臺北市中山區八德路2段265號1樓",
+   "store_phone": "02-2778-4818",
+   "store_longitude": 121.541402,
+   "store_latitude": 25.047095,
+   "store_area": 104
+ },
+ {
+   "store_name": "Puti Puti",
+   "store_address": "臺北市松山區東興路12號1樓",
+   "store_phone": "02-2747-5007",
+   "store_longitude": 121.565201,
+   "store_latitude": 25.049888,
+   "store_area": 105
+ },
+ {
+   "store_name": "RAW",
+   "store_address": "臺北市中山區樂群三路301號",
+   "store_phone": "02-8501-5800",
+   "store_longitude": 121.559524,
+   "store_latitude": 25.083027,
+   "store_area": 104
+ },
+ {
+   "store_name": "S Hotel-HYG 北歐美饌",
+   "store_address": "臺北市松山區敦化北路150號",
+   "store_phone": "02-2712-0877",
+   "store_longitude": 121.548593,
+   "store_latitude": 25.054745,
+   "store_area": 105
+ },
+ {
+   "store_name": "Solo Pasta",
+   "store_address": "臺北市大安區安和路1段29-1號1樓",
+   "store_phone": "02-2775-3645",
+   "store_longitude": 121.55059,
+   "store_latitude": 25.039163,
+   "store_area": 106
+ },
+ {
+   "store_name": "Solo Pizza Napoletana",
+   "store_address": "臺北市大同區赤峰街8巷4號1樓",
+   "store_phone": "02-2550-6236",
+   "store_longitude": 121.519125,
+   "store_latitude": 25.053823,
+   "store_area": 103
+ },
+ {
+   "store_name": "Ta?rroir 態芮",
+   "store_address": "臺北市中山區樂群三路299號6樓",
+   "store_phone": "02-8501-5500",
+   "store_longitude": 121.559246,
+   "store_latitude": 25.082774,
+   "store_area": 104
+ },
+ {
+   "store_name": "Woolloomooloo(西門店)",
+   "store_address": "臺北市萬華區武昌街2段120巷2號1F",
+   "store_phone": "02-2388-8180",
+   "store_longitude": 121.50395,
+   "store_latitude": 25.045071,
+   "store_area": 108
+ },
+ {
+   "store_name": "巴獅子德國餐廳",
+   "store_address": "臺北市大安區敦化南路2段63巷19號",
+   "store_phone": "02-2325-6457",
+   "store_longitude": 121.550003,
+   "store_latitude": 25.031036,
+   "store_area": 106
+ },
+ {
+   "store_name": "台北西華飯店-Toscana義大利餐廳",
+   "store_address": "臺北市松山區民生東路3段111號",
+   "store_phone": "02-2718-1188",
+   "store_longitude": 121.545744,
+   "store_latitude": 25.058204,
+   "store_area": 105
+ },
+ {
+   "store_name": "台北君悅酒店-寶艾西餐廳",
+   "store_address": "臺北市信義區松壽路2號2樓",
+   "store_phone": "02-2720-1230",
+   "store_longitude": 121.562593,
+   "store_latitude": 25.035691,
+   "store_area": 110
+ },
+ {
+   "store_name": "台北亞都麗緻大飯店-巴黎廳1930 ",
+   "store_address": "臺北市中山區民權東路2段41號2樓",
+   "store_phone": "02-2597-1234",
+   "store_longitude": 121.529967,
+   "store_latitude": 25.062767,
+   "store_area": 104
+ },
+ {
+   "store_name": "台北亞都麗緻大飯店-巴賽麗廳",
+   "store_address": "臺北市中山區民權東路2段41號",
+   "store_phone": "02-2597-1234",
+   "store_longitude": 121.529967,
+   "store_latitude": 25.062767,
+   "store_area": 104
+ },
+ {
+   "store_name": "台北文華東方酒店-BENCOTTO",
+   "store_address": "臺北市松山區敦化北路158號6樓",
+   "store_phone": "02-2715-6868",
+   "store_longitude": 121.548364,
+   "store_latitude": 25.055554,
+   "store_area": 105
+ },
+ {
+   "store_name": "台北松山意舍酒店-Que 原木燒烤餐廳",
+   "store_address": "臺北市南港區市民大道7段8號17樓",
+   "store_phone": "02-2653-2899",
+   "store_longitude": 121.580502,
+   "store_latitude": 25.049281,
+   "store_area": 115
+ },
+ {
+   "store_name": "台北喜來登大飯店比薩屋",
+   "store_address": "臺北市中正區忠孝東路1段12號B1",
+   "store_phone": "02-2321-1818",
+   "store_longitude": 121.522054,
+   "store_latitude": 25.044972,
+   "store_area": 100
+ },
+ {
+   "store_name": "台北寒舍艾美酒店-探索廚房",
+   "store_address": "臺北市信義區松仁路38號",
+   "store_phone": "02-6622-8000",
+   "store_longitude": 121.568177,
+   "store_latitude": 25.038268,
+   "store_area": 110
+ },
+ {
+   "store_name": "台北晶華酒店-Robin's 鐵板燒",
+   "store_address": "臺北市中山區中山北路2段39巷3號2樓",
+   "store_phone": "02-2521-5000 #3930",
+   "store_longitude": 121.524244,
+   "store_latitude": 25.054178,
+   "store_area": 104
+ },
+ {
+   "store_name": "行冊Walkingbook",
+   "store_address": "臺北市大同區延平北路2段33號",
+   "store_phone": "02-2558-0915",
+   "store_longitude": 121.511835,
+   "store_latitude": 25.054857,
+   "store_area": 103
+ },
+ {
+   "store_name": "沾美西餐廳",
+   "store_address": "臺北市大安區仁愛路4段77號B1",
+   "store_phone": "02-2711-7750",
+   "store_longitude": 121.547384,
+   "store_latitude": 25.038234,
+   "store_area": 106
+ },
+ {
+   "store_name": "金色三麥(誠品信義店)",
+   "store_address": "臺北市信義區松高路11號B1",
+   "store_phone": "02-8789-5911",
+   "store_longitude": 121.565874,
+   "store_latitude": 25.03972,
+   "store_area": 110
+ },
+ {
+   "store_name": "哈古小館",
+   "store_address": "臺北市松山區富錦街469號",
+   "store_phone": "02-2767-8483",
+   "store_longitude": 121.562463,
+   "store_latitude": 25.060959,
+   "store_area": 105
+ },
+ {
+   "store_name": "香格里拉台北遠東國際大飯店-馬可波羅餐廳(Marco Polo)",
+   "store_address": "臺北市大安區敦化南路2段201號38樓",
+   "store_phone": "02-2376-3156",
+   "store_longitude": 121.549282,
+   "store_latitude": 25.026612,
+   "store_area": 106
+ },
+ {
+   "store_name": "雅室牛排館",
+   "store_address": "臺北市大安區安和路1段49巷10號1樓",
+   "store_phone": "02-2775-3011",
+   "store_longitude": 121.551548,
+   "store_latitude": 25.038428,
+   "store_area": 106
+ },
+ {
+   "store_name": "新帆船澳門葡國餐廳Restaurante Vela Latina",
+   "store_address": "臺北市大安區敦化南路一段190巷12號",
+   "store_phone": "02-2771-1980",
+   "store_longitude": 121.547877,
+   "store_latitude": 25.04256,
+   "store_area": 106
+ },
+ {
+   "store_name": "溫德德式烘焙餐廳",
+   "store_address": "臺北市士林區德行西路5號",
+   "store_phone": "02-2831-4415",
+   "store_longitude": 121.524482,
+   "store_latitude": 25.106396,
+   "store_area": 111
+ },
+ {
+   "store_name": "歐華酒店-地中海牛排館",
+   "store_address": "臺北市中山區林森北路646號",
+   "store_phone": "02-2585-3258",
+   "store_longitude": 121.525574,
+   "store_latitude": 25.068242,
+   "store_area": 104
+ },
+ {
+   "store_name": "賦樂旅居-TK Seafood & Steak",
+   "store_address": "臺北市大安區大安路1段56號1樓",
+   "store_phone": "0903-393-008",
+   "store_longitude": 121.546025,
+   "store_latitude": 25.043021,
+   "store_area": 106
+ },
+ {
+   "store_name": "豐舍",
+   "store_address": "臺北市大同區迪化街1段356-2號1樓",
+   "store_phone": "02-2557-9935",
+   "store_longitude": 121.509179,
+   "store_latitude": 25.062488,
+   "store_area": 103
+ },
+ {
+   "store_name": "MaiSEN邁泉豬排",
+   "store_address": "臺北市信義區松壽路9號新光信義A9-6樓",
+   "store_phone": "02-2722-2138",
+   "store_longitude": 121.566667,
+   "store_latitude": 25.036615,
+   "store_area": 110
+ },
+ {
+   "store_name": "德相N.C.I.S美式加州壽司",
+   "store_address": "臺北市大安區忠孝東路4段216巷27弄4號",
+   "store_phone": "02-2721-6952",
+   "store_longitude": 121.553254,
+   "store_latitude": 25.039832,
+   "store_area": 106
+ },
+ {
+   "store_name": "????花月嵐拉麵(西門武昌店)",
+   "store_address": "臺北市萬華區武昌街2段29號1樓",
+   "store_phone": "02-2361-5358",
+   "store_longitude": 121.507877,
+   "store_latitude": 25.044605,
+   "store_area": 108
+ },
+ {
+   "store_name": "三井日本料理(本館)",
+   "store_address": "臺北市中山區農安街30號",
+   "store_phone": "02-2594-3394",
+   "store_longitude": 121.526705,
+   "store_latitude": 25.064831,
+   "store_area": 104
+ },
+ {
+   "store_name": "三元花園韓式餐廳(潭美店)",
+   "store_address": "臺北市內湖區石潭路1號1樓",
+   "store_phone": "02-2792-7222",
+   "store_longitude": 121.585527,
+   "store_latitude": 25.063159,
+   "store_area": 114
+ },
+ {
+   "store_name": "三花日式料理",
+   "store_address": "臺北市中山區建國北路2段9-2號1樓",
+   "store_phone": "02-8978-5000",
+   "store_longitude": 121.537289,
+   "store_latitude": 25.053336,
+   "store_area": 104
+ },
+ {
+   "store_name": "大戶屋(微風台北車站店)",
+   "store_address": "臺北市中正區北平西路3號2樓",
+   "store_phone": "02-2331-9337",
+   "store_longitude": 121.517374,
+   "store_latitude": 25.047702,
+   "store_area": 100
+ },
+ {
+   "store_name": "大吉漢堡食堂",
+   "store_address": "臺北市信義區富陽街44巷23號1樓",
+   "store_phone": "02-8732-6519",
+   "store_longitude": 121.555592,
+   "store_latitude": 25.023147,
+   "store_area": 110
+ },
+ {
+   "store_name": "大腕燒肉專門店",
+   "store_address": "臺北市大安區敦化南路1段177巷22號",
+   "store_phone": "02-2711-0179",
+   "store_longitude": 121.550194,
+   "store_latitude": 25.042932,
+   "store_area": 106
+ },
+ {
+   "store_name": "手串本舖",
+   "store_address": "臺北市大安區仁愛路4段8巷20號",
+   "store_phone": "02-2705-2892",
+   "store_longitude": 121.544291,
+   "store_latitude": 25.037191,
+   "store_area": 106
+ },
+ {
+   "store_name": "錦水TAIPEI",
+   "store_address": "臺北市中山區樂群三路299號5樓",
+   "store_phone": "02-8501-5329",
+   "store_longitude": 121.559246,
+   "store_latitude": 25.082774,
+   "store_area": 104
+ },
+ {
+   "store_name": "台北老爺酒店-中山日本料理廳",
+   "store_address": "臺北市中山區中山北路2段37之1號2F",
+   "store_phone": "02-2542-3299#328",
+   "store_longitude": 121.522929,
+   "store_latitude": 25.053879,
+   "store_area": 104
+ },
+ {
+   "store_name": "旬採鮨?(信義店)",
+   "store_address": "臺北市大安區信義路4段199巷3號",
+   "store_phone": "02-2707-1383",
+   "store_longitude": 121.551746,
+   "store_latitude": 25.033699,
+   "store_area": 106
+ },
+ {
+   "store_name": "炙酒食廚房",
+   "store_address": "臺北市大安區光復南路290巷66號",
+   "store_phone": "02-2772-8959",
+   "store_longitude": 121.555282,
+   "store_latitude": 25.039323,
+   "store_area": 106
+ },
+ {
+   "store_name": "南大門",
+   "store_address": "臺北市中山區林森北路119巷63號1樓",
+   "store_phone": "02-2571-1017",
+   "store_longitude": 121.527172,
+   "store_latitude": 25.050328,
+   "store_area": 104
+ },
+ {
+   "store_name": "紅花鐵板燒",
+   "store_address": "臺北市信義區市府路45號5樓",
+   "store_phone": "02-8101-8102",
+   "store_longitude": 121.564101,
+   "store_latitude": 25.033493,
+   "store_area": 110
+ },
+ {
+   "store_name": "葫同燒肉夜食",
+   "store_address": "臺北市中山區樂群二路199號",
+   "store_phone": "02-8501-5152",
+   "store_longitude": 121.558944,
+   "store_latitude": 25.080452,
+   "store_area": 104
+ },
+ {
+   "store_name": "香格里拉台北遠東國際大飯店-ibuki by TAKAGI KAZUO",
+   "store_address": "臺北市大安區敦化南路2段201號7樓",
+   "store_phone": "02-7711-2080",
+   "store_longitude": 121.549282,
+   "store_latitude": 25.026612,
+   "store_area": 106
+ },
+ {
+   "store_name": "涓豆腐(松山店)",
+   "store_address": "臺北市信義區松山路11號2樓",
+   "store_phone": "02-2747-3088",
+   "store_longitude": 121.578299,
+   "store_latitude": 25.04919,
+   "store_area": 110
+ },
+ {
+   "store_name": "?鮨 SASA",
+   "store_address": "臺北市中山區中山北路2段42巷6號1樓",
+   "store_phone": "02-2561-1246",
+   "store_longitude": 121.522091,
+   "store_latitude": 25.054553,
+   "store_area": 104
+ },
+ {
+   "store_name": "菊元日本料理",
+   "store_address": "臺北市大同區民生西路300號3~4樓",
+   "store_phone": "02-2555-7566",
+   "store_longitude": 121.512338,
+   "store_latitude": 25.056847,
+   "store_area": 103
+ },
+ {
+   "store_name": "逸鮮棧餐廳",
+   "store_address": "臺北市信義區忠孝東路4段500之3號",
+   "store_phone": "02-2725-3555",
+   "store_longitude": 121.561897,
+   "store_latitude": 25.040755,
+   "store_area": 110
+ },
+ {
+   "store_name": "新丼",
+   "store_address": "臺北市大同區長安西路66號",
+   "store_phone": "02-2555-9292",
+   "store_longitude": 121.519591,
+   "store_latitude": 25.050224,
+   "store_area": 103
+ },
+ {
+   "store_name": "燈燈庵TOUTOUAN",
+   "store_address": "臺北市大安區敦化南路2段81巷20號",
+   "store_phone": "02-2705-0101",
+   "store_longitude": 121.550123,
+   "store_latitude": 25.029849,
+   "store_area": 106
+ },
+ {
+   "store_name": "燒桶子韓風立燒",
+   "store_address": "臺北市大安區延吉街99號1樓 ",
+   "store_phone": "02-2721-9192",
+   "store_longitude": 121.554073,
+   "store_latitude": 25.043328,
+   "store_area": 106
+ },
+ {
+   "store_name": "鮨一",
+   "store_address": "臺北市中山區民權東路3段60巷4號",
+   "store_phone": "02-2502-5488",
+   "store_longitude": 121.542286,
+   "store_latitude": 25.061673,
+   "store_area": 104
+ },
+ {
+   "store_name": "上海鄉村(仁愛店)",
+   "store_address": "臺北市中正區仁愛路1段17號B1",
+   "store_phone": "02-2396-5154",
+   "store_longitude": 121.522255,
+   "store_latitude": 25.038982,
+   "store_area": 100
+ },
+ {
+   "store_name": "天廚菜館",
+   "store_address": "臺北市中山區南京西路1號3~4樓",
+   "store_phone": "02-2563-2171",
+   "store_longitude": 121.522142,
+   "store_latitude": 25.052453,
+   "store_area": 104
+ },
+ {
+   "store_name": "兄弟飯店-蘭花廳",
+   "store_address": "臺北市松山區南京東路3段255號2F",
+   "store_phone": "02-2712-3456",
+   "store_longitude": 121.544596,
+   "store_latitude": 25.052051,
+   "store_area": 105
+ },
+ {
+   "store_name": "台北W飯店-YEN紫艷中餐廳",
+   "store_address": "臺北市信義區忠孝東路5段10號31樓",
+   "store_phone": "02-7703-8887",
+   "store_longitude": 121.567059,
+   "store_latitude": 25.040399,
+   "store_area": 110
+ },
+ {
+   "store_name": "台北國賓大飯店-川菜廳",
+   "store_address": "臺北市中山區中山北路2段63號12樓",
+   "store_phone": "02-2551-1111#2383",
+   "store_longitude": 121.52313,
+   "store_latitude": 25.056582,
+   "store_area": 104
+ },
+ {
+   "store_name": "成家小館(創始店)",
+   "store_address": "臺北市文山區木新路3段154號",
+   "store_phone": "02-2937-4611",
+   "store_longitude": 121.561337,
+   "store_latitude": 24.981824,
+   "store_area": 116
+ },
+ {
+   "store_name": "?和院 台灣風格飲食",
+   "store_address": "臺北市大安區忠孝東路4段101巷14號",
+   "store_phone": "02-2731-3833",
+   "store_longitude": 121.54789,
+   "store_latitude": 25.042396,
+   "store_area": 106
+ },
+ {
+   "store_name": "欣葉臺菜(創始店)",
+   "store_address": "臺北市中山區雙城街34-1號",
+   "store_phone": "02-2596-3255",
+   "store_longitude": 121.524189,
+   "store_latitude": 25.066534,
+   "store_area": 104
+ },
+ {
+   "store_name": "青葉餐廳(中山店)",
+   "store_address": "臺北市中山區中山北路1段105巷10號",
+   "store_phone": "02-2551-7957",
+   "store_longitude": 121.523496,
+   "store_latitude": 25.050636,
+   "store_area": 104
+ },
+ {
+   "store_name": "紅豆食府(信義店)",
+   "store_address": "臺北市信義區松壽路9號7樓",
+   "store_phone": "02-8789-2929",
+   "store_longitude": 121.566575,
+   "store_latitude": 25.036018,
+   "store_area": 110
+ },
+ {
+   "store_name": "秦味館",
+   "store_address": "臺北市大安區延吉街138巷2號",
+   "store_phone": "02-8771-3288",
+   "store_longitude": 121.554622,
+   "store_latitude": 25.040001,
+   "store_area": 106
+ },
+ {
+   "store_name": "高記 (永康店)",
+   "store_address": "臺北市大安區永康街1號",
+   "store_phone": "02-2341-9984",
+   "store_longitude": 121.529971,
+   "store_latitude": 25.033331,
+   "store_area": 106
+ },
+ {
+   "store_name": "彭園湘菜館",
+   "store_address": "臺北市中山區林森北路380號2樓",
+   "store_phone": "02-2551-9157",
+   "store_longitude": 121.525351,
+   "store_latitude": 25.058442,
+   "store_area": 104
+ },
+ {
+   "store_name": "華泰王子飯店-九華樓",
+   "store_address": "臺北市中山區林森北路 369 號 2 樓",
+   "store_phone": "02-7721-6619",
+   "store_longitude": 121.525759,
+   "store_latitude": 25.057856,
+   "store_area": 104
+ },
+ {
+   "store_name": "開飯川食堂(忠孝店)",
+   "store_address": "臺北市大安區忠孝東路4段98號7樓",
+   "store_phone": "02-8771-6238",
+   "store_longitude": 121.546325,
+   "store_latitude": 25.041095,
+   "store_area": 106
+ },
+ {
+   "store_name": "一東方精緻料理餐廳",
+   "store_address": "臺北市松山區民生東路3段122號",
+   "store_phone": "02-8712-2068",
+   "store_longitude": 121.545405,
+   "store_latitude": 25.05744,
+   "store_area": 105
+ },
+ {
+   "store_name": "鼎泰豐(信義店)",
+   "store_address": "臺北市大安區信義路2段194號",
+   "store_phone": "02-2321-8928",
+   "store_longitude": 121.530112,
+   "store_latitude": 25.033483,
+   "store_area": 106
+ },
+ {
+   "store_name": "榮榮園",
+   "store_address": "臺北市大安區信義路4段25號2樓",
+   "store_phone": "02-2703-8822",
+   "store_longitude": 121.544829,
+   "store_latitude": 25.03366,
+   "store_area": 106
+ },
+ {
+   "store_name": "福州新利菜館",
+   "store_address": "臺北市中山區龍江路85號",
+   "store_phone": "02-2771-2088",
+   "store_longitude": 121.540555,
+   "store_latitude": 25.051202,
+   "store_area": 104
+ },
+ {
+   "store_name": "福華大飯店-蓬萊? Formosa",
+   "store_address": "臺北市大安區仁愛路3段160號B1",
+   "store_phone": "02-2326-7433",
+   "store_longitude": 121.543155,
+   "store_latitude": 25.037649,
+   "store_area": 106
+ },
+ {
+   "store_name": "聚馥園",
+   "store_address": "臺北市中山區南京東路3段219號3樓",
+   "store_phone": "02-2718-5588",
+   "store_longitude": 121.543253,
+   "store_latitude": 25.052128,
+   "store_area": 104
+ },
+ {
+   "store_name": "熱海大飯店-熱海廳",
+   "store_address": "臺北市北投區光明路258號",
+   "store_phone": "02-2892-1366",
+   "store_longitude": 121.509227,
+   "store_latitude": 25.136576,
+   "store_area": 112
+ },
+ {
+   "store_name": "雞家莊(六條通店)",
+   "store_address": "臺北市中山區中山北路1段105巷9號",
+   "store_phone": "02-2541-8261",
+   "store_longitude": 121.523012,
+   "store_latitude": 25.050885,
+   "store_area": 104
+ },
+ {
+   "store_name": "鬍鬚張美食文化館",
+   "store_address": "臺北市大同區寧夏路62 號",
+   "store_phone": "02-2558-9489",
+   "store_longitude": 121.515385,
+   "store_latitude": 25.056755,
+   "store_area": 103
+ },
+ {
+   "store_name": "肉舖廚房",
+   "store_address": "臺北市中山區玉門街1號",
+   "store_phone": "02-2597-1506",
+   "store_longitude": 121.521754,
+   "store_latitude": 25.070328,
+   "store_area": 104
+ },
+ {
+   "store_name": "Danny's WhatsGrill",
+   "store_address": "臺北市內湖區洲子街105號",
+   "store_phone": "02-2656-0011",
+   "store_longitude": 121.569742,
+   "store_latitude": 25.080854,
+   "store_area": 114
+ },
+ {
+   "store_name": "GB鮮釀餐廳(新光三越A11館)",
+   "store_address": "臺北市信義區松壽路11號2樓 ",
+   "store_phone": "02-8786-7588",
+   "store_longitude": 121.567235,
+   "store_latitude": 25.036014,
+   "store_area": 110
+ },
+ {
+   "store_name": "Lawry's 勞瑞斯牛肋排餐廳",
+   "store_address": "臺北市信義區松仁路105號B1 (克緹國際大樓)",
+   "store_phone": "02-2729-8555",
+   "store_longitude": 121.569262,
+   "store_latitude": 25.035478,
+   "store_area": 110
+ },
+ {
+   "store_name": "Macho Tacos瑪丘墨式餅舖(延吉店)",
+   "store_address": "臺北市大安區延吉街126巷3號 ",
+   "store_phone": "02-2731-4489",
+   "store_longitude": 121.554413,
+   "store_latitude": 25.040423,
+   "store_area": 106
+ },
+ {
+   "store_name": "Mighty Quinn's Barbeque麥笛昆餐廳",
+   "store_address": "臺北市大安區仁愛路4段109號1樓",
+   "store_phone": "02-2772-6174",
+   "store_longitude": 121.549836,
+   "store_latitude": 25.038206,
+   "store_area": 106
+ },
+ {
+   "store_name": "O'Steak",
+   "store_address": "臺北市大安區金華街164巷1弄6號1樓",
+   "store_phone": "02-2393-1616",
+   "store_longitude": 121.531073,
+   "store_latitude": 25.029304,
+   "store_area": 106
+ },
+ {
+   "store_name": "PICO PICO Restaurant & Bar",
+   "store_address": "臺北市大安區安和路1段102巷28號",
+   "store_phone": "02-2755-1161",
+   "store_longitude": 121.550363,
+   "store_latitude": 25.034264,
+   "store_area": 106
+ },
+ {
+   "store_name": "Ruth's Chris",
+   "store_address": "臺北市松山區民生東路3段135號",
+   "store_phone": "02-2545-8888",
+   "store_longitude": 121.548452,
+   "store_latitude": 25.058093,
+   "store_area": 105
+ },
+ {
+   "store_name": "the Chips美式餐廳(光復店)",
+   "store_address": "臺北市大安區光復南路280巷37號",
+   "store_phone": "02-2778-9993",
+   "store_longitude": 121.555739,
+   "store_latitude": 25.039787,
+   "store_area": 106
+ },
+ {
+   "store_name": "Twinkeyz Tacos",
+   "store_address": "臺北市大安區延吉街131巷7之1號",
+   "store_phone": "02-2778-7707",
+   "store_longitude": 121.554667,
+   "store_latitude": 25.042739,
+   "store_area": 106
+ },
+ {
+   "store_name": "艾迪墨西哥餐廳(天母2店)",
+   "store_address": "臺北市士林區天母東路63號",
+   "store_phone": "02-2872-1848",
+   "store_longitude": 121.534067,
+   "store_latitude": 25.118275,
+   "store_area": 111
+ },
+ {
+   "store_name": "洋旗洋蔥牛排餐廳",
+   "store_address": "臺北市大安區羅斯福路3段245號2F",
+   "store_phone": "02-2367-2559",
+   "store_longitude": 121.529996,
+   "store_latitude": 25.019332,
+   "store_area": 106
+ },
+ {
+   "store_name": "發福廚房(民權店)",
+   "store_address": "臺北市松山區民權東路3段140巷7號",
+   "store_phone": "02-2713-5923",
+   "store_longitude": 121.546739,
+   "store_latitude": 25.061284,
+   "store_area": 105
+ },
+ {
+   "store_name": "貳樓(敦南店)",
+   "store_address": "臺北市大安區敦化南路2段63巷14號",
+   "store_phone": "02-2700-9855",
+   "store_longitude": 121.550009,
+   "store_latitude": 25.030831,
+   "store_area": 106
+ },
+ {
+   "store_name": "台北寶萊納餐廳(關渡店)",
+   "store_address": "臺北市北投區學園路1號",
+   "store_phone": "02-2891-7677",
+   "store_longitude": 121.466438,
+   "store_latitude": 25.131767,
+   "store_area": 112
+ },
+ {
+   "store_name": "小紅點新加坡廚房 (Red.)",
+   "store_address": "臺北市大安區大安路1段51巷30號1樓",
+   "store_phone": "02-2779-0160",
+   "store_longitude": 121.547371,
+   "store_latitude": 25.042946,
+   "store_area": 106
+ },
+ {
+   "store_name": "金爸爸南港店",
+   "store_address": "臺北市南港區經貿二路166號1樓",
+   "store_phone": "02-2785-7677",
+   "store_longitude": 121.616812,
+   "store_latitude": 25.058699,
+   "store_area": 115
+ },
+ {
+   "store_name": "TAJ泰姬印度餐廳",
+   "store_address": "臺北市大安區市民大道4段48巷1號",
+   "store_phone": "02-8773-0175",
+   "store_longitude": 121.545862,
+   "store_latitude": 25.044733,
+   "store_area": 106
+ },
+ {
+   "store_name": "Thai&Thai Restaurant",
+   "store_address": "臺北市松山區敦化北路158號5樓",
+   "store_phone": "02-2719-6689",
+   "store_longitude": 121.548364,
+   "store_latitude": 25.055554,
+   "store_area": 105
+ },
+ {
+   "store_name": "台北泰(民生店)",
+   "store_address": "臺北市松山區民生東路5段164號1樓",
+   "store_phone": "02-3765-2352",
+   "store_longitude": 121.562765,
+   "store_latitude": 25.058374,
+   "store_area": 105
+ },
+ {
+   "store_name": "瓦城(南港車站店)",
+   "store_address": "臺北市南港區忠孝東路7段369號8樓 (City Link C棟)",
+   "store_phone": "02-2785-6522",
+   "store_longitude": 121.604518,
+   "store_latitude": 25.052558,
+   "store_area": 115
+ },
+ {
+   "store_name": "坦都印度餐廳",
+   "store_address": "臺北市中山區合江街73巷10號",
+   "store_phone": "02-2509-9853",
+   "store_longitude": 121.540072,
+   "store_latitude": 25.058656,
+   "store_area": 104
+ },
+ {
+   "store_name": "非常泰",
+   "store_address": "臺北市信義區松壽路22號2樓",
+   "store_phone": "02-8789-6200",
+   "store_longitude": 121.56786,
+   "store_latitude": 25.035503,
+   "store_area": 110
+ },
+ {
+   "store_name": "香米泰國料理",
+   "store_address": "臺北市中山區復興北路174號1樓",
+   "store_phone": "02-8770-7309",
+   "store_longitude": 121.543835,
+   "store_latitude": 25.054095,
+   "store_area": 104
+ },
+ {
+   "store_name": "香色",
+   "store_address": "臺北市中正區湖口街1之2號",
+   "store_phone": "02-2358-1819",
+   "store_longitude": 121.514765,
+   "store_latitude": 25.033137,
+   "store_area": 100
+ },
+ {
+   "store_name": "香茅廚泰式餐廳",
+   "store_address": "臺北市松山區復興南路1段39號G樓",
+   "store_phone": "02-6600-3210",
+   "store_longitude": 121.544119,
+   "store_latitude": 25.045948,
+   "store_area": 105
+ },
+ {
+   "store_name": "香料屋印度料理The Spice Shop Indian Cuisine",
+   "store_address": "臺北市士林區天母東路50巷10弄6號",
+   "store_phone": "02-2873-7775",
+   "store_longitude": 121.532977,
+   "store_latitude": 25.117552,
+   "store_area": 111
+ },
+ {
+   "store_name": "泰集",
+   "store_address": "臺北市大安區大安路1段80號B1",
+   "store_phone": "02-8772-4618",
+   "store_longitude": 121.545969,
+   "store_latitude": 25.041154,
+   "store_area": 106
+ },
+ {
+   "store_name": "台北喜來登大飯店-SUKHOTHAI",
+   "store_address": "臺北市中正區忠孝東路1段12號2樓",
+   "store_phone": "02-2321-1818",
+   "store_longitude": 121.522054,
+   "store_latitude": 25.044972,
+   "store_area": 100
+ },
+ {
+   "store_name": "馬友友印度廚房",
+   "store_address": "臺北市中山區新生北路1段38號",
+   "store_phone": "02-2543-1817",
+   "store_longitude": 121.53153,
+   "store_latitude": 25.046317,
+   "store_area": 104
+ },
+ {
+   "store_name": "越香蘭",
+   "store_address": "臺北市士林區中山北路五段604號",
+   "store_phone": "02-2836-1256",
+   "store_longitude": 121.528082,
+   "store_latitude": 25.096242,
+   "store_area": 111
+ },
+ {
+   "store_name": "誠記越南麵食館",
+   "store_address": "臺北市大安區永康街6巷1號",
+   "store_phone": "02-2321-1579",
+   "store_longitude": 121.529698,
+   "store_latitude": 25.032656,
+   "store_area": 106
+ },
+ {
+   "store_name": "饗泰多泰式風格餐廳",
+   "store_address": "臺北市大安區忠孝東路4段98號6樓",
+   "store_phone": "02-8772-9838",
+   "store_longitude": 121.546325,
+   "store_latitude": 25.041095,
+   "store_area": 106
+ }
+]
