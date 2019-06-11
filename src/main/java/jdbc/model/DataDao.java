@@ -252,11 +252,11 @@ public class DataDao {
 			for (int store_id = 1; store_id <= TOTAL_STORES; store_id++) {
 				for (int dishCount = 1; dishCount <= 8; dishCount++) {
 					food = foodFactory.generateRandomFood(store_id);
-					ps.setString(1, food.getFood_name());
-					ps.setInt(2, food.getFood_price());
-					ps.setString(3, food.getFoodType().getFood_type());
+					ps.setString(1, food.getFoodName());
+					ps.setInt(2, food.getFoodPrice());
+					ps.setString(3, food.getFoodType().getFoodType());
 					ps.setInt(4, store_id);
-					ps.setString(5, food.getFood_status());
+					ps.setString(5, food.getFoodStatus());
 //					ps.setLong(6, food.getFood_review_count());
 					ps.executeUpdate();
 					totalFoods++;

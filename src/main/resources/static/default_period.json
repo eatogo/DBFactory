@@ -1,122 +1,122 @@
 [
    {
       "period":"0000-0100",
-      "period_start":"00:00:00",
-      "period_end":"00:59:59"
+      "periodStart":"00:00:00",
+      "periodEnd":"00:59:59"
    },
    {
       "period":"0100-0200",
-      "period_start":"01:00:00",
-      "period_end":"01:59:59"
+      "periodStart":"01:00:00",
+      "periodEnd":"01:59:59"
    },
    {
       "period":"0200-0300",
-      "period_start":"02:00:00",
-      "period_end":"02:59:59"
+      "periodStart":"02:00:00",
+      "periodEnd":"02:59:59"
    },
    {
       "period":"0300-0400",
-      "period_start":"03:00:00",
-      "period_end":"03:59:59"
+      "periodStart":"03:00:00",
+      "periodEnd":"03:59:59"
    },
    {
       "period":"0400-0500",
-      "period_start":"04:00:00",
-      "period_end":"04:59:59"
+      "periodStart":"04:00:00",
+      "periodEnd":"04:59:59"
    },
    {
       "period":"0500-0600",
-      "period_start":"05:00:00",
-      "period_end":"05:59:59"
+      "periodStart":"05:00:00",
+      "periodEnd":"05:59:59"
    },
    {
       "period":"0600-0700",
-      "period_start":"06:00:00",
-      "period_end":"06:59:59"
+      "periodStart":"06:00:00",
+      "periodEnd":"06:59:59"
    },
    {
       "period":"0700-0800",
-      "period_start":"07:00:00",
-      "period_end":"07:59:59"
+      "periodStart":"07:00:00",
+      "periodEnd":"07:59:59"
    },
    {
       "period":"0800-0900",
-      "period_start":"08:00:00",
-      "period_end":"08:59:59"
+      "periodStart":"08:00:00",
+      "periodEnd":"08:59:59"
    },
    {
       "period":"0900-1000",
-      "period_start":"09:00:00",
-      "period_end":"09:59:59"
+      "periodStart":"09:00:00",
+      "periodEnd":"09:59:59"
    },
    {
       "period":"1000-1100",
-      "period_start":"10:00:00",
-      "period_end":"10:59:59"
+      "periodStart":"10:00:00",
+      "periodEnd":"10:59:59"
    },
    {
       "period":"1100-1200",
-      "period_start":"11:00:00",
-      "period_end":"11:59:59"
+      "periodStart":"11:00:00",
+      "periodEnd":"11:59:59"
    },
    {
       "period":"1200-1300",
-      "period_start":"12:00:00",
-      "period_end":"12:59:59"
+      "periodStart":"12:00:00",
+      "periodEnd":"12:59:59"
    },
    {
       "period":"1300-1400",
-      "period_start":"13:00:00",
-      "period_end":"13:59:59"
+      "periodStart":"13:00:00",
+      "periodEnd":"13:59:59"
    },
    {
       "period":"1400-1500",
-      "period_start":"14:00:00",
-      "period_end":"14:59:59"
+      "periodStart":"14:00:00",
+      "periodEnd":"14:59:59"
    },
    {
       "period":"1500-1600",
-      "period_start":"15:00:00",
-      "period_end":"15:59:59"
+      "periodStart":"15:00:00",
+      "periodEnd":"15:59:59"
    },
    {
       "period":"1600-1700",
-      "period_start":"16:00:00",
-      "period_end":"16:59:59"
+      "periodStart":"16:00:00",
+      "periodEnd":"16:59:59"
    },
    {
       "period":"1700-1800",
-      "period_start":"17:00:00",
-      "period_end":"17:59:59"
+      "periodStart":"17:00:00",
+      "periodEnd":"17:59:59"
    },
    {
       "period":"1800-1900",
-      "period_start":"18:00:00",
-      "period_end":"18:59:59"
+      "periodStart":"18:00:00",
+      "periodEnd":"18:59:59"
    },
    {
       "period":"1900-2000",
-      "period_start":"19:00:00",
-      "period_end":"19:59:59"
+      "periodStart":"19:00:00",
+      "periodEnd":"19:59:59"
    },
    {
       "period":"2000-2100",
-      "period_start":"20:00:00",
-      "period_end":"20:59:59"
+      "periodStart":"20:00:00",
+      "periodEnd":"20:59:59"
    },
    {
       "period":"2100-2200",
-      "period_start":"21:00:00",
-      "period_end":"21:59:59"
+      "periodStart":"21:00:00",
+      "periodEnd":"21:59:59"
    },
    {
       "period":"2200-2300",
-      "period_start":"22:00:00",
-      "period_end":"22:59:59"
+      "periodStart":"22:00:00",
+      "periodEnd":"22:59:59"
    },
    {
       "period":"2300-0000",
-      "period_start":"23:00:00",
-      "period_end":"23:59:59"
+      "periodStart":"23:00:00",
+      "periodEnd":"23:59:59"
    }
 ]

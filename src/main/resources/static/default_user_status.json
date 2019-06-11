@@ -1,18 +1,18 @@
 [
    {
-      "status_type":"unregistered",
-      "status_description":"終止、未驗證"
+      "statusType":"unregistered",
+      "statusDescription":"終止、未驗證"
    },
    {
-      "status_type":"normal",
-      "status_description":"正常狀態"
+      "statusType":"normal",
+      "statusDescription":"正常狀態"
    },
    {
-      "status_type":"warning",
-      "status_description":"警告狀態"
+      "statusType":"warning",
+      "statusDescription":"警告狀態"
    },
    {
-      "status_type":"blacklisted",
-      "status_description":"黑名單"
+      "statusType":"blacklisted",
+      "statusDescription":"黑名單"
    }
 ]

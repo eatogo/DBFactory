@@ -1,58 +1,58 @@
 [
    {
-      "operate_type_id":1,
-      "period_id":12
+      "operateTypeId":1,
+      "periodId":12
    },
    {
-      "operate_type_id":1,
-      "period_id":13
+      "operateTypeId":1,
+      "periodId":13
    },
    {
-      "operate_type_id":1,
-      "period_id":14
+      "operateTypeId":1,
+      "periodId":14
    },
    {
-      "operate_type_id":1,
-      "period_id":18
+      "operateTypeId":1,
+      "periodId":18
    },
    {
-      "operate_type_id":1,
-      "period_id":19
+      "operateTypeId":1,
+      "periodId":19
    },
    {
-      "operate_type_id":1,
-      "period_id":20
+      "operateTypeId":1,
+      "periodId":20
    },
    {
-      "operate_type_id":1,
-      "period_id":21
+      "operateTypeId":1,
+      "periodId":21
    },
    {
-      "operate_type_id":2,
-      "period_id":12
+      "operateTypeId":2,
+      "periodId":12
    },
    {
-      "operate_type_id":2,
-      "period_id":13
+      "operateTypeId":2,
+      "periodId":13
    },
    {
-      "operate_type_id":2,
-      "period_id":14
+      "operateTypeId":2,
+      "periodId":14
    },
    {
-      "operate_type_id":3,
-      "period_id":18
+      "operateTypeId":3,
+      "periodId":18
    },
    {
-      "operate_type_id":3,
-      "period_id":19
+      "operateTypeId":3,
+      "periodId":19
    },
    {
-      "operate_type_id":3,
-      "period_id":20
+      "operateTypeId":3,
+      "periodId":20
    },
    {
-      "operate_type_id":3,
-      "period_id":21
+      "operateTypeId":3,
+      "periodId":21
    }
 ]
