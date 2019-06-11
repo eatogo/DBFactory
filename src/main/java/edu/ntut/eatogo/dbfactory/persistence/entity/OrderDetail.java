@@ -8,9 +8,10 @@ public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer order_detail_id;
-    @Column(columnDefinition = "INT NOT NULL DEFAULT '1'")
-    private Integer order_quantity;
+    @Column(name = "order_detail_id")
+    private Integer orderDetailId;
+    @Column(name = "order_quantity", columnDefinition = "INT NOT NULL DEFAULT '1'")
+    private Integer orderQuantity;
 
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false, foreignKey = @ForeignKey(name = "FK_order_details_orders"))
@@ -20,20 +21,20 @@ public class OrderDetail {
     @JoinColumn(name = "order_food", nullable = false, foreignKey = @ForeignKey(name = "FK_order_details_foods"))
     private Food food;
 
-    public Integer getOrder_detail_id() {
-        return order_detail_id;
+    public Integer getOrderDetailId() {
+        return orderDetailId;
     }
 
-    public void setOrder_detail_id(Integer order_detail_id) {
-        this.order_detail_id = order_detail_id;
+    public void setOrderDetailId(Integer orderDetailId) {
+        this.orderDetailId = orderDetailId;
     }
 
-    public Integer getOrder_quantity() {
-        return order_quantity;
+    public Integer getOrderQuantity() {
+        return orderQuantity;
     }
 
-    public void setOrder_quantity(Integer order_quantity) {
-        this.order_quantity = order_quantity;
+    public void setOrderQuantity(Integer orderQuantity) {
+        this.orderQuantity = orderQuantity;
     }
 
     public Order getOrder() {

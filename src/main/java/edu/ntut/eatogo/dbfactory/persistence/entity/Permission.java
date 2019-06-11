@@ -10,18 +10,20 @@ public class Permission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer permission_id;
+    @Column(name = "permission_id")
+    private Integer permissionId;
+    @Column(nullable = false)
     private String permission;
 
     @ManyToMany(mappedBy = "permissions")
     private Set<Role> roles = new HashSet<>();
 
-    public Integer getPermission_id() {
-        return permission_id;
+    public Integer getPermissionId() {
+        return permissionId;
     }
 
-    public void setPermission_id(Integer permission_id) {
-        this.permission_id = permission_id;
+    public void setPermissionId(Integer permissionId) {
+        this.permissionId = permissionId;
     }
 
     public String getPermission() {

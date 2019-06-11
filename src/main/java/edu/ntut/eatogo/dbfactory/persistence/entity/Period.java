@@ -11,22 +11,23 @@ public class Period {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer period_id;
+    @Column(name = "period_id")
+    private Integer periodId;
     private String period;
-    @Column(columnDefinition = "TIME NOT NULL")
-    private Timestamp period_start;
-    @Column(columnDefinition = "TIME NOT NULL")
-    private Timestamp period_end;
+    @Column(name = "period_start", columnDefinition = "TIME NOT NULL")
+    private Timestamp periodStart;
+    @Column(name = "period_end", columnDefinition = "TIME NOT NULL")
+    private Timestamp periodEnd;
 
     @OneToMany(mappedBy = "takeoutPeriod")
     private Set<Order> orders = new HashSet<>();
 
-    public Integer getPeriod_id() {
-        return period_id;
+    public Integer getPeriodId() {
+        return periodId;
     }
 
-    public void setPeriod_id(Integer period_id) {
-        this.period_id = period_id;
+    public void setPeriodId(Integer periodId) {
+        this.periodId = periodId;
     }
 
     public String getPeriod() {
@@ -37,20 +38,20 @@ public class Period {
         this.period = period;
     }
 
-    public Timestamp getPeriod_start() {
-        return period_start;
+    public Timestamp getPeriodStart() {
+        return periodStart;
     }
 
-    public void setPeriod_start(Timestamp period_start) {
-        this.period_start = period_start;
+    public void setPeriodStart(Timestamp periodStart) {
+        this.periodStart = periodStart;
     }
 
-    public Timestamp getPeriod_end() {
-        return period_end;
+    public Timestamp getPeriodEnd() {
+        return periodEnd;
     }
 
-    public void setPeriod_end(Timestamp period_end) {
-        this.period_end = period_end;
+    public void setPeriodEnd(Timestamp periodEnd) {
+        this.periodEnd = periodEnd;
     }
 
     public Set<Order> getOrders() {

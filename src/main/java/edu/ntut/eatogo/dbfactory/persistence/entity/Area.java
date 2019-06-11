@@ -9,37 +9,38 @@ import java.util.Set;
 public class Area {
 
     @Id
-    private Integer area_id;
-    @Column(nullable = false, length = 50)
-    private String area_description;
-    @Column(nullable = false, length = 50)
-    private String area_city;
+    @Column(name = "area_id")
+    private Integer areaId;
+    @Column(name = "area_description", nullable = false, length = 50)
+    private String areaDescription;
+    @Column(name = "area_city", nullable = false, length = 50)
+    private String areaCity;
 
     @OneToMany(mappedBy = "area")
     private Set<Store> stores = new HashSet<>();
 
-    public Integer getArea_id() {
-        return area_id;
+    public Integer getAreaId() {
+        return areaId;
     }
 
-    public void setArea_id(Integer area_id) {
-        this.area_id = area_id;
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
     }
 
-    public String getArea_description() {
-        return area_description;
+    public String getAreaDescription() {
+        return areaDescription;
     }
 
-    public void setArea_description(String area_description) {
-        this.area_description = area_description;
+    public void setAreaDescription(String areaDescription) {
+        this.areaDescription = areaDescription;
     }
 
-    public String getArea_city() {
-        return area_city;
+    public String getAreaCity() {
+        return areaCity;
     }
 
-    public void setArea_city(String area_city) {
-        this.area_city = area_city;
+    public void setAreaCity(String areaCity) {
+        this.areaCity = areaCity;
     }
 
     public Set<Store> getStores() {

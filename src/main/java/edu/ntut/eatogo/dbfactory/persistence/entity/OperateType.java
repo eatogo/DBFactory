@@ -10,9 +10,12 @@ public class OperateType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer operate_type_id;
-    private String operate_type;
-    private String operate_type_description;
+    @Column(name = "operate_type_id")
+    private Integer operateTypeId;
+    @Column(name = "operate_type")
+    private String operateType;
+    @Column(name = "operate_type_description")
+    private String operateTypeDescription;
 
     @ManyToMany
     @JoinTable(
@@ -28,32 +31,32 @@ public class OperateType {
     public OperateType() {
     }
 
-    public OperateType(String operate_type) {
-        this.operate_type = operate_type;
+    public OperateType(String operateType) {
+        this.operateType = operateType;
     }
 
-    public Integer getOperate_type_id() {
-        return operate_type_id;
+    public Integer getOperateTypeId() {
+        return operateTypeId;
     }
 
-    public void setOperate_type_id(Integer operate_type_id) {
-        this.operate_type_id = operate_type_id;
+    public void setOperateTypeId(Integer operateTypeId) {
+        this.operateTypeId = operateTypeId;
     }
 
-    public String getOperate_type() {
-        return operate_type;
+    public String getOperateType() {
+        return operateType;
     }
 
-    public void setOperate_type(String operate_type) {
-        this.operate_type = operate_type;
+    public void setOperateType(String operateType) {
+        this.operateType = operateType;
     }
 
-    public String getOperate_type_description() {
-        return operate_type_description;
+    public String getOperateTypeDescription() {
+        return operateTypeDescription;
     }
 
-    public void setOperate_type_description(String operate_type_description) {
-        this.operate_type_description = operate_type_description;
+    public void setOperateTypeDescription(String operateTypeDescription) {
+        this.operateTypeDescription = operateTypeDescription;
     }
 
     public Set<Period> getPeriods() {

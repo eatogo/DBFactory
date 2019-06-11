@@ -1,7 +1,5 @@
 package edu.ntut.eatogo.dbfactory.persistence.entity;
 
-import org.aspectj.weaver.ast.Or;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,24 +10,28 @@ public class Store {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer store_id;
-    @Column(nullable = false)
-    private String store_name;
-    @Column(nullable = false)
-    private String store_address;
-    @Column(nullable = false)
-    private String store_phone;
-    private String store_email;
-    @Column(columnDefinition = "VARCHAR(255) NOT NULL DEFAULT 'defaultStore.png'")
-    private String store_logo;
-    private String store_open_hour;
-    private String store_intro;
-    @Column(nullable = false)
-    private Double store_latitude;
-    @Column(nullable = false)
-    private Double store_longitude;
-    @Column(columnDefinition = "VARCHAR(10) NOT NULL DEFAULT 'rest'")
-    private String store_status;
+    @Column(name = "store_id")
+    private Integer storeId;
+    @Column(name = "store_name", nullable = false)
+    private String storeName;
+    @Column(name = "store_address", nullable = false)
+    private String storeAddress;
+    @Column(name = "store_phone", nullable = false)
+    private String storePhone;
+    @Column(name = "store_email")
+    private String storeEmail;
+    @Column(name = "store_logo", columnDefinition = "VARCHAR(255) NOT NULL DEFAULT 'defaultStore.png'")
+    private String storeLogo;
+    @Column(name = "store_open_hour")
+    private String storeOpenHour;
+    @Column(name = "store_intro")
+    private String storeIntro;
+    @Column(name = "store_latitude", nullable = false)
+    private Double storeLatitude;
+    @Column(name = "store_longitude", nullable = false)
+    private Double storeLongitude;
+    @Column(name = "store_status", columnDefinition = "VARCHAR(10) NOT NULL DEFAULT 'rest'")
+    private String storeStatus;
 
     @ManyToOne
     @JoinColumn(name = "store_operate_type", foreignKey = @ForeignKey(name = "FK_stores_operate_types"))
@@ -56,96 +58,96 @@ public class Store {
     public Store() {
     }
 
-    public Store(Integer store_id) {
-        this.store_id = store_id;
+    public Store(Integer storeId) {
+        this.storeId = storeId;
     }
 
-    public Integer getStore_id() {
-        return store_id;
+    public Integer getStoreId() {
+        return storeId;
     }
 
-    public void setStore_id(Integer store_id) {
-        this.store_id = store_id;
+    public void setStoreId(Integer storeId) {
+        this.storeId = storeId;
     }
 
-    public String getStore_name() {
-        return store_name;
+    public String getStoreName() {
+        return storeName;
     }
 
-    public void setStore_name(String store_name) {
-        this.store_name = store_name;
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
     }
 
-    public String getStore_address() {
-        return store_address;
+    public String getStoreAddress() {
+        return storeAddress;
     }
 
-    public void setStore_address(String store_address) {
-        this.store_address = store_address;
+    public void setStoreAddress(String storeAddress) {
+        this.storeAddress = storeAddress;
     }
 
-    public String getStore_phone() {
-        return store_phone;
+    public String getStorePhone() {
+        return storePhone;
     }
 
-    public void setStore_phone(String store_phone) {
-        this.store_phone = store_phone;
+    public void setStorePhone(String storePhone) {
+        this.storePhone = storePhone;
     }
 
-    public String getStore_email() {
-        return store_email;
+    public String getStoreEmail() {
+        return storeEmail;
     }
 
-    public void setStore_email(String store_email) {
-        this.store_email = store_email;
+    public void setStoreEmail(String storeEmail) {
+        this.storeEmail = storeEmail;
     }
 
-    public String getStore_logo() {
-        return store_logo;
+    public String getStoreLogo() {
+        return storeLogo;
     }
 
-    public void setStore_logo(String store_logo) {
-        this.store_logo = store_logo;
+    public void setStoreLogo(String storeLogo) {
+        this.storeLogo = storeLogo;
     }
 
-    public String getStore_open_hour() {
-        return store_open_hour;
+    public String getStoreOpenHour() {
+        return storeOpenHour;
     }
 
-    public void setStore_open_hour(String store_open_hour) {
-        this.store_open_hour = store_open_hour;
+    public void setStoreOpenHour(String storeOpenHour) {
+        this.storeOpenHour = storeOpenHour;
     }
 
-    public String getStore_intro() {
-        return store_intro;
+    public String getStoreIntro() {
+        return storeIntro;
     }
 
-    public void setStore_intro(String store_intro) {
-        this.store_intro = store_intro;
+    public void setStoreIntro(String storeIntro) {
+        this.storeIntro = storeIntro;
     }
 
-    public Double getStore_latitude() {
-        return store_latitude;
+    public Double getStoreLatitude() {
+        return storeLatitude;
     }
 
-    public void setStore_latitude(Double store_latitude) {
-        this.store_latitude = store_latitude;
+    public void setStoreLatitude(Double storeLatitude) {
+        this.storeLatitude = storeLatitude;
     }
 
-    public Double getStore_longitude() {
-        return store_longitude;
+    public Double getStoreLongitude() {
+        return storeLongitude;
     }
 
-    public void setStore_longitude(Double store_longitude) {
-        this.store_longitude = store_longitude;
+    public void setStoreLongitude(Double storeLongitude) {
+        this.storeLongitude = storeLongitude;
     }
 
-    public String getStore_status() {
-        return store_status;
+    public String getStoreStatus() {
+        return storeStatus;
     }
 
-    public void setStore_status(String store_status) {
-        this.store_status = store_status;
+    public void setStoreStatus(String storeStatus) {
+        this.storeStatus = storeStatus;
     }
 
     public OperateType getOperateType() {

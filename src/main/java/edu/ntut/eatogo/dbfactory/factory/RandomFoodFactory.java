@@ -26,10 +26,10 @@ public class RandomFoodFactory {
 		String food_type = generateFoodType();
 		
 		generatedFood.setFoodType(new FoodType(food_type));
-		generatedFood.setFood_name(generateFoodNameByType(food_type));
-		generatedFood.setFood_price(generateFoodPriceByType(food_type));
+		generatedFood.setFoodName(generateFoodNameByType(food_type));
+		generatedFood.setFoodPrice(generateFoodPriceByType(food_type));
 		generatedFood.setStore(new Store(food_store));
-		generatedFood.setFood_status("selling");
+		generatedFood.setFoodStatus("selling");
 //		generatedFood.setFood_review_count(generateRandomReviewCounts());
 		
 		return generatedFood;

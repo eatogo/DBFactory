@@ -186,11 +186,11 @@ public class DataDao {
 			User user;
 			for (int index = 1; index <= TOTAL_USERS; index++) {
 				user = userFactory.generateRandomUser();
-				ps.setString(1, user.getUser_password());
-				ps.setString(2, user.getUser_cellphone());
-				ps.setString(3, user.getUser_name());
-				ps.setString(4, user.getUser_email());
-				ps.setObject(5, user.getUser_create_time());
+				ps.setString(1, user.getUserPassword());
+				ps.setString(2, user.getUserCellphone());
+				ps.setString(3, user.getUserName());
+				ps.setString(4, user.getUserEmail());
+				ps.setObject(5, user.getUserCreateTime());
 				//ps.setString(6, user.getUserStatus());
 				ps.executeUpdate();
 			}

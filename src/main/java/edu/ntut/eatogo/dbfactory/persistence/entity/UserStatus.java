@@ -1,6 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -8,34 +9,35 @@ import java.util.Set;
 public class UserStatus {
 
     @Id
-    private String status_type;
-    @Column(nullable = false)
-    private String status_description;
+    @Column(name = "status_type")
+    private String statusType;
+    @Column(name = "status_description", nullable = false)
+    private String statusDescription;
 
     @OneToMany(mappedBy = "userStatus")
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
 
     public UserStatus() {
     }
 
-    public UserStatus(String status_type) {
-        this.status_type = status_type;
+    public UserStatus(String statusType) {
+        this.statusType = statusType;
     }
 
-    public String getStatus_type() {
-        return status_type;
+    public String getStatusType() {
+        return statusType;
     }
 
-    public void setStatus_type(String status_type) {
-        this.status_type = status_type;
+    public void setStatusType(String statusType) {
+        this.statusType = statusType;
     }
 
-    public String getStatus_description() {
-        return status_description;
+    public String getStatusDescription() {
+        return statusDescription;
     }
 
-    public void setStatus_description(String status_description) {
-        this.status_description = status_description;
+    public void setStatusDescription(String statusDescription) {
+        this.statusDescription = statusDescription;
     }
 
     public Set<User> getUsers() {
@@ -44,5 +46,13 @@ public class UserStatus {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
     }
 }

@@ -38,13 +38,13 @@ public class RandomUserFactory {
 	}
 	
 	public User generateRandomUser() {
-		generatedUser.setUser_cellphone(generateCellphone());
+		generatedUser.setUserCellphone(generateCellphone());
 		// 預設密碼等同手機號碼
-		generatedUser.setUser_password(generatedUser.getUser_cellphone());
-		generatedUser.setUser_name(generateName());
+		generatedUser.setUserPassword(generatedUser.getUserCellphone());
+		generatedUser.setUserName(generateName());
 		// 用"名"+"姓"當email前綴字
-		generatedUser.setUser_email(generateEmail());
-		generatedUser.setUser_create_time(new Date(System.currentTimeMillis()));
+		generatedUser.setUserEmail(generateEmail());
+		generatedUser.setUserCreateTime(new Date(System.currentTimeMillis()));
 		generatedUser.setUserStatus(new UserStatus("normal"));
 		return generatedUser;
 	}

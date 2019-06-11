@@ -9,9 +9,10 @@ import java.util.Set;
 public class FoodType {
 
     @Id
-    private String food_type;
-    @Column(nullable = false, length = 50)
-    private String food_description;
+    @Column(name = "food_type")
+    private String foodType;
+    @Column(name = "food_description", nullable = false, length = 50)
+    private String foodDescription;
 
     @OneToMany(mappedBy = "foodType")
     private Set<Food> foods = new HashSet<>();
@@ -19,24 +20,24 @@ public class FoodType {
     public FoodType() {
     }
 
-    public FoodType(String food_type) {
-        this.food_type = food_type;
+    public FoodType(String foodType) {
+        this.foodType = foodType;
     }
 
-    public String getFood_type() {
-        return food_type;
+    public String getFoodType() {
+        return foodType;
     }
 
-    public void setFood_type(String food_type) {
-        this.food_type = food_type;
+    public void setFoodType(String foodType) {
+        this.foodType = foodType;
     }
 
-    public String getFood_description() {
-        return food_description;
+    public String getFoodDescription() {
+        return foodDescription;
     }
 
-    public void setFood_description(String food_description) {
-        this.food_description = food_description;
+    public void setFoodDescription(String foodDescription) {
+        this.foodDescription = foodDescription;
     }
 
     public Set<Food> getFoods() {

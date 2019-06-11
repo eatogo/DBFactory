@@ -9,10 +9,12 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer review_id;
-    @Column(nullable = false)
-    private Date review_time;
-    private String review_comment;
+    @Column(name = "review_id")
+    private Integer reviewId;
+    @Column(name = "review_time", nullable = false)
+    private Date reviewTime;
+    @Column(name = "review_comment")
+    private String reviewComment;
 
     @ManyToOne
     @JoinColumn(name = "review_user", nullable = false, foreignKey = @ForeignKey(name = "FK_reviews_users"))
@@ -26,28 +28,28 @@ public class Review {
     @JoinColumn(name = "review_food", foreignKey = @ForeignKey(name = "FK_reviews_foods"))
     private Food food;
 
-    public Integer getReview_id() {
-        return review_id;
+    public Integer getReviewId() {
+        return reviewId;
     }
 
-    public void setReview_id(Integer review_id) {
-        this.review_id = review_id;
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
     }
 
-    public Date getReview_time() {
-        return review_time;
+    public Date getReviewTime() {
+        return reviewTime;
     }
 
-    public void setReview_time(Date review_time) {
-        this.review_time = review_time;
+    public void setReviewTime(Date reviewTime) {
+        this.reviewTime = reviewTime;
     }
 
-    public String getReview_comment() {
-        return review_comment;
+    public String getReviewComment() {
+        return reviewComment;
     }
 
-    public void setReview_comment(String review_comment) {
-        this.review_comment = review_comment;
+    public void setReviewComment(String reviewComment) {
+        this.reviewComment = reviewComment;
     }
 
     public User getUser() {

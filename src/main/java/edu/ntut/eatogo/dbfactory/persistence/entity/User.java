@@ -11,17 +11,20 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer user_id;
-    @Column(nullable = false)
-    private String user_password;
-    @Column(nullable = false)
-    private String user_cellphone;
-    @Column(nullable = false)
-    private String user_name;
-    private String user_email;
-    private String user_avatar;
-    @Column(nullable = false)
-    private Date user_create_time;
+    @Column(name = "user_id")
+    private Integer userId;
+    @Column(name = "user_password", nullable = false)
+    private String userPassword;
+    @Column(name = "user_cellphone", nullable = false)
+    private String userCellphone;
+    @Column(name = "user_name", nullable = false)
+    private String userName;
+    @Column(name = "user_email")
+    private String userEmail;
+    @Column(name = "user_avatar")
+    private String userAvatar;
+    @Column(name = "user_create_time", nullable = false)
+    private Date userCreateTime;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_status", nullable = false, foreignKey = @ForeignKey(name = "FK_users_user_statuses"))
@@ -33,7 +36,7 @@ public class User {
     @ManyToMany
     @JoinTable(
             name = "users_roles",
-            joinColumns = {@JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_users_users_roles"))},
+            joinColumns = {@JoinColumn(name = "userId", foreignKey = @ForeignKey(name = "FK_users_users_roles"))},
             inverseJoinColumns = {@JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "FK_roles_users_roles"))}
     )
     private Set<Role> roles = new HashSet<>();
@@ -53,60 +56,60 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Review> reviews = new HashSet<>();
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
-    public String getUser_cellphone() {
-        return user_cellphone;
+    public String getUserCellphone() {
+        return userCellphone;
     }
 
-    public void setUser_cellphone(String user_cellphone) {
-        this.user_cellphone = user_cellphone;
+    public void setUserCellphone(String userCellphone) {
+        this.userCellphone = userCellphone;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getUser_avatar() {
-        return user_avatar;
+    public String getUserAvatar() {
+        return userAvatar;
     }
 
-    public void setUser_avatar(String user_avatar) {
-        this.user_avatar = user_avatar;
+    public void setUserAvatar(String userAvatar) {
+        this.userAvatar = userAvatar;
     }
 
-    public Date getUser_create_time() {
-        return user_create_time;
+    public Date getUserCreateTime() {
+        return userCreateTime;
     }
 
-    public void setUser_create_time(Date user_create_time) {
-        this.user_create_time = user_create_time;
+    public void setUserCreateTime(Date userCreateTime) {
+        this.userCreateTime = userCreateTime;
     }
 
     public UserStatus getUserStatus() {

@@ -11,15 +11,20 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer order_id;
-    private String order_note;
-    @Column(nullable = false)
-    private Date order_time;
-    private Date order_reserve_date;
-    private Date order_confirm_time;
-    @Column(columnDefinition = "VARCHAR(20) NOT NULL DEFAULT 'ordered'")
-    private String order_status;
-    private Date order_finished_time;
+    @Column(name = "order_id")
+    private Integer orderId;
+    @Column(name = "order_note")
+    private String orderNote;
+    @Column(name = "order_time", nullable = false)
+    private Date orderTime;
+    @Column(name = "order_reserve_date")
+    private Date orderReserveDate;
+    @Column(name = "order_confirm_time")
+    private Date orderConfirmTime;
+    @Column(name = "order_status", columnDefinition = "VARCHAR(20) NOT NULL DEFAULT 'ordered'")
+    private String orderStatus;
+    @Column(name = "order_finished_time")
+    private Date orderFinishedTime;
 
     @ManyToOne
     @JoinColumn(name = "order_user", nullable = false, foreignKey = @ForeignKey(name = "FK_orders_users"))
@@ -43,60 +48,60 @@ public class Order {
     @OneToOne(mappedBy = "order")
     private Review review;
 
-    public Integer getOrder_id() {
-        return order_id;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setOrder_id(Integer order_id) {
-        this.order_id = order_id;
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
-    public String getOrder_note() {
-        return order_note;
+    public String getOrderNote() {
+        return orderNote;
     }
 
-    public void setOrder_note(String order_note) {
-        this.order_note = order_note;
+    public void setOrderNote(String orderNote) {
+        this.orderNote = orderNote;
     }
 
-    public Date getOrder_time() {
-        return order_time;
+    public Date getOrderTime() {
+        return orderTime;
     }
 
-    public void setOrder_time(Date order_time) {
-        this.order_time = order_time;
+    public void setOrderTime(Date orderTime) {
+        this.orderTime = orderTime;
     }
 
-    public Date getOrder_reserve_date() {
-        return order_reserve_date;
+    public Date getOrderReserveDate() {
+        return orderReserveDate;
     }
 
-    public void setOrder_reserve_date(Date order_reserve_date) {
-        this.order_reserve_date = order_reserve_date;
+    public void setOrderReserveDate(Date orderReserveDate) {
+        this.orderReserveDate = orderReserveDate;
     }
 
-    public Date getOrder_confirm_time() {
-        return order_confirm_time;
+    public Date getOrderConfirmTime() {
+        return orderConfirmTime;
     }
 
-    public void setOrder_confirm_time(Date order_confirm_time) {
-        this.order_confirm_time = order_confirm_time;
+    public void setOrderConfirmTime(Date orderConfirmTime) {
+        this.orderConfirmTime = orderConfirmTime;
     }
 
-    public String getOrder_status() {
-        return order_status;
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setOrder_status(String order_status) {
-        this.order_status = order_status;
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
-    public Date getOrder_finished_time() {
-        return order_finished_time;
+    public Date getOrderFinishedTime() {
+        return orderFinishedTime;
     }
 
-    public void setOrder_finished_time(Date order_finished_time) {
-        this.order_finished_time = order_finished_time;
+    public void setOrderFinishedTime(Date orderFinishedTime) {
+        this.orderFinishedTime = orderFinishedTime;
     }
 
     public User getUser() {
