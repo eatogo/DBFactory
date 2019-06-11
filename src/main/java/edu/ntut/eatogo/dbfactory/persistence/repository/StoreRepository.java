@@ -1,6 +1,6 @@
 package edu.ntut.eatogo.dbfactory.persistence.repository;
 
-import edu.ntut.eatogo.dbfactory.persistence.domain.Store;
+import edu.ntut.eatogo.dbfactory.persistence.entity.Store;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

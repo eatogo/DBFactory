@@ -1,6 +1,7 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,10 +20,10 @@ public class OperateType {
             joinColumns = {@JoinColumn(name = "operate_type_id", foreignKey = @ForeignKey(name = "FK_operate_types_operate_types_periods"))},
             inverseJoinColumns = {@JoinColumn(name = "period_id", foreignKey = @ForeignKey(name = "FK_periods_operate_types_periods"))}
     )
-    private Set<Period> periods;
+    private Set<Period> periods = new HashSet<>();
 
     @OneToMany(mappedBy = "operateType")
-    private Set<Store> stores;
+    private Set<Store> stores = new HashSet<>();
 
     public OperateType() {
     }
@@ -63,11 +64,27 @@ public class OperateType {
         this.periods = periods;
     }
 
+    public void addPeriod(Period period) {
+        periods.add(period);
+    }
+
+    public void removePeriod(Period period) {
+        periods.remove(period);
+    }
+
     public Set<Store> getStores() {
         return stores;
     }
 
     public void setStores(Set<Store> stores) {
         this.stores = stores;
+    }
+
+    public void addStore(Store store) {
+        stores.add(store);
+    }
+
+    public void removeStore(Store store) {
+        stores.remove(store);
     }
 }

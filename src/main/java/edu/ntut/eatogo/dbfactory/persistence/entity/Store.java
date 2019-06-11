@@ -1,6 +1,9 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
+
+import org.aspectj.weaver.ast.Or;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -42,13 +45,13 @@ public class Store {
             joinColumns = {@JoinColumn(name = "store_id", foreignKey = @ForeignKey(name = "FK_stores_stores_users"))},
             inverseJoinColumns = {@JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_users_stores_users"))}
     )
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
 
     @OneToMany(mappedBy = "store")
-    private Set<Food> foods;
+    private Set<Food> foods = new HashSet<>();
 
     @OneToMany(mappedBy = "store")
-    private Set<Order> orders;
+    private Set<Order> orders = new HashSet<>();
 
     public Store() {
     }
@@ -169,6 +172,14 @@ public class Store {
         this.users = users;
     }
 
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
+    }
+
     public Set<Food> getFoods() {
         return foods;
     }
@@ -177,12 +188,28 @@ public class Store {
         this.foods = foods;
     }
 
+    public void addFood(Food food) {
+        foods.add(food);
+    }
+
+    public void removeFood(Food food) {
+        foods.remove(food);
+    }
+
     public Set<Order> getOrders() {
         return orders;
     }
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public void removeOrder(Order order) {
+        orders.remove(order);
     }
 
     @PrePersist

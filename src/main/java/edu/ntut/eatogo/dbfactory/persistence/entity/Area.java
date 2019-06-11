@@ -1,6 +1,7 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ public class Area {
     private String area_city;
 
     @OneToMany(mappedBy = "area")
-    private Set<Store> stores;
+    private Set<Store> stores = new HashSet<>();
 
     public Integer getArea_id() {
         return area_id;
@@ -47,5 +48,13 @@ public class Area {
 
     public void setStores(Set<Store> stores) {
         this.stores = stores;
+    }
+
+    public void addStore(Store store) {
+        stores.add(store);
+    }
+
+    public void removeStore(Store store) {
+        stores.remove(store);
     }
 }

@@ -1,7 +1,8 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,22 +36,22 @@ public class User {
             joinColumns = {@JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "FK_users_users_roles"))},
             inverseJoinColumns = {@JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "FK_roles_users_roles"))}
     )
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<>();
 
     @ManyToMany(mappedBy = "users")
-    private Set<Store> stores;
+    private Set<Store> stores = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
-    private Set<Order> orders;
+    private Set<Order> orders = new HashSet<>();
 
     @OneToMany(mappedBy = "confirmUser")
-    private Set<Order> confirmOrders;
+    private Set<Order> confirmOrders = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
-    private Set<Favorite> favorites;
+    private Set<Favorite> favorites = new HashSet<>();
 
     @OneToMany(mappedBy = "user")
-    private Set<Review> reviews;
+    private Set<Review> reviews = new HashSet<>();
 
     public Integer getUser_id() {
         return user_id;
@@ -132,12 +133,28 @@ public class User {
         this.roles = roles;
     }
 
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
+    public void removeRole(Role role) {
+        roles.remove(role);
+    }
+
     public Set<Store> getStores() {
         return stores;
     }
 
     public void setStores(Set<Store> stores) {
         this.stores = stores;
+    }
+
+    public void addStore(Store store) {
+        stores.add(store);
+    }
+
+    public void removeStore(Store store) {
+        stores.remove(store);
     }
 
     public Set<Order> getOrders() {
@@ -148,12 +165,28 @@ public class User {
         this.orders = orders;
     }
 
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public void removeOrder(Order order) {
+        orders.remove(order);
+    }
+
     public Set<Order> getConfirmOrders() {
         return confirmOrders;
     }
 
     public void setConfirmOrders(Set<Order> confirmOrders) {
         this.confirmOrders = confirmOrders;
+    }
+
+    public void addConfirmOrder(Order confirmOrder) {
+        confirmOrders.add(confirmOrder);
+    }
+
+    public void removeConfirmOrder(Order confirmOrder) {
+        confirmOrders.remove(confirmOrder);
     }
 
     public Set<Favorite> getFavorites() {
@@ -164,12 +197,28 @@ public class User {
         this.favorites = favorites;
     }
 
+    public void addFavorite(Favorite favorite) {
+        favorites.add(favorite);
+    }
+
+    public void removeFavorite(Favorite favorite) {
+        favorites.remove(favorite);
+    }
+
     public Set<Review> getReviews() {
         return reviews;
     }
 
     public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public void addReviews(Review review) {
+        reviews.add(review);
+    }
+
+    public void removeReview(Review review) {
+        reviews.remove(review);
     }
 
     @PrePersist

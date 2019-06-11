@@ -1,6 +1,7 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -32,13 +33,13 @@ public class Food {
     private Store store;
 
     @OneToMany(mappedBy = "food")
-    private Set<OrderDetail> orderDetails;
+    private Set<OrderDetail> orderDetails = new HashSet<>();
 
     @OneToMany(mappedBy = "food")
-    private Set<Favorite> favorites;
+    private Set<Favorite> favorites = new HashSet<>();
 
     @OneToMany(mappedBy = "food")
-    private Set<Review> reviews;
+    private Set<Review> reviews = new HashSet<>();
 
     public Integer getFood_id() {
         return food_id;
@@ -144,6 +145,14 @@ public class Food {
         this.orderDetails = orderDetails;
     }
 
+    public void addOrderDetail(OrderDetail orderDetail) {
+        orderDetails.add(orderDetail);
+    }
+
+    public void removeOrderDetail(OrderDetail orderDetail) {
+        orderDetails.remove(orderDetail);
+    }
+
     public Set<Favorite> getFavorites() {
         return favorites;
     }
@@ -152,11 +161,27 @@ public class Food {
         this.favorites = favorites;
     }
 
+    public void addFavorite(Favorite favorite) {
+        favorites.add(favorite);
+    }
+
+    public void removeFavorite(Favorite favorite) {
+        favorites.remove(favorite);
+    }
+
     public Set<Review> getReviews() {
         return reviews;
     }
 
     public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public void addReviews(Review review) {
+        reviews.add(review);
+    }
+
+    public void removeReview(Review review) {
+        reviews.remove(review);
     }
 }

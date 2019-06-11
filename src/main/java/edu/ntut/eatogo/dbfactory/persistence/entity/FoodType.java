@@ -1,6 +1,7 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,7 +14,7 @@ public class FoodType {
     private String food_description;
 
     @OneToMany(mappedBy = "foodType")
-    private Set<Food> foods;
+    private Set<Food> foods = new HashSet<>();
 
     public FoodType() {
     }
@@ -44,5 +45,13 @@ public class FoodType {
 
     public void setFoods(Set<Food> foods) {
         this.foods = foods;
+    }
+
+    public void addFood(Food food) {
+        foods.add(food);
+    }
+
+    public void removeFood(Food food) {
+        foods.remove(food);
     }
 }

@@ -1,6 +1,7 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -10,11 +11,11 @@ public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer role_id;
-
+    @Column(nullable = false)
     private String role_name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
@@ -22,7 +23,7 @@ public class Role {
             joinColumns = {@JoinColumn(name = "role_id", foreignKey = @ForeignKey(name = "FK_roles_roles_permissions"))},
             inverseJoinColumns = {@JoinColumn(name = "permission_id", foreignKey = @ForeignKey(name = "FK_permissions_roles_permissions"))}
     )
-    private Set<Permission> permissions;
+    private Set<Permission> permissions = new HashSet<>();
 
     public Integer getRole_id() {
         return role_id;
@@ -48,11 +49,27 @@ public class Role {
         this.users = users;
     }
 
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
+    }
+
     public Set<Permission> getPermissions() {
         return permissions;
     }
 
     public void setPermissions(Set<Permission> permissions) {
         this.permissions = permissions;
+    }
+
+    public void addPermission(Permission permission) {
+        permissions.add(permission);
+    }
+
+    public void removePermission(Permission permission) {
+        permissions.remove(permission);
     }
 }

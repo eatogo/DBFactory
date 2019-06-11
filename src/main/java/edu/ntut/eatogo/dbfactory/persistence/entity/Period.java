@@ -1,7 +1,8 @@
-package edu.ntut.eatogo.dbfactory.persistence.domain;
+package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -18,7 +19,7 @@ public class Period {
     private Timestamp period_end;
 
     @OneToMany(mappedBy = "takeoutPeriod")
-    private Set<Order> orders;
+    private Set<Order> orders = new HashSet<>();
 
     public Integer getPeriod_id() {
         return period_id;
@@ -58,5 +59,13 @@ public class Period {
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public void removeOrder(Order order) {
+        orders.remove(order);
     }
 }
