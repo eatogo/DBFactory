@@ -5,7 +5,7 @@
    "storePhone": "02-2858-8668",
    "storeLongitude": 121.468759,
    "storeLatitude": 25.118319,
-   "storeArea": 112
+   "storeAreaId": 112
  },
  {
    "storeName": "ANTICO FORNO 老烤箱義式手桿披薩",
@@ -13,7 +13,7 @@
    "storePhone": "02-2706-3322",
    "storeLongitude": 121.539679,
    "storeLatitude": 25.026711,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Botega del vin",
@@ -21,7 +21,7 @@
    "storePhone": "02-2752-5330",
    "storeLongitude": 121.551405,
    "storeLatitude": 25.040015,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Cova Taiwan",
@@ -29,7 +29,7 @@
    "storePhone": "02-2722-7655",
    "storeLongitude": 121.566896,
    "storeLatitude": 25.040504,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "EL AMOR 西班亞 TAPAS & BAR",
@@ -37,7 +37,7 @@
    "storePhone": "02-2523-1681",
    "storeLongitude": 121.523183,
    "storeLatitude": 25.053162,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "HESTIA-西班牙小酒館",
@@ -45,7 +45,7 @@
    "storePhone": "02-2715-3707",
    "storeLongitude": 121.545849,
    "storeLatitude": 25.056481,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "Hidden by DN 隱丹廚",
@@ -53,7 +53,7 @@
    "storePhone": "0909-849-937",
    "storeLongitude": 121.556841,
    "storeLatitude": 25.03422,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Howfun Paella Bar & Bistro好飯食堂",
@@ -61,7 +61,7 @@
    "storePhone": "02-8751-3332",
    "storeLongitude": 121.567586,
    "storeLatitude": 25.080336,
-   "storeArea": 114
+   "storeAreaId": 114
  },
  {
    "storeName": "Jamie's Italian",
@@ -69,7 +69,7 @@
    "storePhone": "02-8780-2050",
    "storeLongitude": 121.567235,
    "storeLatitude": 25.036014,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "JAPOLI義大利餐酒館",
@@ -77,7 +77,7 @@
    "storePhone": "02-2731-6633",
    "storeLongitude": 121.545381,
    "storeLatitude": 25.042205,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "L’origine La Credenza歐傑洛義式餐廳",
@@ -85,7 +85,7 @@
    "storePhone": "02-2789-3358",
    "storeLongitude": 121.61158,
    "storeLatitude": 25.05233,
-   "storeArea": 115
+   "storeAreaId": 115
  },
  {
    "storeName": "LA CAJA DE MUSICA樂盒子",
@@ -93,7 +93,7 @@
    "storePhone": "0975-330-741",
    "storeLongitude": 121.51814,
    "storeLatitude": 25.050168,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "La Cocotte 法式餐廳",
@@ -101,7 +101,7 @@
    "storePhone": "02-3322-3289",
    "storeLongitude": 121.52847,
    "storeLatitude": 25.033287,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "La Lupa Classic 經典母狼",
@@ -109,7 +109,7 @@
    "storePhone": "02-2557-7980",
    "storeLongitude": 121.50929,
    "storeLatitude": 25.060126,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "La MESA 西班牙餐廳",
@@ -117,7 +117,7 @@
    "storePhone": "02-2778-7676",
    "storeLongitude": 121.555629,
    "storeLatitude": 25.042078,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "La Piola Cucina Italiana",
@@ -125,7 +125,7 @@
    "storePhone": "02-2740-6638",
    "storeLongitude": 121.555773,
    "storeLatitude": 25.038845,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "La Querida小情人",
@@ -133,7 +133,7 @@
    "storePhone": "02-2585-2488",
    "storeLongitude": 121.521754,
    "storeLatitude": 25.070328,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "Le Blanc",
@@ -141,7 +141,7 @@
    "storePhone": "02-2700-7770",
    "storeLongitude": 121.546186,
    "storeLatitude": 25.036213,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "LuLu義大利餐廳",
@@ -149,7 +149,7 @@
    "storePhone": "02-2713-2250",
    "storeLongitude": 121.546235,
    "storeLatitude": 25.058652,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "MVSA Spanish Restaurant & Bar沐紗西班牙餐廳",
@@ -157,7 +157,7 @@
    "storePhone": "02 2705 8918",
    "storeLongitude": 121.550228,
    "storeLatitude": 25.029858,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Orchid Restaurant 蘭",
@@ -165,7 +165,7 @@
    "storePhone": "02-2378-3333",
    "storeLongitude": 121.552181,
    "storeLatitude": 25.030076,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Origines",
@@ -173,7 +173,7 @@
    "storePhone": "02-2701-4545",
    "storeLongitude": 121.550108,
    "storeLatitude": 25.030071,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Osteria by Angie",
@@ -181,7 +181,7 @@
    "storePhone": "02-8502-7733",
    "storeLongitude": 121.553051,
    "storeLatitude": 25.082804,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "PURO PURO西班牙傳統海鮮料理餐廳",
@@ -189,7 +189,7 @@
    "storePhone": "02-2778-4818",
    "storeLongitude": 121.541402,
    "storeLatitude": 25.047095,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "Puti Puti",
@@ -197,7 +197,7 @@
    "storePhone": "02-2747-5007",
    "storeLongitude": 121.565201,
    "storeLatitude": 25.049888,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "RAW",
@@ -205,7 +205,7 @@
    "storePhone": "02-8501-5800",
    "storeLongitude": 121.559524,
    "storeLatitude": 25.083027,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "S Hotel-HYG 北歐美饌",
@@ -213,7 +213,7 @@
    "storePhone": "02-2712-0877",
    "storeLongitude": 121.548593,
    "storeLatitude": 25.054745,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "Solo Pasta",
@@ -221,7 +221,7 @@
    "storePhone": "02-2775-3645",
    "storeLongitude": 121.55059,
    "storeLatitude": 25.039163,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Solo Pizza Napoletana",
@@ -229,7 +229,7 @@
    "storePhone": "02-2550-6236",
    "storeLongitude": 121.519125,
    "storeLatitude": 25.053823,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "Ta?rroir 態芮",
@@ -237,7 +237,7 @@
    "storePhone": "02-8501-5500",
    "storeLongitude": 121.559246,
    "storeLatitude": 25.082774,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "Woolloomooloo(西門店)",
@@ -245,7 +245,7 @@
    "storePhone": "02-2388-8180",
    "storeLongitude": 121.50395,
    "storeLatitude": 25.045071,
-   "storeArea": 108
+   "storeAreaId": 108
  },
  {
    "storeName": "巴獅子德國餐廳",
@@ -253,7 +253,7 @@
    "storePhone": "02-2325-6457",
    "storeLongitude": 121.550003,
    "storeLatitude": 25.031036,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "台北西華飯店-Toscana義大利餐廳",
@@ -261,7 +261,7 @@
    "storePhone": "02-2718-1188",
    "storeLongitude": 121.545744,
    "storeLatitude": 25.058204,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "台北君悅酒店-寶艾西餐廳",
@@ -269,7 +269,7 @@
    "storePhone": "02-2720-1230",
    "storeLongitude": 121.562593,
    "storeLatitude": 25.035691,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "台北亞都麗緻大飯店-巴黎廳1930 ",
@@ -277,7 +277,7 @@
    "storePhone": "02-2597-1234",
    "storeLongitude": 121.529967,
    "storeLatitude": 25.062767,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "台北亞都麗緻大飯店-巴賽麗廳",
@@ -285,7 +285,7 @@
    "storePhone": "02-2597-1234",
    "storeLongitude": 121.529967,
    "storeLatitude": 25.062767,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "台北文華東方酒店-BENCOTTO",
@@ -293,7 +293,7 @@
    "storePhone": "02-2715-6868",
    "storeLongitude": 121.548364,
    "storeLatitude": 25.055554,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "台北松山意舍酒店-Que 原木燒烤餐廳",
@@ -301,7 +301,7 @@
    "storePhone": "02-2653-2899",
    "storeLongitude": 121.580502,
    "storeLatitude": 25.049281,
-   "storeArea": 115
+   "storeAreaId": 115
  },
  {
    "storeName": "台北喜來登大飯店比薩屋",
@@ -309,7 +309,7 @@
    "storePhone": "02-2321-1818",
    "storeLongitude": 121.522054,
    "storeLatitude": 25.044972,
-   "storeArea": 100
+   "storeAreaId": 100
  },
  {
    "storeName": "台北寒舍艾美酒店-探索廚房",
@@ -317,7 +317,7 @@
    "storePhone": "02-6622-8000",
    "storeLongitude": 121.568177,
    "storeLatitude": 25.038268,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "台北晶華酒店-Robin's 鐵板燒",
@@ -325,7 +325,7 @@
    "storePhone": "02-2521-5000 #3930",
    "storeLongitude": 121.524244,
    "storeLatitude": 25.054178,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "行冊Walkingbook",
@@ -333,7 +333,7 @@
    "storePhone": "02-2558-0915",
    "storeLongitude": 121.511835,
    "storeLatitude": 25.054857,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "沾美西餐廳",
@@ -341,7 +341,7 @@
    "storePhone": "02-2711-7750",
    "storeLongitude": 121.547384,
    "storeLatitude": 25.038234,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "金色三麥(誠品信義店)",
@@ -349,7 +349,7 @@
    "storePhone": "02-8789-5911",
    "storeLongitude": 121.565874,
    "storeLatitude": 25.03972,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "哈古小館",
@@ -357,7 +357,7 @@
    "storePhone": "02-2767-8483",
    "storeLongitude": 121.562463,
    "storeLatitude": 25.060959,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "香格里拉台北遠東國際大飯店-馬可波羅餐廳(Marco Polo)",
@@ -365,7 +365,7 @@
    "storePhone": "02-2376-3156",
    "storeLongitude": 121.549282,
    "storeLatitude": 25.026612,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "雅室牛排館",
@@ -373,7 +373,7 @@
    "storePhone": "02-2775-3011",
    "storeLongitude": 121.551548,
    "storeLatitude": 25.038428,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "新帆船澳門葡國餐廳Restaurante Vela Latina",
@@ -381,7 +381,7 @@
    "storePhone": "02-2771-1980",
    "storeLongitude": 121.547877,
    "storeLatitude": 25.04256,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "溫德德式烘焙餐廳",
@@ -389,7 +389,7 @@
    "storePhone": "02-2831-4415",
    "storeLongitude": 121.524482,
    "storeLatitude": 25.106396,
-   "storeArea": 111
+   "storeAreaId": 111
  },
  {
    "storeName": "歐華酒店-地中海牛排館",
@@ -397,7 +397,7 @@
    "storePhone": "02-2585-3258",
    "storeLongitude": 121.525574,
    "storeLatitude": 25.068242,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "賦樂旅居-TK Seafood & Steak",
@@ -405,7 +405,7 @@
    "storePhone": "0903-393-008",
    "storeLongitude": 121.546025,
    "storeLatitude": 25.043021,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "豐舍",
@@ -413,7 +413,7 @@
    "storePhone": "02-2557-9935",
    "storeLongitude": 121.509179,
    "storeLatitude": 25.062488,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "MaiSEN邁泉豬排",
@@ -421,7 +421,7 @@
    "storePhone": "02-2722-2138",
    "storeLongitude": 121.566667,
    "storeLatitude": 25.036615,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "德相N.C.I.S美式加州壽司",
@@ -429,7 +429,7 @@
    "storePhone": "02-2721-6952",
    "storeLongitude": 121.553254,
    "storeLatitude": 25.039832,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "????花月嵐拉麵(西門武昌店)",
@@ -437,7 +437,7 @@
    "storePhone": "02-2361-5358",
    "storeLongitude": 121.507877,
    "storeLatitude": 25.044605,
-   "storeArea": 108
+   "storeAreaId": 108
  },
  {
    "storeName": "三井日本料理(本館)",
@@ -445,7 +445,7 @@
    "storePhone": "02-2594-3394",
    "storeLongitude": 121.526705,
    "storeLatitude": 25.064831,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "三元花園韓式餐廳(潭美店)",
@@ -453,7 +453,7 @@
    "storePhone": "02-2792-7222",
    "storeLongitude": 121.585527,
    "storeLatitude": 25.063159,
-   "storeArea": 114
+   "storeAreaId": 114
  },
  {
    "storeName": "三花日式料理",
@@ -461,7 +461,7 @@
    "storePhone": "02-8978-5000",
    "storeLongitude": 121.537289,
    "storeLatitude": 25.053336,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "大戶屋(微風台北車站店)",
@@ -469,7 +469,7 @@
    "storePhone": "02-2331-9337",
    "storeLongitude": 121.517374,
    "storeLatitude": 25.047702,
-   "storeArea": 100
+   "storeAreaId": 100
  },
  {
    "storeName": "大吉漢堡食堂",
@@ -477,7 +477,7 @@
    "storePhone": "02-8732-6519",
    "storeLongitude": 121.555592,
    "storeLatitude": 25.023147,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "大腕燒肉專門店",
@@ -485,7 +485,7 @@
    "storePhone": "02-2711-0179",
    "storeLongitude": 121.550194,
    "storeLatitude": 25.042932,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "手串本舖",
@@ -493,7 +493,7 @@
    "storePhone": "02-2705-2892",
    "storeLongitude": 121.544291,
    "storeLatitude": 25.037191,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "錦水TAIPEI",
@@ -501,7 +501,7 @@
    "storePhone": "02-8501-5329",
    "storeLongitude": 121.559246,
    "storeLatitude": 25.082774,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "台北老爺酒店-中山日本料理廳",
@@ -509,7 +509,7 @@
    "storePhone": "02-2542-3299#328",
    "storeLongitude": 121.522929,
    "storeLatitude": 25.053879,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "旬採鮨?(信義店)",
@@ -517,7 +517,7 @@
    "storePhone": "02-2707-1383",
    "storeLongitude": 121.551746,
    "storeLatitude": 25.033699,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "炙酒食廚房",
@@ -525,7 +525,7 @@
    "storePhone": "02-2772-8959",
    "storeLongitude": 121.555282,
    "storeLatitude": 25.039323,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "南大門",
@@ -533,7 +533,7 @@
    "storePhone": "02-2571-1017",
    "storeLongitude": 121.527172,
    "storeLatitude": 25.050328,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "紅花鐵板燒",
@@ -541,7 +541,7 @@
    "storePhone": "02-8101-8102",
    "storeLongitude": 121.564101,
    "storeLatitude": 25.033493,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "葫同燒肉夜食",
@@ -549,7 +549,7 @@
    "storePhone": "02-8501-5152",
    "storeLongitude": 121.558944,
    "storeLatitude": 25.080452,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "香格里拉台北遠東國際大飯店-ibuki by TAKAGI KAZUO",
@@ -557,7 +557,7 @@
    "storePhone": "02-7711-2080",
    "storeLongitude": 121.549282,
    "storeLatitude": 25.026612,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "涓豆腐(松山店)",
@@ -565,7 +565,7 @@
    "storePhone": "02-2747-3088",
    "storeLongitude": 121.578299,
    "storeLatitude": 25.04919,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "?鮨 SASA",
@@ -573,7 +573,7 @@
    "storePhone": "02-2561-1246",
    "storeLongitude": 121.522091,
    "storeLatitude": 25.054553,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "菊元日本料理",
@@ -581,7 +581,7 @@
    "storePhone": "02-2555-7566",
    "storeLongitude": 121.512338,
    "storeLatitude": 25.056847,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "逸鮮棧餐廳",
@@ -589,7 +589,7 @@
    "storePhone": "02-2725-3555",
    "storeLongitude": 121.561897,
    "storeLatitude": 25.040755,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "新丼",
@@ -597,7 +597,7 @@
    "storePhone": "02-2555-9292",
    "storeLongitude": 121.519591,
    "storeLatitude": 25.050224,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "燈燈庵TOUTOUAN",
@@ -605,7 +605,7 @@
    "storePhone": "02-2705-0101",
    "storeLongitude": 121.550123,
    "storeLatitude": 25.029849,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "燒桶子韓風立燒",
@@ -613,7 +613,7 @@
    "storePhone": "02-2721-9192",
    "storeLongitude": 121.554073,
    "storeLatitude": 25.043328,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "鮨一",
@@ -621,7 +621,7 @@
    "storePhone": "02-2502-5488",
    "storeLongitude": 121.542286,
    "storeLatitude": 25.061673,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "上海鄉村(仁愛店)",
@@ -629,7 +629,7 @@
    "storePhone": "02-2396-5154",
    "storeLongitude": 121.522255,
    "storeLatitude": 25.038982,
-   "storeArea": 100
+   "storeAreaId": 100
  },
  {
    "storeName": "天廚菜館",
@@ -637,7 +637,7 @@
    "storePhone": "02-2563-2171",
    "storeLongitude": 121.522142,
    "storeLatitude": 25.052453,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "兄弟飯店-蘭花廳",
@@ -645,7 +645,7 @@
    "storePhone": "02-2712-3456",
    "storeLongitude": 121.544596,
    "storeLatitude": 25.052051,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "台北W飯店-YEN紫艷中餐廳",
@@ -653,7 +653,7 @@
    "storePhone": "02-7703-8887",
    "storeLongitude": 121.567059,
    "storeLatitude": 25.040399,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "台北國賓大飯店-川菜廳",
@@ -661,7 +661,7 @@
    "storePhone": "02-2551-1111#2383",
    "storeLongitude": 121.52313,
    "storeLatitude": 25.056582,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "成家小館(創始店)",
@@ -669,7 +669,7 @@
    "storePhone": "02-2937-4611",
    "storeLongitude": 121.561337,
    "storeLatitude": 24.981824,
-   "storeArea": 116
+   "storeAreaId": 116
  },
  {
    "storeName": "?和院 台灣風格飲食",
@@ -677,7 +677,7 @@
    "storePhone": "02-2731-3833",
    "storeLongitude": 121.54789,
    "storeLatitude": 25.042396,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "欣葉臺菜(創始店)",
@@ -685,7 +685,7 @@
    "storePhone": "02-2596-3255",
    "storeLongitude": 121.524189,
    "storeLatitude": 25.066534,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "青葉餐廳(中山店)",
@@ -693,7 +693,7 @@
    "storePhone": "02-2551-7957",
    "storeLongitude": 121.523496,
    "storeLatitude": 25.050636,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "紅豆食府(信義店)",
@@ -701,7 +701,7 @@
    "storePhone": "02-8789-2929",
    "storeLongitude": 121.566575,
    "storeLatitude": 25.036018,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "秦味館",
@@ -709,7 +709,7 @@
    "storePhone": "02-8771-3288",
    "storeLongitude": 121.554622,
    "storeLatitude": 25.040001,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "高記 (永康店)",
@@ -717,7 +717,7 @@
    "storePhone": "02-2341-9984",
    "storeLongitude": 121.529971,
    "storeLatitude": 25.033331,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "彭園湘菜館",
@@ -725,7 +725,7 @@
    "storePhone": "02-2551-9157",
    "storeLongitude": 121.525351,
    "storeLatitude": 25.058442,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "華泰王子飯店-九華樓",
@@ -733,7 +733,7 @@
    "storePhone": "02-7721-6619",
    "storeLongitude": 121.525759,
    "storeLatitude": 25.057856,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "開飯川食堂(忠孝店)",
@@ -741,7 +741,7 @@
    "storePhone": "02-8771-6238",
    "storeLongitude": 121.546325,
    "storeLatitude": 25.041095,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "一東方精緻料理餐廳",
@@ -749,7 +749,7 @@
    "storePhone": "02-8712-2068",
    "storeLongitude": 121.545405,
    "storeLatitude": 25.05744,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "鼎泰豐(信義店)",
@@ -757,7 +757,7 @@
    "storePhone": "02-2321-8928",
    "storeLongitude": 121.530112,
    "storeLatitude": 25.033483,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "榮榮園",
@@ -765,7 +765,7 @@
    "storePhone": "02-2703-8822",
    "storeLongitude": 121.544829,
    "storeLatitude": 25.03366,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "福州新利菜館",
@@ -773,7 +773,7 @@
    "storePhone": "02-2771-2088",
    "storeLongitude": 121.540555,
    "storeLatitude": 25.051202,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "福華大飯店-蓬萊? Formosa",
@@ -781,7 +781,7 @@
    "storePhone": "02-2326-7433",
    "storeLongitude": 121.543155,
    "storeLatitude": 25.037649,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "聚馥園",
@@ -789,7 +789,7 @@
    "storePhone": "02-2718-5588",
    "storeLongitude": 121.543253,
    "storeLatitude": 25.052128,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "熱海大飯店-熱海廳",
@@ -797,7 +797,7 @@
    "storePhone": "02-2892-1366",
    "storeLongitude": 121.509227,
    "storeLatitude": 25.136576,
-   "storeArea": 112
+   "storeAreaId": 112
  },
  {
    "storeName": "雞家莊(六條通店)",
@@ -805,7 +805,7 @@
    "storePhone": "02-2541-8261",
    "storeLongitude": 121.523012,
    "storeLatitude": 25.050885,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "鬍鬚張美食文化館",
@@ -813,7 +813,7 @@
    "storePhone": "02-2558-9489",
    "storeLongitude": 121.515385,
    "storeLatitude": 25.056755,
-   "storeArea": 103
+   "storeAreaId": 103
  },
  {
    "storeName": "肉舖廚房",
@@ -821,7 +821,7 @@
    "storePhone": "02-2597-1506",
    "storeLongitude": 121.521754,
    "storeLatitude": 25.070328,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "Danny's WhatsGrill",
@@ -829,7 +829,7 @@
    "storePhone": "02-2656-0011",
    "storeLongitude": 121.569742,
    "storeLatitude": 25.080854,
-   "storeArea": 114
+   "storeAreaId": 114
  },
  {
    "storeName": "GB鮮釀餐廳(新光三越A11館)",
@@ -837,7 +837,7 @@
    "storePhone": "02-8786-7588",
    "storeLongitude": 121.567235,
    "storeLatitude": 25.036014,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "Lawry's 勞瑞斯牛肋排餐廳",
@@ -845,7 +845,7 @@
    "storePhone": "02-2729-8555",
    "storeLongitude": 121.569262,
    "storeLatitude": 25.035478,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "Macho Tacos瑪丘墨式餅舖(延吉店)",
@@ -853,7 +853,7 @@
    "storePhone": "02-2731-4489",
    "storeLongitude": 121.554413,
    "storeLatitude": 25.040423,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Mighty Quinn's Barbeque麥笛昆餐廳",
@@ -861,7 +861,7 @@
    "storePhone": "02-2772-6174",
    "storeLongitude": 121.549836,
    "storeLatitude": 25.038206,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "O'Steak",
@@ -869,7 +869,7 @@
    "storePhone": "02-2393-1616",
    "storeLongitude": 121.531073,
    "storeLatitude": 25.029304,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "PICO PICO Restaurant & Bar",
@@ -877,7 +877,7 @@
    "storePhone": "02-2755-1161",
    "storeLongitude": 121.550363,
    "storeLatitude": 25.034264,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Ruth's Chris",
@@ -885,7 +885,7 @@
    "storePhone": "02-2545-8888",
    "storeLongitude": 121.548452,
    "storeLatitude": 25.058093,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "the Chips美式餐廳(光復店)",
@@ -893,7 +893,7 @@
    "storePhone": "02-2778-9993",
    "storeLongitude": 121.555739,
    "storeLatitude": 25.039787,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Twinkeyz Tacos",
@@ -901,7 +901,7 @@
    "storePhone": "02-2778-7707",
    "storeLongitude": 121.554667,
    "storeLatitude": 25.042739,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "艾迪墨西哥餐廳(天母2店)",
@@ -909,7 +909,7 @@
    "storePhone": "02-2872-1848",
    "storeLongitude": 121.534067,
    "storeLatitude": 25.118275,
-   "storeArea": 111
+   "storeAreaId": 111
  },
  {
    "storeName": "洋旗洋蔥牛排餐廳",
@@ -917,7 +917,7 @@
    "storePhone": "02-2367-2559",
    "storeLongitude": 121.529996,
    "storeLatitude": 25.019332,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "發福廚房(民權店)",
@@ -925,7 +925,7 @@
    "storePhone": "02-2713-5923",
    "storeLongitude": 121.546739,
    "storeLatitude": 25.061284,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "貳樓(敦南店)",
@@ -933,7 +933,7 @@
    "storePhone": "02-2700-9855",
    "storeLongitude": 121.550009,
    "storeLatitude": 25.030831,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "台北寶萊納餐廳(關渡店)",
@@ -941,7 +941,7 @@
    "storePhone": "02-2891-7677",
    "storeLongitude": 121.466438,
    "storeLatitude": 25.131767,
-   "storeArea": 112
+   "storeAreaId": 112
  },
  {
    "storeName": "小紅點新加坡廚房 (Red.)",
@@ -949,7 +949,7 @@
    "storePhone": "02-2779-0160",
    "storeLongitude": 121.547371,
    "storeLatitude": 25.042946,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "金爸爸南港店",
@@ -957,7 +957,7 @@
    "storePhone": "02-2785-7677",
    "storeLongitude": 121.616812,
    "storeLatitude": 25.058699,
-   "storeArea": 115
+   "storeAreaId": 115
  },
  {
    "storeName": "TAJ泰姬印度餐廳",
@@ -965,7 +965,7 @@
    "storePhone": "02-8773-0175",
    "storeLongitude": 121.545862,
    "storeLatitude": 25.044733,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "Thai&Thai Restaurant",
@@ -973,7 +973,7 @@
    "storePhone": "02-2719-6689",
    "storeLongitude": 121.548364,
    "storeLatitude": 25.055554,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "台北泰(民生店)",
@@ -981,7 +981,7 @@
    "storePhone": "02-3765-2352",
    "storeLongitude": 121.562765,
    "storeLatitude": 25.058374,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "瓦城(南港車站店)",
@@ -989,7 +989,7 @@
    "storePhone": "02-2785-6522",
    "storeLongitude": 121.604518,
    "storeLatitude": 25.052558,
-   "storeArea": 115
+   "storeAreaId": 115
  },
  {
    "storeName": "坦都印度餐廳",
@@ -997,7 +997,7 @@
    "storePhone": "02-2509-9853",
    "storeLongitude": 121.540072,
    "storeLatitude": 25.058656,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "非常泰",
@@ -1005,7 +1005,7 @@
    "storePhone": "02-8789-6200",
    "storeLongitude": 121.56786,
    "storeLatitude": 25.035503,
-   "storeArea": 110
+   "storeAreaId": 110
  },
  {
    "storeName": "香米泰國料理",
@@ -1013,7 +1013,7 @@
    "storePhone": "02-8770-7309",
    "storeLongitude": 121.543835,
    "storeLatitude": 25.054095,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "香色",
@@ -1021,7 +1021,7 @@
    "storePhone": "02-2358-1819",
    "storeLongitude": 121.514765,
    "storeLatitude": 25.033137,
-   "storeArea": 100
+   "storeAreaId": 100
  },
  {
    "storeName": "香茅廚泰式餐廳",
@@ -1029,7 +1029,7 @@
    "storePhone": "02-6600-3210",
    "storeLongitude": 121.544119,
    "storeLatitude": 25.045948,
-   "storeArea": 105
+   "storeAreaId": 105
  },
  {
    "storeName": "香料屋印度料理The Spice Shop Indian Cuisine",
@@ -1037,7 +1037,7 @@
    "storePhone": "02-2873-7775",
    "storeLongitude": 121.532977,
    "storeLatitude": 25.117552,
-   "storeArea": 111
+   "storeAreaId": 111
  },
  {
    "storeName": "泰集",
@@ -1045,7 +1045,7 @@
    "storePhone": "02-8772-4618",
    "storeLongitude": 121.545969,
    "storeLatitude": 25.041154,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "台北喜來登大飯店-SUKHOTHAI",
@@ -1053,7 +1053,7 @@
    "storePhone": "02-2321-1818",
    "storeLongitude": 121.522054,
    "storeLatitude": 25.044972,
-   "storeArea": 100
+   "storeAreaId": 100
  },
  {
    "storeName": "馬友友印度廚房",
@@ -1061,7 +1061,7 @@
    "storePhone": "02-2543-1817",
    "storeLongitude": 121.53153,
    "storeLatitude": 25.046317,
-   "storeArea": 104
+   "storeAreaId": 104
  },
  {
    "storeName": "越香蘭",
@@ -1069,7 +1069,7 @@
    "storePhone": "02-2836-1256",
    "storeLongitude": 121.528082,
    "storeLatitude": 25.096242,
-   "storeArea": 111
+   "storeAreaId": 111
  },
  {
    "storeName": "誠記越南麵食館",
@@ -1077,7 +1077,7 @@
    "storePhone": "02-2321-1579",
    "storeLongitude": 121.529698,
    "storeLatitude": 25.032656,
-   "storeArea": 106
+   "storeAreaId": 106
  },
  {
    "storeName": "饗泰多泰式風格餐廳",
@@ -1085,6 +1085,6 @@
    "storePhone": "02-8772-9838",
    "storeLongitude": 121.546325,
    "storeLatitude": 25.041095,
-   "storeArea": 106
+   "storeAreaId": 106
  }
 ]

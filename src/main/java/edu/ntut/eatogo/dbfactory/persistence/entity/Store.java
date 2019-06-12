@@ -20,21 +20,21 @@ public class Store {
     private String storePhone;
     @Column(name = "store_email")
     private String storeEmail;
-    @Column(name = "store_logo", columnDefinition = "VARCHAR(255) NOT NULL DEFAULT 'defaultStore.png'")
+    @Column(name = "store_logo", columnDefinition = "VARCHAR(255) DEFAULT 'defaultStore.png'")
     private String storeLogo;
     @Column(name = "store_open_hour")
     private String storeOpenHour;
-    @Column(name = "store_intro")
+    @Column(name = "store_intro", columnDefinition = "TEXT")
     private String storeIntro;
     @Column(name = "store_latitude", nullable = false)
     private Double storeLatitude;
     @Column(name = "store_longitude", nullable = false)
     private Double storeLongitude;
-    @Column(name = "store_status", columnDefinition = "VARCHAR(10) NOT NULL DEFAULT 'rest'")
+    @Column(name = "store_status", columnDefinition = "VARCHAR(10) DEFAULT 'rest'")
     private String storeStatus;
 
     @ManyToOne
-    @JoinColumn(name = "store_operate_type", foreignKey = @ForeignKey(name = "FK_stores_operate_types"))
+    @JoinColumn(name = "store_operate_type", nullable = false, foreignKey = @ForeignKey(name = "FK_stores_operate_types"))
     private OperateType operateType;
 
     @ManyToOne
@@ -212,12 +212,5 @@ public class Store {
 
     public void removeOrder(Order order) {
         orders.remove(order);
-    }
-
-    @PrePersist
-    public void prePersist() {
-        if (operateType == null) {
-            operateType = new OperateType("wholeday");
-        }
     }
 }

@@ -1,7 +1,7 @@
 package edu.ntut.eatogo.dbfactory.persistence.entity;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,9 +15,9 @@ public class Period {
     private Integer periodId;
     private String period;
     @Column(name = "period_start", columnDefinition = "TIME NOT NULL")
-    private Timestamp periodStart;
+    private LocalTime periodStart;
     @Column(name = "period_end", columnDefinition = "TIME NOT NULL")
-    private Timestamp periodEnd;
+    private LocalTime periodEnd;
 
     @OneToMany(mappedBy = "takeoutPeriod")
     private Set<Order> orders = new HashSet<>();
@@ -38,19 +38,19 @@ public class Period {
         this.period = period;
     }
 
-    public Timestamp getPeriodStart() {
+    public LocalTime getPeriodStart() {
         return periodStart;
     }
 
-    public void setPeriodStart(Timestamp periodStart) {
+    public void setPeriodStart(LocalTime periodStart) {
         this.periodStart = periodStart;
     }
 
-    public Timestamp getPeriodEnd() {
+    public LocalTime getPeriodEnd() {
         return periodEnd;
     }
 
-    public void setPeriodEnd(Timestamp periodEnd) {
+    public void setPeriodEnd(LocalTime periodEnd) {
         this.periodEnd = periodEnd;
     }
 
