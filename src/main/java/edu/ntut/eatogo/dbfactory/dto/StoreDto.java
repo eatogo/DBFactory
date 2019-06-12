@@ -2,9 +2,12 @@ package edu.ntut.eatogo.dbfactory.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class StoreDto {
+import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class StoreDto implements Serializable {
+
+    private static final long serialVersionUID = -1903748889505027540L;
     private Integer storeId;
     private String storeName;
     private String storeAddress;

@@ -2,9 +2,7 @@ package jdbc.model;
 
 import edu.ntut.eatogo.dbfactory.factory.RandomFoodFactory;
 import edu.ntut.eatogo.dbfactory.factory.RandomTimeFactory;
-import edu.ntut.eatogo.dbfactory.factory.RandomUserFactory;
 import edu.ntut.eatogo.dbfactory.persistence.entity.Food;
-import edu.ntut.eatogo.dbfactory.persistence.entity.User;
 import jdbc.model.global.DbConnector;
 
 import java.io.*;
@@ -47,35 +45,7 @@ public class DataDao {
 	 * @return true if success, false if fail
 	 */
 	public boolean insertAllData() {
-		return insertStaticData() && insertFakeData();
-	}
-
-	/**
-	 * 建立靜態資料
-	 * 
-	 * @return true if success, false if fail
-	 */
-	public boolean insertStaticData() {
-		try {
-			conn = new DbConnector().connect(dbUsername, dbPassword);
-			System.out.println("開始建立固定資料");
-			executeSqlFromFile("static/createStaticData.sql");
-			System.out.println("建立固定資料成功");
-			conn.close();
-			return true;
-		} catch (SQLException e) {
-			System.out.println("SQL問題，建立固定資料失敗");
-			e.printStackTrace();
-			return false;
-		} finally {
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					System.out.println("關閉Connection錯誤");
-					e.printStackTrace();
-				}
-		}
+		return insertFakeData();
 	}
 
 	/**
@@ -115,10 +85,6 @@ public class DataDao {
 			conn = new DbConnector().connect(dbUsername, dbPassword);
 			Long start = System.currentTimeMillis();
 			System.out.println("開始建立動態(假)資料");
-
-			System.out.println("開始建立假使用者資料");
-			//executeSqlFromGeneratedUserData();
-			System.out.println("建立假使用者資料成功");
 
 			System.out.println("開始建立假店家資料");
 			executeSqlFromFile("static/createStoresData.sql");
@@ -168,38 +134,6 @@ public class DataDao {
 	}
 
 	private String USE_EATOGODB_SQL = "USE `eatogodb`;";
-
-	/**
-	 * 建立使用者資料，資料筆數依照TOTAL_USERS
-	 */
-	private void executeSqlFromGeneratedUserData() {
-		try {
-			Statement stmt = conn.createStatement();
-			stmt.executeQuery(USE_EATOGODB_SQL);
-			stmt.close();
-			String INSERT_GENERATED_USERS_SQL = "INSERT INTO `USERS`"
-					+ " (user_password, user_cellphone, user_name, user_email, user_create_time, user_status)"
-					+ " VALUES"
-					+ " (?, ?, ?, ?, ?, ?);";
-			PreparedStatement ps = conn.prepareStatement(INSERT_GENERATED_USERS_SQL);
-			RandomUserFactory userFactory = new RandomUserFactory();
-			User user;
-			for (int index = 1; index <= TOTAL_USERS; index++) {
-				user = userFactory.generateRandomUser();
-				ps.setString(1, user.getUserPassword());
-				ps.setString(2, user.getUserCellphone());
-				ps.setString(3, user.getUserName());
-				ps.setString(4, user.getUserEmail());
-				ps.setObject(5, user.getUserCreateTime());
-				//ps.setString(6, user.getUserStatus());
-				ps.executeUpdate();
-			}
-			ps.close();
-		} catch (SQLException e) {
-			System.out.println("SQL問題，建立(假)使用者資料錯誤");
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * 將總筆數TOTAL_STORES家店家的店主權限平均分給前TOTAL_OWNERS個使用者 而(TOTAL_MANAGERS -
@@ -447,29 +381,4 @@ public class DataDao {
 			e.printStackTrace();
 		}
 	}
-
-	/**
-	 * 查詢是否有任何靜態資料存在
-	 * 
-	 * @return true if exists, false if none
-	 */
-	public boolean isStaticDataExist() {
-		boolean dataExists = false;
-		try (Connection conn = new DbConnector().connect(dbUsername, dbPassword);
-				Statement stmt = conn.createStatement()) {
-			stmt.executeQuery(USE_EATOGODB_SQL);
-			System.out.println("查詢固定資料是否存在");
-			String SELECT_IDENTITY_BY_TYPE_SQL = "SELECT * FROM `IDENTITIES` WHERE identity_type = 'consumer';";
-			ResultSet rs = stmt.executeQuery(SELECT_IDENTITY_BY_TYPE_SQL);
-			if (rs.next()) {
-				dataExists = true;
-				System.out.println("固定資料已存在");
-			}
-		} catch (SQLException e) {
-			System.out.println("SQL問題，查詢固定資料失敗");
-			e.printStackTrace();
-		}
-		return dataExists;
-	}
-
 }

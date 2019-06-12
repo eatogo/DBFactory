@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("data")
-public class DataController {
+public class StaticDataController {
 
     @Autowired
     private AreaService areaService;

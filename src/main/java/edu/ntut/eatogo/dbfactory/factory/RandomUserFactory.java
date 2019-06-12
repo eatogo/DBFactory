@@ -1,55 +1,58 @@
 package edu.ntut.eatogo.dbfactory.factory;
 
-import edu.ntut.eatogo.dbfactory.persistence.entity.User;
-import edu.ntut.eatogo.dbfactory.persistence.entity.UserStatus;
+import com.google.common.collect.Lists;
+import edu.ntut.eatogo.dbfactory.dto.UserDto;
+import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
+@Component
 public class RandomUserFactory {
 	
-	private User generatedUser;
-	private String firstName, lastName;
-	private Map<String, String> lastNameWords = new TreeMap<>();
-	private List<String> lastNameWordsKeyList = new ArrayList<>();
+	private UserDto generatedUser;
+	private Entry<String, String> firstName;
+	private Entry<String, String> lastName;
+	final private Map<String, String> nameWords = new HashMap<>();
 	{
-		lastNameWords.put("陳", "cheng");
-		lastNameWords.put("林", "ling");
-		lastNameWords.put("黃", "huang");
-		lastNameWords.put("張", "chang");
-		lastNameWords.put("李", "li");
-		lastNameWords.put("王", "wang");
-		lastNameWords.put("吳", "wu");
-		lastNameWords.put("劉", "liu");
-		lastNameWords.put("蔡", "tsai");
-		lastNameWords.put("楊", "yang");
-		lastNameWords.put("許", "hsu");
-		lastNameWords.put("鄭", "cheng");
-		lastNameWords.put("謝", "hsieh");
-		lastNameWords.put("郭", "guo");
-		lastNameWords.put("洪", "hung");
-		lastNameWords.put("邱", "chiu");
-		lastNameWords.put("曾", "tseng");
-		lastNameWords.put("廖", "liao");
-		lastNameWordsKeyList.addAll(lastNameWords.keySet());
+		nameWords.put("陳", "cheng");
+		nameWords.put("林", "ling");
+		nameWords.put("黃", "huang");
+		nameWords.put("張", "chang");
+		nameWords.put("李", "li");
+		nameWords.put("王", "wang");
+		nameWords.put("吳", "wu");
+		nameWords.put("劉", "liu");
+		nameWords.put("蔡", "tsai");
+		nameWords.put("楊", "yang");
+		nameWords.put("許", "hsu");
+		nameWords.put("鄭", "cheng");
+		nameWords.put("謝", "hsieh");
+		nameWords.put("郭", "guo");
+		nameWords.put("洪", "hung");
+		nameWords.put("邱", "chiu");
+		nameWords.put("曾", "tseng");
+		nameWords.put("廖", "liao");
 	}
 	
 	public RandomUserFactory() {
-		generatedUser = new User();
+		generatedUser = new UserDto();
 	}
 	
-	public User generateRandomUser() {
-		generatedUser.setUserCellphone(generateCellphone());
-		// 預設密碼等同手機號碼
-		generatedUser.setUserPassword(generatedUser.getUserCellphone());
-		generatedUser.setUserName(generateName());
-		// 用"名"+"姓"當email前綴字
-		generatedUser.setUserEmail(generateEmail());
+	public UserDto generateRandomUser() {
+		generatedUser.setUserCellphone(generateRandomCellphone());
+		generatedUser.setUserPassword(generatedUser.getUserCellphone()); // 預設密碼等同手機號碼
+		generatedUser.setUserName(generateRandomName());
+		generatedUser.setUserEmail(generateEmail()); // 用"名"+"姓"當email前綴字
 		generatedUser.setUserCreateTime(new Date(System.currentTimeMillis()));
-		generatedUser.setUserStatus(new UserStatus("normal"));
+		generatedUser.setUserStatusType("normal");
 		return generatedUser;
 	}
 	
-	private String generateCellphone() {
+	private String generateRandomCellphone() {
 		StringBuilder cellphone = new StringBuilder("09");
 		for (int i = 1; i <= 9; i++) {
 			if (i == 3) cellphone.append("-");
@@ -58,14 +61,14 @@ public class RandomUserFactory {
 		return cellphone.toString();
 	}
 	
-	private String generateName() {
-		lastName = lastNameWordsKeyList.get((int) (Math.random() * lastNameWords.size()));
-		firstName = lastNameWordsKeyList.get((int) (Math.random() * lastNameWords.size()));
-		return lastName + firstName;
+	private String generateRandomName() {
+		List<Entry<String, String>> words = Lists.newArrayList(nameWords.entrySet());
+		lastName = words.get((int) (Math.random() * nameWords.size()));
+		firstName = words.get((int) (Math.random() * nameWords.size()));
+		return lastName.getKey() + firstName.getKey();
 	}
 
 	private String generateEmail() {
-		return lastNameWords.get(firstName) + lastNameWords.get(lastName) + "@gmail.com";
+		return nameWords.get(firstName.getKey()) + nameWords.get(lastName.getKey()) + "@gmail.com";
 	}
-	
 }

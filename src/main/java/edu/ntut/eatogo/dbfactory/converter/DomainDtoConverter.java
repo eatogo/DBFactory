@@ -105,4 +105,43 @@ public class DomainDtoConverter {
         store.setArea(storeArea);
         return store;
     }
+
+    public UserDto convertToDto(User user) {
+        UserDto dto = new UserDto();
+        Optional.ofNullable(user.getUserId()).ifPresent(dto::setUserId);
+        Optional.ofNullable(user.getUserPassword()).ifPresent(dto::setUserPassword);
+        Optional.ofNullable(user.getUserCellphone()).ifPresent(dto::setUserCellphone);
+        Optional.ofNullable(user.getUserName()).ifPresent(dto::setUserName);
+        Optional.ofNullable(user.getUserEmail()).ifPresent(dto::setUserEmail);
+        Optional.ofNullable(user.getUserAvatar()).ifPresent(dto::setUserAvatar);
+        Optional.ofNullable(user.getUserCreateTime()).ifPresent(dto::setUserCreateTime);
+        Optional.ofNullable(user.getUserStatus()).ifPresent(userStatus -> {
+            Optional.ofNullable(userStatus.getStatusType()).ifPresent(dto::setUserStatusType);
+            Optional.ofNullable(userStatus.getStatusDescription()).ifPresent(dto::setUserStatusDescription);
+        });
+        Optional.ofNullable(user.getToken()).ifPresent(token -> Optional.ofNullable(token.getToken()).ifPresent(dto::setUserToken));
+        return dto;
+    }
+
+    public User convertToDomain(UserDto dto) {
+        User user = new User();
+        Optional.ofNullable(dto.getUserId()).ifPresent(user::setUserId);
+        Optional.ofNullable(dto.getUserPassword()).ifPresent(user::setUserPassword);
+        Optional.ofNullable(dto.getUserCellphone()).ifPresent(user::setUserCellphone);
+        Optional.ofNullable(dto.getUserName()).ifPresent(user::setUserName);
+        Optional.ofNullable(dto.getUserEmail()).ifPresent(user::setUserEmail);
+        Optional.ofNullable(dto.getUserAvatar()).ifPresent(user::setUserAvatar);
+        Optional.ofNullable(dto.getUserCreateTime()).ifPresent(user::setUserCreateTime);
+        UserStatus userStatus = new UserStatus();
+        Optional.ofNullable(dto.getUserStatusType()).ifPresent(userStatus::setStatusType);
+        Optional.ofNullable(dto.getUserStatusDescription()).ifPresent(userStatus::setStatusDescription);
+        user.setUserStatus(userStatus);
+        Optional.ofNullable(dto.getUserToken()).ifPresent(token -> {
+            Token userToken = new Token();
+            Optional.ofNullable(dto.getUserId()).ifPresent(userToken::setUserId);
+            userToken.setToken(token);
+            user.setToken(userToken);
+        });
+        return user;
+    }
 }
